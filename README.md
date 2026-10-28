@@ -2,7 +2,7 @@
 
 > **Versión del Runtime:** `v0.1.0-alpha`  
 > **Autor:** Metsuke / MetsuOS Project  
-> **Licencia:** MIT  
+
 
 **MPL (Metsu Programming Language)** es un entorno de programación desacoplado e independiente diseñado sobre un **modelo de abstracción jerárquico de tres capas**. Su objetivo fundamental es estructurar el software desde la intención funcional y la interfaz (DSL) hasta la ejecución imperativa de bajo nivel, garantizando **accesibilidad universal (WCAG AAA)** y portabilidad nativa.
 
