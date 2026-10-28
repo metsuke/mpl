@@ -1,0 +1,88 @@
+# ==========================================
+# Sistemas Operativos
+# ==========================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.trash/
+
+# ==========================================
+# Entornos de Desarrollo e IDEs
+# ==========================================
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+*.code-workspace
+
+# JetBrains (PyCharm, CLion, etc.)
+.idea/
+
+# Obsidian (Evita subir configuraciones personales de bóveda)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# ==========================================
+# Python (Host Runtime - Fase 0)
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ==========================================
+# Compilados y Targets Futuros (Fase 1 & 2)
+# ==========================================
+# C / C++
+*.o
+*.obj
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+
+# WebAssembly
+*.wasm
+
+# Rust (si se utiliza tooling futuro)
+/target/
+
+# ==========================================
+# Archivos Temporales y Logs
+# ==========================================
+*.log
+*.tmp
+*.bak
