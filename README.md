@@ -97,6 +97,6 @@ mpl/
 ---
 
 ## 📜 Licencia
-Este proyecto es propiedad de **Metsuke** y forma parte del ecosistema **MetsuOS**. Distribuido bajo la Licencia MIT.
+Este proyecto es propiedad de **Metsuke** y forma parte del ecosistema **MetsuOS**. Distribuido bajo la Licencia GPL v3.
 
 <!-- Version: v0.1.0-alpha -->
