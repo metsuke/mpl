@@ -4,12 +4,14 @@ Metsu Programming Language (MPL) - Standalone Runtime (v0.1.0-alpha)
 Autor: Metsuke / MetsuOS Project
 Descripción: Runtime asíncrono basado en cola FIFO y parser AST para ejecutar MPL (.mpl).
 Sustenta Modo Oscuro WCAG AAA nativo en Tkinter con diálogos modales centrados.
+Soporta importación modular restringida a la subcarpeta <facade>-code y emisión de grafo JSON para IA.
 """
 
 import sys
 import os
 import re
 import time
+import json
 from collections import deque
 import tkinter as tk
 from tkinter import scrolledtext
@@ -23,9 +25,11 @@ class ASTNode:
 
 class ProgramNode(ASTNode):
     def __init__(self):
-        self.pantallas = {}    # Capa 3: Nombre -> PantallaNode
-        self.objetos = {}      # Capa 2: Nombre -> ObjetoNode
-        self.funciones = {}    # Capa 1: Nombre -> FuncionNode
+        self.pantallas = {}    # Capa 3: Nombre -> (PantallaNode, RutaOrigen)
+        self.objetos = {}      # Capa 2: Nombre -> (ObjetoNode, RutaOrigen)
+        self.funciones = {}    # Capa 1: Nombre -> (FuncionNode, RutaOrigen)
+        self.ficheros_procesados = set()
+        self.mapa_grafo = {}   # Grafo completo de la aplicación para consumo de IA
 
 class PantallaNode(ASTNode):
     def __init__(self, nombre, encabezado=""):
@@ -48,28 +52,132 @@ class FuncionNode(ASTNode):
         self.cuerpo = cuerpo         # Lista de SentenciaNode
 
 class MPLParser:
-    """Parser simplificado para construir el AST a partir de un archivo unificado MPL."""
-    def __init__(self, code):
-        self.lines = [line.strip() for line in code.splitlines() if line.strip() and not line.strip().startswith("//")]
+    """Parser simplificado para construir el AST a partir de un archivo unificado o modularizado MPL."""
+    def __init__(self, code="", programa_ast=None):
+        self.code = code
+        self.program = programa_ast or ProgramNode()
+        self.lines = []
         self.cursor = 0
 
     def parse(self):
-        program = ProgramNode()
+        """Parseo legacy para mantener compatibilidad con cadenas en memoria."""
+        self.lines = [line.strip() for line in self.code.splitlines() if line.strip() and not line.strip().startswith("//")]
+        self.cursor = 0
         while self.cursor < len(self.lines):
             line = self.lines[self.cursor]
             
             if line.startswith("PANTALLA "):
                 pantalla = self._parse_pantalla()
-                program.pantallas[pantalla.nombre] = pantalla
+                self.program.pantallas[pantalla.nombre] = (pantalla, "memoria")
             elif line.startswith("OBJETO_CONCEPTUAL "):
                 objeto = self._parse_objeto()
-                program.objetos[objeto.nombre] = objeto
+                self.program.objetos[objeto.nombre] = (objeto, "memoria")
             elif line.startswith("FUNCION "):
                 funcion = self._parse_funcion()
-                program.funciones[funcion.nombre] = funcion
+                self.program.funciones[funcion.nombre] = (funcion, "memoria")
             else:
                 self.cursor += 1
-        return program
+        return self.program
+
+    def parse_fichero_facade(self, ruta_facade):
+        """
+        Punto de entrada para el modelo Fachada.
+        Obliga a que todos los subficheros importados residan dentro de:
+        <directorio_facade>/<nombre_facade>-code/
+        """
+        ruta_facade_abs = os.path.abspath(ruta_facade)
+        if not os.path.exists(ruta_facade_abs):
+            print(f"[Parser Error] El archivo Fachada especificado no existe: {ruta_facade}")
+            sys.exit(1)
+
+        base_dir = os.path.dirname(ruta_facade_abs)
+        nombre_base = os.path.splitext(os.path.basename(ruta_facade_abs))[0]
+        directorio_code_permitido = os.path.abspath(os.path.join(base_dir, f"{nombre_base}-code"))
+
+        return self._parse_fichero_recursivo(ruta_facade_abs, directorio_code_permitido, es_facade=True)
+
+    def _parse_fichero_recursivo(self, ruta_fichero_abs, directorio_code_permitido, es_facade=False):
+        if ruta_fichero_abs in self.program.ficheros_procesados:
+            return self.program
+
+        self.program.ficheros_procesados.add(ruta_fichero_abs)
+
+        # Validación de seguridad: los ficheros importados deben estar estrictamente dentro de <facade>-code/
+        if not es_facade:
+            if not ruta_fichero_abs.startswith(directorio_code_permitido):
+                print(f"[Parser Error] Violación de ámbito de importación:")
+                print(f"  El fichero '{os.path.basename(ruta_fichero_abs)}' está fuera del directorio permitido:")
+                print(f"  Directorio exigido: {directorio_code_permitido}")
+                sys.exit(1)
+
+        if not os.path.exists(ruta_fichero_abs):
+            print(f"[Parser Error] Fichero fuente no encontrado: {ruta_fichero_abs}")
+            sys.exit(1)
+
+        with open(ruta_fichero_abs, "r", encoding="utf-8") as f:
+            contenido = f.read()
+
+        lines = [line.strip() for line in contenido.splitlines() if line.strip() and not line.strip().startswith("//")]
+        nombre_rel = os.path.relpath(ruta_fichero_abs)
+        
+        self.program.mapa_grafo[nombre_rel] = {
+            "pantallas": [],
+            "objetos": [],
+            "funciones": [],
+            "importaciones": []
+        }
+
+        cursor = 0
+        while cursor < len(lines):
+            line = lines[cursor]
+
+            if line.startswith("IMPORTAR "):
+                match = re.match(r'IMPORTAR\s+"([^"]+)"', line)
+                if match:
+                    rel_import_path = match.group(1)
+                    
+                    # Rechazar rutas absolutas en la sentencia IMPORTAR
+                    if os.path.isabs(rel_import_path):
+                        print(f"[Parser Error] Las rutas absolutas están prohibidas en IMPORTAR: '{rel_import_path}'")
+                        sys.exit(1)
+
+                    # La ruta siempre se resuelve dentro de la subcarpeta mandatoria <facade>-code
+                    if es_facade:
+                        target_abs_path = os.path.abspath(os.path.join(directorio_code_permitido, rel_import_path))
+                    else:
+                        target_abs_path = os.path.abspath(os.path.join(directorio_code_permitido, os.path.basename(rel_import_path)))
+
+                    self.program.mapa_grafo[nombre_rel]["importaciones"].append(os.path.relpath(target_abs_path))
+                    self._parse_fichero_recursivo(target_abs_path, directorio_code_permitido, es_facade=False)
+                cursor += 1
+
+            elif line.startswith("PANTALLA "):
+                cursor, pantalla = self._parse_pantalla_lines(lines, cursor)
+                self.program.pantallas[pantalla.nombre] = (pantalla, nombre_rel)
+                self.program.mapa_grafo[nombre_rel]["pantallas"].append({
+                    "nombre": pantalla.nombre,
+                    "encabezado": pantalla.encabezado,
+                    "opciones": [op[0] for op in pantalla.opciones]
+                })
+            elif line.startswith("OBJETO_CONCEPTUAL "):
+                cursor, objeto = self._parse_objeto_lines(lines, cursor)
+                self.program.objetos[objeto.nombre] = (objeto, nombre_rel)
+                self.program.mapa_grafo[nombre_rel]["objetos"].append({
+                    "nombre": objeto.nombre,
+                    "propiedades": list(objeto.propiedades.keys()),
+                    "metodos": list(objeto.metodos.keys())
+                })
+            elif line.startswith("FUNCION "):
+                cursor, funcion = self._parse_funcion_lines(lines, cursor)
+                self.program.funciones[funcion.nombre] = (funcion, nombre_rel)
+                self.program.mapa_grafo[nombre_rel]["funciones"].append({
+                    "nombre": funcion.nombre,
+                    "parametros": funcion.parametros
+                })
+            else:
+                cursor += 1
+
+        return self.program
 
     def _parse_pantalla(self):
         head = self.lines[self.cursor]
@@ -94,6 +202,30 @@ class MPLParser:
                     node.eventos[f"{match.group(1)}:{match.group(2)}"] = match.group(3).strip()
             self.cursor += 1
         return node
+
+    def _parse_pantalla_lines(self, lines, cursor):
+        head = lines[cursor]
+        nombre = head.split()[1].replace(":", "")
+        node = PantallaNode(nombre)
+        cursor += 1
+
+        while cursor < len(lines):
+            line = lines[cursor]
+            if line.startswith("PANTALLA ") or line.startswith("OBJETO_CONCEPTUAL ") or line.startswith("FUNCION ") or line.startswith("IMPORTAR "):
+                break
+            
+            if line.startswith("ENCABEZADO:"):
+                node.encabezado = line.split(":", 1)[1].strip().strip('"')
+            elif line.startswith("OPCION "):
+                match = re.match(r'OPCION\s+"([^"]+)"\s+CON_ACCION\s+(\w+)', line)
+                if match:
+                    node.opciones.append((match.group(1), match.group(2)))
+            elif line.startswith("CUANDO "):
+                match = re.match(r'CUANDO\s+(\w+)\(([^)]+)\):\s*(.*)', line)
+                if match:
+                    node.eventos[f"{match.group(1)}:{match.group(2)}"] = match.group(3).strip()
+            cursor += 1
+        return cursor, node
 
     def _parse_objeto(self):
         head = self.lines[self.cursor]
@@ -132,6 +264,43 @@ class MPLParser:
             self.cursor += 1
         return node
 
+    def _parse_objeto_lines(self, lines, cursor):
+        head = lines[cursor]
+        nombre = head.split()[1].replace(":", "")
+        node = ObjetoNode(nombre)
+        cursor += 1
+
+        seccion_actual = None
+        metodo_actual = None
+
+        while cursor < len(lines):
+            line = lines[cursor]
+            if line.startswith("PANTALLA ") or line.startswith("OBJETO_CONCEPTUAL ") or line.startswith("FUNCION ") or line.startswith("IMPORTAR "):
+                break
+            
+            if line == "PROPIEDADES:":
+                seccion_actual = "PROPIEDADES"
+            elif line == "INTERACCIONES:":
+                seccion_actual = "INTERACCIONES"
+            elif seccion_actual == "PROPIEDADES":
+                if ":" in line:
+                    prop_name, prop_val = line.split(":", 1)
+                    val = prop_val.strip()
+                    if val.isdigit(): val = int(val)
+                    elif val.replace('.', '', 1).isdigit(): val = float(val)
+                    elif val in ["Verdadero", "Falso"]: val = (val == "Verdadero")
+                    else: val = val.strip('"')
+                    node.propiedades[prop_name.strip()] = val
+            elif seccion_actual == "INTERACCIONES":
+                if line.startswith("METODO "):
+                    metodo_name = line.split()[1].split("(")[0]
+                    metodo_actual = metodo_name
+                    node.metodos[metodo_actual] = []
+                elif metodo_actual and (line.startswith("    ") or line.startswith("\t")):
+                    node.metodos[metodo_actual].append(line.strip())
+            cursor += 1
+        return cursor, node
+
     def _parse_funcion(self):
         head = self.lines[self.cursor]
         match = re.match(r'FUNCION\s+(\w+)\(([^)]*)\)', head)
@@ -149,6 +318,30 @@ class MPLParser:
             self.cursor += 1
             
         return FuncionNode(nombre, params, cuerpo)
+
+    def _parse_funcion_lines(self, lines, cursor):
+        head = lines[cursor]
+        match = re.match(r'FUNCION\s+(\w+)\(([^)]*)\)', head)
+        nombre = match.group(1) if match else "anonima"
+        params = [p.strip().split(":")[0] for p in match.group(2).split(",") if p.strip()] if match else []
+        cursor += 1
+        
+        cuerpo = []
+        while cursor < len(lines):
+            line = lines[cursor]
+            if line == "FIN_FUNCION":
+                cursor += 1
+                break
+            cuerpo.append(line)
+            cursor += 1
+            
+        return cursor, FuncionNode(nombre, params, cuerpo)
+
+    def exportar_grafo_disco(self, ruta_salida):
+        """Exporta el mapa completo de ficheros y dependencias en JSON para consumo de IA."""
+        with open(ruta_salida, "w", encoding="utf-8") as f:
+            json.dump(self.program.mapa_grafo, f, indent=4, ensure_ascii=False)
+        print(f"[Compilador Grafo] Grafo del proyecto exportado a disco: {os.path.abspath(ruta_salida)}")
 
 
 # =====================================================================
@@ -168,7 +361,8 @@ class MPLRuntime:
         self._inicializar_objetos()
         
     def _inicializar_objetos(self):
-        for nombre, obj_node in self.ast.objetos.items():
+        for nombre, item in self.ast.objetos.items():
+            obj_node = item[0] if isinstance(item, tuple) else item
             self.estado_objetos[nombre] = dict(obj_node.propiedades)
 
     def log(self, mensaje):
@@ -209,7 +403,9 @@ class MPLRuntime:
             
             if tipo == "RENDER_PANTALLA":
                 self.pantalla_actual = datos
-                self.driver_ui.renderizar_pantalla(self.ast.pantallas[datos])
+                item = self.ast.pantallas[datos]
+                pantalla_node = item[0] if isinstance(item, tuple) else item
+                self.driver_ui.renderizar_pantalla(pantalla_node)
                 
             elif tipo == "ACCION_OPCION":
                 accion = datos
@@ -231,10 +427,13 @@ class MPLRuntime:
             self.log(f"\n[Capa 3] Transición de Pantalla -> {destino}")
             self.encolar_evento("RENDER_PANTALLA", destino)
         elif accion in self.ast.funciones:
+            item = self.ast.funciones[accion]
+            origen = item[1] if isinstance(item, tuple) else "memoria"
             self.ejecutar_funcion_c1(accion)
-            self.driver_ui.notificar_fin_accion(f"Función Capa 1 '{accion}' ejecutada.")
+            self.driver_ui.notificar_fin_accion(f"Función Capa 1 '{accion}' ejecutada.\n[Origen: {origen}]")
         else:
-            for obj_nombre, obj_node in self.ast.objetos.items():
+            for obj_nombre, item in self.ast.objetos.items():
+                obj_node = item[0] if isinstance(item, tuple) else item
                 if accion in obj_node.metodos:
                     self.encolar_evento("EJECUTAR_METODO_C2", (obj_nombre, accion, []))
                     return
@@ -242,11 +441,14 @@ class MPLRuntime:
             self.driver_ui.notificar_fin_accion(f"Error: Acción '{accion}' no encontrada.")
 
     def _ejecutar_metodo_c2(self, obj_nombre, metodo_nombre, args):
-        obj_node = self.ast.objetos[obj_nombre]
+        item = self.ast.objetos[obj_nombre]
+        obj_node = item[0] if isinstance(item, tuple) else item
+        origen = item[1] if isinstance(item, tuple) else "memoria"
+        
         sentencias = obj_node.metodos.get(metodo_nombre, [])
         estado = self.estado_objetos[obj_nombre]
         
-        self.log(f"\n[Capa 2] Executing {obj_nombre}.{metodo_nombre}()")
+        self.log(f"\n[Capa 2] Executing {obj_nombre}.{metodo_nombre}() [{origen}]")
         resumen_salida = []
         
         for s in sentencias:
@@ -274,11 +476,14 @@ class MPLRuntime:
                 resumen_salida.append(msg_val)
 
         resumen_texto = "\n".join(resumen_salida) if resumen_salida else "Acción ejecutada correctamente."
-        self.driver_ui.notificar_fin_accion(resumen_texto)
+        self.driver_ui.notificar_fin_accion(f"{resumen_texto}\n\n[Origen: {origen}]")
 
     def ejecutar_funcion_c1(self, nombre_func, args=None):
-        func = self.ast.funciones[nombre_func]
-        self.log(f"\n[Capa 1] Invocando Función: {nombre_func}()")
+        item = self.ast.funciones[nombre_func]
+        func = item[0] if isinstance(item, tuple) else item
+        origen = item[1] if isinstance(item, tuple) else "memoria"
+        
+        self.log(f"\n[Capa 1] Invocando Función: {nombre_func}() [{origen}]")
         for linea in func.cuerpo:
             linea = linea.strip()
             if linea.startswith("Imprimir(") or linea.startswith("MOSTRAR "):
@@ -311,7 +516,9 @@ class CLIDriver:
         print("\n" + "-" * 60)
         input(f"{self.YELLOW_BOLD}Presione ENTER para continuar...{self.RESET}")
         if self.runtime.pantalla_actual and self.runtime.pantalla_actual in self.runtime.ast.pantallas:
-            self.renderizar_pantalla(self.runtime.ast.pantallas[self.runtime.pantalla_actual])
+            item = self.runtime.ast.pantallas[self.runtime.pantalla_actual]
+            pantalla_node = item[0] if isinstance(item, tuple) else item
+            self.renderizar_pantalla(pantalla_node)
 
     def renderizar_pantalla(self, nodo_pantalla):
         print("\n" + "=" * 60)
@@ -361,7 +568,7 @@ class GUIDriver:
         self.runtime = runtime
         self.root = tk.Tk()
         self.root.title("MetsuOS - MPL Runtime (Dark Mode WCAG AAA)")
-        self.root.geometry("700x620")
+        self.root.geometry("720x640")
         self.root.configure(bg=self.DARK_BG)
         
         # Frame Superior: Navegación de Vistas (Capa 3)
@@ -542,10 +749,18 @@ if __name__ == "__main__":
     print("=" * 60)
     
     ruta_fichero = resolver_ruta_fichero()
-    print(f"[Cargador MPL] Leyendo programa ejecutable: {os.path.basename(ruta_fichero)}")
+    print(f"[Cargador MPL] Carga iniciada desde: {os.path.basename(ruta_fichero)}")
     
-    with open(ruta_fichero, "r", encoding="utf-8") as f:
-        codigo_mpl = f.read()
+    parser = MPLParser()
+    ast_programa = parser.parse_fichero_facade(ruta_fichero)
+
+    if not ast_programa.pantallas:
+        print("[Error Runtime] El programa MPL no contiene ninguna PANTALLA definida.")
+        sys.exit(1)
+
+    # Exportar Grafo JSON de dependencias
+    ruta_grafo = ruta_fichero.replace(".mpl", ".graph.json")
+    parser.exportar_grafo_disco(ruta_grafo)
 
     print("\nSeleccione el modo de renderizado UI:")
     print("  [1] Modo Consola / Terminal (CLI)")
@@ -553,14 +768,6 @@ if __name__ == "__main__":
     
     modo = input("\nModo (1 o 2) [Defecto=1]: ").strip()
     ui_type = "GUI" if modo == "2" else "CLI"
-
-    print("\n[Compiler Parser] Tokenizando y construyendo AST de MPL...")
-    parser = MPLParser(codigo_mpl)
-    ast_programa = parser.parse()
-
-    if not ast_programa.pantallas:
-        print("[Error Runtime] El programa MPL no contiene ninguna PANTALLA definida.")
-        sys.exit(1)
 
     pantalla_inicio = list(ast_programa.pantallas.keys())[0]
 

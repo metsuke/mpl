@@ -1,0 +1,63 @@
+{
+    "sample/programa_completo.mpl": {
+        "pantallas": [],
+        "objetos": [],
+        "funciones": [],
+        "importaciones": [
+            "sample/programa_completo-code/c3_pantallas.mpl",
+            "sample/programa_completo-code/c2_objetos.mpl",
+            "sample/programa_completo-code/c1_funciones.mpl"
+        ]
+    },
+    "sample/programa_completo-code/c3_pantallas.mpl": {
+        "pantallas": [
+            {
+                "nombre": "VistaPrincipal",
+                "encabezado": "MetsuOS Terminal v1.0 - Menu Principal",
+                "opciones": [
+                    "Procesar Pruebas Capa 1 (Imperativo)",
+                    "Cambiar Estado Capa 2 (Objetos/Eventos)",
+                    "Navegar a Vista Secundaria"
+                ]
+            },
+            {
+                "nombre": "VistaSecundaria",
+                "encabezado": "Panel Secundario de Control",
+                "opciones": [
+                    "Volver al Menú Principal"
+                ]
+            }
+        ],
+        "objetos": [],
+        "funciones": [],
+        "importaciones": []
+    },
+    "sample/programa_completo-code/c2_objetos.mpl": {
+        "pantallas": [],
+        "objetos": [
+            {
+                "nombre": "GestorRecursos",
+                "propiedades": [
+                    "activo",
+                    "contador"
+                ],
+                "metodos": [
+                    "ModificarEstadoRecurso"
+                ]
+            }
+        ],
+        "funciones": [],
+        "importaciones": []
+    },
+    "sample/programa_completo-code/c1_funciones.mpl": {
+        "pantallas": [],
+        "objetos": [],
+        "funciones": [
+            {
+                "nombre": "EjecutarPruebaC1",
+                "parametros": []
+            }
+        ],
+        "importaciones": []
+    }
+}
