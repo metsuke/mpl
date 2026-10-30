@@ -1,21 +1,21 @@
 # 📺 Nodo Pantalla: `Pagina_518`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_09_camara_talisman_mpl|📄 sample/eligejuego-code/capitulo_09_camara_talisman.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_27_mpl|📄 sample/eligejuego-code/capitulo_27.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 518: Trampa Mortal en La Cámara del Talismán
+> PÁGINA 518: RUPTURA DE LA TUBERÍA DE FLUJO
 > 
-> La magia en esta sala es tan densa que cuesta respirar. En el centro brilla la reliquia sagrada. Das un paso en falso y activas un sello de detonación arcana. Una ráfaga de fuego fatuo consume tu cuerpo en segundos.
+> Tocas la válvula de presión sin purgar la línea de condensación. Una tubería de éter helado estalla, congelando instantáneamente tu cuerpo.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Has muerto. Tu alma se une al ejército de Oscarpu. (Reiniciar)" CON_ACCION TRANSICIONAR_A InicioJuego`
+### `OPCION "Reiniciar la línea temporal (Volver al Inicio)" CON_ACCION TRANSICIONAR_A Pagina_1`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_InicioJuego|📺 InicioJuego]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_1|📺 Pagina_1]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_518["Pantalla: Pagina_518"]
-    P_Pagina_518 -->|"Has muerto. Tu alma se une al ..."| P_InicioJuego["Pantalla: InicioJuego"]
+    P_Pagina_518 -->|"Reiniciar la línea temporal (V..."| P_Pagina_1["Pantalla: Pagina_1"]
 ```

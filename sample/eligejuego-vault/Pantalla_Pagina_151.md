@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_151`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_03_laberinto_huesos_mpl|📄 sample/eligejuego-code/capitulo_03_laberinto_huesos.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_09_mpl|📄 sample/eligejuego-code/capitulo_09.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 151: El Laberinto de Huesos
+> PÁGINA 151: LA ARMERÍA CENTRAL DEL BASTIÓN
 > 
-> Cráneos humanos y de bestias forman las paredes de esta galería. Un murmullo bajo resuena en la oscuridad. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Subes a paso ligero por la escalinata y te adentras en la vasta nave de la Armería Central. Bastidores de armas arcanas, escudos de fase e hileras de armaduras tácticas se alinean a lo largo de las paredes de granito bajo la atenta mirada de torretas de defensa automatizadas.
+> 
+> El humo del patio aún no ha llegado hasta aquí, pero las alarmas luminosas parpadean en rojo sobre los marcos de bronce. En el centro de la sala, sobre una peana de obsidiana, descansa una celda de recarga rápida para el Brazal de Convergencia.
+> 
+> Puedes usar la celda para sobrecargar los escudos de tu equipo o buscar un lanzagranadas pesado antes de que los guardias del sector aseguren los accesos.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 152)" CON_ACCION TRANSICIONAR_A Pagina_152`
+### `OPCION "Sobrecargar los escudos del Brazal en la celda de recarga" CON_ACCION TRANSICIONAR_A Pagina_192`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_152|📺 Pagina_152]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 153)" CON_ACCION TRANSICIONAR_A Pagina_153`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_192|📺 Pagina_192]]
+### `OPCION "Buscar un lanzagranadas pesado en los bastidores blindados" CON_ACCION TRANSICIONAR_A Pagina_116`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_153|📺 Pagina_153]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_116|📺 Pagina_116]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_151["Pantalla: Pagina_151"]
-    P_Pagina_151 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_152["Pantalla: Pagina_152"]
-    P_Pagina_151 -->|"Avanzar por el túnel de la der..."| P_Pagina_153["Pantalla: Pagina_153"]
+    P_Pagina_151 -->|"Sobrecargar los escudos del Br..."| P_Pagina_192["Pantalla: Pagina_192"]
+    P_Pagina_151 -->|"Buscar un lanzagranadas pesado..."| P_Pagina_116["Pantalla: Pagina_116"]
 ```

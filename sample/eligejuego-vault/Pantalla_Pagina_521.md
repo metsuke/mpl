@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_521`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_09_camara_talisman_mpl|📄 sample/eligejuego-code/capitulo_09_camara_talisman.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_27_mpl|📄 sample/eligejuego-code/capitulo_27.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 521: La Cámara del Talismán
+> PÁGINA 521: LAS PASARELAS DE DIAGNÓSTICO
 > 
-> La magia en esta sala es tan densa que cuesta respirar. En el centro brilla la reliquia sagrada. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Te descuelgas a las pasarelas de diagnóstico del Anillo Interior. Pantallas holográficas muestran lecturas en tiempo real sobre la estabilidad de las 600 Cámaras del Cronoclave.
+> 
+> Un autómata pesado de combate de la guardia personal custodia la consola de alineación esgrimiendo un cañón de plasma. La unidad te fija e inicia la secuencia de erradicación.
+> 
+> Puedes usar tu bomba de pulso electromagnético para anular sus sistemas o disparar con tu Rifle Cronal al tubo de ventilación de su cañón.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 522)" CON_ACCION TRANSICIONAR_A Pagina_522`
+### `OPCION "Lanzar la bomba de pulso electromagnético contra el autómata pesado" CON_ACCION TRANSICIONAR_A Pagina_527`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_522|📺 Pagina_522]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 523)" CON_ACCION TRANSICIONAR_A Pagina_523`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_527|📺 Pagina_527]]
+### `OPCION "Disparar con el Rifle Cronal al tubo de ventilación de su cañón" CON_ACCION TRANSICIONAR_A Pagina_528`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_523|📺 Pagina_523]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_528|📺 Pagina_528]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_521["Pantalla: Pagina_521"]
-    P_Pagina_521 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_522["Pantalla: Pagina_522"]
-    P_Pagina_521 -->|"Avanzar por el túnel de la der..."| P_Pagina_523["Pantalla: Pagina_523"]
+    P_Pagina_521 -->|"Lanzar la bomba de pulso elect..."| P_Pagina_527["Pantalla: Pagina_527"]
+    P_Pagina_521 -->|"Disparar con el Rifle Cronal a..."| P_Pagina_528["Pantalla: Pagina_528"]
 ```

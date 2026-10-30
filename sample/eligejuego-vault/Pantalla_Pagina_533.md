@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_533`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_09_camara_talisman_mpl|📄 sample/eligejuego-code/capitulo_09_camara_talisman.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_28_mpl|📄 sample/eligejuego-code/capitulo_28.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 533: La Cámara del Talismán
+> PÁGINA 533: EL PASAJE DE LOS CRISTALES ESTELARES
 > 
-> La magia en esta sala es tan densa que cuesta respirar. En el centro brilla la reliquia sagrada. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Te adentras por el pasaje flanqueado por columnas de cristal que canalizan el flujo de luz de la tormenta exterior de Aethelgard. La energía pura hace vibrar los sensores de tu visor táctico con intensidades doradas.
+> 
+> Tras superar el tramo central, alcanzas una cámara de consulta donde descansa un altar de lecturas con un cofre de titanio y un papiro de autenticación.
+> 
+> Tienes la opción de forzar el cofre para recuperar tónicos curativos o estudiar el papiro en busca de claves de acceso al santuario.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 534)" CON_ACCION TRANSICIONAR_A Pagina_534`
+### `OPCION "Forzar el cofre de titanio para recuperar tónicos de salud" CON_ACCION TRANSICIONAR_A Pagina_537`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_534|📺 Pagina_534]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 535)" CON_ACCION TRANSICIONAR_A Pagina_535`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_537|📺 Pagina_537]]
+### `OPCION "Estudiar el papiro de autenticación en busca de claves" CON_ACCION TRANSICIONAR_A Pagina_538`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_535|📺 Pagina_535]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_538|📺 Pagina_538]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_533["Pantalla: Pagina_533"]
-    P_Pagina_533 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_534["Pantalla: Pagina_534"]
-    P_Pagina_533 -->|"Avanzar por el túnel de la der..."| P_Pagina_535["Pantalla: Pagina_535"]
+    P_Pagina_533 -->|"Forzar el cofre de titanio par..."| P_Pagina_537["Pantalla: Pagina_537"]
+    P_Pagina_533 -->|"Estudiar el papiro de autentic..."| P_Pagina_538["Pantalla: Pagina_538"]
 ```

@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_293`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_05_abismo_sombras_mpl|📄 sample/eligejuego-code/capitulo_05_abismo_sombras.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_16_mpl|📄 sample/eligejuego-code/capitulo_16.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 293: El Abismo de las Sombras
+> PÁGINA 293: LA EXTRACCIÓN DEL TERCER SELLO
 > 
-> La oscuridad aquí es casi tangible. Tu báculo penas proyecta un tenue halo azulino. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Te abalanzas sobre el Inquisidor desarmado y clavas la garra magnética de tu Brazal de Convergencia directamente sobre el receptáculo de su pecho. Una descarga eléctrica de alto voltaje recorre tus brazos mientras los anclajes del Tercer Sello de Fase se desgajan con un estruendo metálico.
+> 
+> El Tercer Sello se desprende desprendiendo destellos dorados y Malakor cae inerte sobre la peana del trono, liberado finalmente de la corrupción del Núcleo de Éter. El Inquisidor parpadea con debilidad y extiende una mano trémula entregándote un disco de datos.
+> 
+> Con los tres sellos reunidos, debes decidir si escuchar las últimas palabras del Inquisidor o proceder inmediatamente a la triple sincronización de tu Brazal.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 294)" CON_ACCION TRANSICIONAR_A Pagina_294`
+### `OPCION "Escuchar las últimas palabras de Malakor e inspeccionar el disco" CON_ACCION TRANSICIONAR_A Pagina_281`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_294|📺 Pagina_294]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 295)" CON_ACCION TRANSICIONAR_A Pagina_295`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_281|📺 Pagina_281]]
+### `OPCION "Proceder de inmediato a la triple sincronización de los sellos" CON_ACCION TRANSICIONAR_A Pagina_280`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_295|📺 Pagina_295]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_280|📺 Pagina_280]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_293["Pantalla: Pagina_293"]
-    P_Pagina_293 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_294["Pantalla: Pagina_294"]
-    P_Pagina_293 -->|"Avanzar por el túnel de la der..."| P_Pagina_295["Pantalla: Pagina_295"]
+    P_Pagina_293 -->|"Escuchar las últimas palabras ..."| P_Pagina_281["Pantalla: Pagina_281"]
+    P_Pagina_293 -->|"Proceder de inmediato a la tri..."| P_Pagina_280["Pantalla: Pagina_280"]
 ```

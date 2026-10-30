@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_503`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_09_camara_talisman_mpl|📄 sample/eligejuego-code/capitulo_09_camara_talisman.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_26_mpl|📄 sample/eligejuego-code/capitulo_26.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 503: La Cámara del Talismán
+> PÁGINA 503: LA CÁMARA DEL CONSEJO ANCESTRAL
 > 
-> La magia en esta sala es tan densa que cuesta respirar. En el centro brilla la reliquia sagrada. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Ingresas a la Cámara del Consejo Ancestral. En el centro de la nave, una columna de luz dorada conecta el suelo con el techo abovedado, canalizando energía limpia hacia los niveles superiores.
+> 
+> En la peana central reposa un frasco de Éter Puro Concentrado y una clave de acceso al Anillo Interior del Núcleo.
+> 
+> Te apoderas del frasco y sincronizas la clave en tu Brazal antes de avanzar al Hemiplano del Consejo.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 504)" CON_ACCION TRANSICIONAR_A Pagina_504`
+### `OPCION "Tomar el frasco e ingresar al Hemiplano del Consejo" CON_ACCION TRANSICIONAR_A Pagina_499`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_504|📺 Pagina_504]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 505)" CON_ACCION TRANSICIONAR_A Pagina_505`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_499|📺 Pagina_499]]
+### `OPCION "Revisar los asientos de piedra del consejo" CON_ACCION TRANSICIONAR_A Pagina_497`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_505|📺 Pagina_505]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_497|📺 Pagina_497]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_503["Pantalla: Pagina_503"]
-    P_Pagina_503 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_504["Pantalla: Pagina_504"]
-    P_Pagina_503 -->|"Avanzar por el túnel de la der..."| P_Pagina_505["Pantalla: Pagina_505"]
+    P_Pagina_503 -->|"Tomar el frasco e ingresar al ..."| P_Pagina_499["Pantalla: Pagina_499"]
+    P_Pagina_503 -->|"Revisar los asientos de piedra..."| P_Pagina_497["Pantalla: Pagina_497"]
 ```

@@ -1,17 +1,21 @@
 # 📺 Nodo Pantalla: `Pagina_379`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_07_prision_cristal_mpl|📄 sample/eligejuego-code/capitulo_07_prision_cristal.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_20_mpl|📄 sample/eligejuego-code/capitulo_20.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 379: La Prisión de Cristal
+> PÁGINA 379: LA SALA DE GENERADORES DEL ÁPICE
 > 
-> Columnas de cristal prismático aprisionan las almas de antiguos héroes que intentaron vencer al nigromante. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Penetras en la imponente Sala de Generadores del Ápice. Tres turbinas de titanio giran en torno a una columna de energía dorada, generando el campo de contención para la Bóveda de los Custodios.
+> 
+> En la consola de control central reposa la Tercera Llave de Fase sobre un pedestal protegido por un campo de fuerza secundario.
+> 
+> Tienes la opción de usar tu herramienta de interfaz para anular el campo de fuerza secundario o usar una carga de pulso electromagnético para sobrecargar la consola.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 380)" CON_ACCION TRANSICIONAR_A Pagina_380`
+### `OPCION "Usar la herramienta de interfaz para anular el campo de fuerza" CON_ACCION TRANSICIONAR_A Pagina_380`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
 * **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_380|📺 Pagina_380]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 381)" CON_ACCION TRANSICIONAR_A Pagina_381`
+### `OPCION "Disparar una carga electromagnética contra la consola" CON_ACCION TRANSICIONAR_A Pagina_381`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
 * **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_381|📺 Pagina_381]]
 
@@ -20,6 +24,6 @@
 ```mermaid
 graph LR
     P_Pagina_379["Pantalla: Pagina_379"]
-    P_Pagina_379 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_380["Pantalla: Pagina_380"]
-    P_Pagina_379 -->|"Avanzar por el túnel de la der..."| P_Pagina_381["Pantalla: Pagina_381"]
+    P_Pagina_379 -->|"Usar la herramienta de interfa..."| P_Pagina_380["Pantalla: Pagina_380"]
+    P_Pagina_379 -->|"Disparar una carga electromagn..."| P_Pagina_381["Pantalla: Pagina_381"]
 ```

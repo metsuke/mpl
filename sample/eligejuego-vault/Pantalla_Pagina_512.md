@@ -1,25 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_512`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_09_camara_talisman_mpl|📄 sample/eligejuego-code/capitulo_09_camara_talisman.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_27_mpl|📄 sample/eligejuego-code/capitulo_27.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 512: La Cámara del Talismán
+> PÁGINA 512: LA PASARELA DE LAS CÚPULAS
 > 
-> La magia en esta sala es tan densa que cuesta respirar. En el centro brilla la reliquia sagrada. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Avanzas con cautela sobre las losas cristalinas que revelan el vacío abisal bajo tus pies. La vibración de la energía del Núcleo hace resonar las placas de tu armadura mientras los relámpagos de luz esmeralda se reflejan en la visera de tu casco.
+> 
+> A mitad de la pasarela, dos Guardianes de Fase Primordiales bajan sus albardas refractarias y despliegan un muro de plasma para cortar tu avance.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 513)" CON_ACCION TRANSICIONAR_A Pagina_513`
+### `OPCION "Usar el Rifle Cronal para sobrecargar el núcleo de los dos guardianes" CON_ACCION TRANSICIONAR_A Pagina_515`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_513|📺 Pagina_513]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 514)" CON_ACCION TRANSICIONAR_A Pagina_514`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_515|📺 Pagina_515]]
+### `OPCION "Usar el gancho para subir a los anillos de contención superiores" CON_ACCION TRANSICIONAR_A Pagina_516`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_514|📺 Pagina_514]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_516|📺 Pagina_516]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_512["Pantalla: Pagina_512"]
-    P_Pagina_512 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_513["Pantalla: Pagina_513"]
-    P_Pagina_512 -->|"Avanzar por el túnel de la der..."| P_Pagina_514["Pantalla: Pagina_514"]
+    P_Pagina_512 -->|"Usar el Rifle Cronal para sobr..."| P_Pagina_515["Pantalla: Pagina_515"]
+    P_Pagina_512 -->|"Usar el gancho para subir a lo..."| P_Pagina_516["Pantalla: Pagina_516"]
 ```

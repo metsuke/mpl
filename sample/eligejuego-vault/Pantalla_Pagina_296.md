@@ -1,25 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_296`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_05_abismo_sombras_mpl|📄 sample/eligejuego-code/capitulo_05_abismo_sombras.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_16_mpl|📄 sample/eligejuego-code/capitulo_16.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 296: El Abismo de las Sombras
+> PÁGINA 296: IMPACTO EN LA PEANA DEL TRONO
 > 
-> La oscuridad aquí es casi tangible. Tu báculo penas proyecta un tenue halo azulino. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Tu granada de concusión impacta de lleno en los circuitos expuestos de la peana del trono. La explosión destruye el distribuidor principal de éter, cortando el suministro de energía de los centinelas y de los escudos de Malakor al mismo tiempo.
+> 
+> Envuelto en una nube de humo denso, el Inquisidor retrocede buscando cobertura tras la alfombra real.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 297)" CON_ACCION TRANSICIONAR_A Pagina_297`
+### `OPCION "Avanzar a través del humo para extraer el Tercer Sello" CON_ACCION TRANSICIONAR_A Pagina_293`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_297|📺 Pagina_297]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 298)" CON_ACCION TRANSICIONAR_A Pagina_298`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_293|📺 Pagina_293]]
+### `OPCION "Usar la ráfaga de Cronal para derribarlo en el humo" CON_ACCION TRANSICIONAR_A Pagina_272`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_298|📺 Pagina_298]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_272|📺 Pagina_272]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_296["Pantalla: Pagina_296"]
-    P_Pagina_296 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_297["Pantalla: Pagina_297"]
-    P_Pagina_296 -->|"Avanzar por el túnel de la der..."| P_Pagina_298["Pantalla: Pagina_298"]
+    P_Pagina_296 -->|"Avanzar a través del humo para..."| P_Pagina_293["Pantalla: Pagina_293"]
+    P_Pagina_296 -->|"Usar la ráfaga de Cronal para ..."| P_Pagina_272["Pantalla: Pagina_272"]
 ```

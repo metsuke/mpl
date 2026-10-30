@@ -1,25 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_180`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_03_laberinto_huesos_mpl|📄 sample/eligejuego-code/capitulo_03_laberinto_huesos.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_10_mpl|📄 sample/eligejuego-code/capitulo_10.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 180: El Laberinto de Huesos
+> PÁGINA 180: EL SALÓN DE BAILE
 > 
-> Cráneos humanos y de bestias forman las paredes de esta galería. Un murmullo bajo resuena en la oscuridad. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Entras en el majestuoso Salón de Baile del Palacio. Mármol pulido, lámparas de cristal de éter suspendidas del techo y grandes vidrieras que dan al vacío abisal dominan la inmensa sala.
+> 
+> En el centro del salón, un grupo de autómatas ceremoniales realiza una danza sin fin al ritmo de una música de orquesta arcana emmitida por gramófonos mágicos.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 181)" CON_ACCION TRANSICIONAR_A Pagina_181`
+### `OPCION "Cruzar el Salón de Baile esquivando a los autómatas ceremoniales" CON_ACCION TRANSICIONAR_A Pagina_143`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_181|📺 Pagina_181]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 182)" CON_ACCION TRANSICIONAR_A Pagina_182`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_143|📺 Pagina_143]]
+### `OPCION "Subir por las balconadas laterales hacia los Aposentos de la Guardia" CON_ACCION TRANSICIONAR_A Pagina_100`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_182|📺 Pagina_182]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_100|📺 Pagina_100]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_180["Pantalla: Pagina_180"]
-    P_Pagina_180 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_181["Pantalla: Pagina_181"]
-    P_Pagina_180 -->|"Avanzar por el túnel de la der..."| P_Pagina_182["Pantalla: Pagina_182"]
+    P_Pagina_180 -->|"Cruzar el Salón de Baile esqui..."| P_Pagina_143["Pantalla: Pagina_143"]
+    P_Pagina_180 -->|"Subir por las balconadas later..."| P_Pagina_100["Pantalla: Pagina_100"]
 ```

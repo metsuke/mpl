@@ -1,25 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_164`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_03_laberinto_huesos_mpl|📄 sample/eligejuego-code/capitulo_03_laberinto_huesos.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_09_mpl|📄 sample/eligejuego-code/capitulo_09.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 164: El Laberinto de Huesos
+> PÁGINA 164: LA PUERTA DE LOS CIEN CERROJOS
 > 
-> Cráneos humanos y de bestias forman las paredes de esta galería. Un murmullo bajo resuena en la oscuridad. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Conectas tu interfaz rúnica al panel de la Puerta de los Cien Cerrojos. La pantalla parpadea frenéticamente mientras el Brazal de Convergencia procesa las secuencias de desactivación una a una.
+> 
+> Tras unos segundos de agónica espera, los cerrojos de bronce se retrayen en el marco con una serie de chasquidos pesados, abriendo paso a la antesala del trono.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 165)" CON_ACCION TRANSICIONAR_A Pagina_165`
+### `OPCION "Ingresar a la antesala de la Sala del Trono" CON_ACCION TRANSICIONAR_A Pagina_133`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_165|📺 Pagina_165]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 166)" CON_ACCION TRANSICIONAR_A Pagina_166`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_133|📺 Pagina_133]]
+### `OPCION "Asegurar el pasillo antes de cruzar la puerta" CON_ACCION TRANSICIONAR_A Pagina_123`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_166|📺 Pagina_166]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_123|📺 Pagina_123]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_164["Pantalla: Pagina_164"]
-    P_Pagina_164 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_165["Pantalla: Pagina_165"]
-    P_Pagina_164 -->|"Avanzar por el túnel de la der..."| P_Pagina_166["Pantalla: Pagina_166"]
+    P_Pagina_164 -->|"Ingresar a la antesala de la S..."| P_Pagina_133["Pantalla: Pagina_133"]
+    P_Pagina_164 -->|"Asegurar el pasillo antes de c..."| P_Pagina_123["Pantalla: Pagina_123"]
 ```

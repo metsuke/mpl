@@ -1,25 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_188`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_04_forja_almas_mpl|📄 sample/eligejuego-code/capitulo_04_forja_almas.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_10_mpl|📄 sample/eligejuego-code/capitulo_10.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 188: La Forja de las Almas
+> PÁGINA 188: LA ARMERÍA REAL
 > 
-> El calor es sofocante. Gigantescas ruedas de hierro muelen las almas atrapadas por el poder de Oscarpu. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Penetras en la Armería Real del Palacio por el ramal derecho de la escalera. En esta nave se exhiben las armaduras de desfile y las espadas de energía de los antiguos monarcas.
+> 
+> Sobre un pedestal de piedra encuentras un Escudo Deflector de Fase perfectamente conservado y listo para ser equipado.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 189)" CON_ACCION TRANSICIONAR_A Pagina_189`
+### `OPCION "Equipar el Escudo Deflector de Fase y avanzar hacia el Bastión" CON_ACCION TRANSICIONAR_A Pagina_88`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_189|📺 Pagina_189]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 190)" CON_ACCION TRANSICIONAR_A Pagina_190`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_88|📺 Pagina_88]]
+### `OPCION "Buscar municiones de plasma en las cajas de repuesto" CON_ACCION TRANSICIONAR_A Pagina_183`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_190|📺 Pagina_190]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_183|📺 Pagina_183]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_188["Pantalla: Pagina_188"]
-    P_Pagina_188 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_189["Pantalla: Pagina_189"]
-    P_Pagina_188 -->|"Avanzar por el túnel de la der..."| P_Pagina_190["Pantalla: Pagina_190"]
+    P_Pagina_188 -->|"Equipar el Escudo Deflector de..."| P_Pagina_88["Pantalla: Pagina_88"]
+    P_Pagina_188 -->|"Buscar municiones de plasma en..."| P_Pagina_183["Pantalla: Pagina_183"]
 ```

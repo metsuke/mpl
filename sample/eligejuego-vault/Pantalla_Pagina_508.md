@@ -1,25 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_508`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_09_camara_talisman_mpl|📄 sample/eligejuego-code/capitulo_09_camara_talisman.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_26_mpl|📄 sample/eligejuego-code/capitulo_26.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 508: La Cámara del Talismán
+> PÁGINA 508: IMPACTO EN EL CONECTOR PECTORAL
 > 
-> La magia en esta sala es tan densa que cuesta respirar. En el centro brilla la reliquia sagrada. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Descargas una ráfaga con el Rifle Cronal directamente sobre el conector pectoral del autómata. La sobrecarga destruye el motor de energía, haciéndolo desplomarse sobre las losas.
+> 
+> Con la nave libre, recoges las células de energía y te encaminas a la salida.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 509)" CON_ACCION TRANSICIONAR_A Pagina_509`
+### `OPCION "Avanzar al Hemiplano del Consejo" CON_ACCION TRANSICIONAR_A Pagina_499`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_509|📺 Pagina_509]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 510)" CON_ACCION TRANSICIONAR_A Pagina_510`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_499|📺 Pagina_499]]
+### `OPCION "Examinar la peana central de meditación" CON_ACCION TRANSICIONAR_A Pagina_503`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_510|📺 Pagina_510]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_503|📺 Pagina_503]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_508["Pantalla: Pagina_508"]
-    P_Pagina_508 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_509["Pantalla: Pagina_509"]
-    P_Pagina_508 -->|"Avanzar por el túnel de la der..."| P_Pagina_510["Pantalla: Pagina_510"]
+    P_Pagina_508 -->|"Avanzar al Hemiplano del Conse..."| P_Pagina_499["Pantalla: Pagina_499"]
+    P_Pagina_508 -->|"Examinar la peana central de m..."| P_Pagina_503["Pantalla: Pagina_503"]
 ```

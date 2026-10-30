@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_419`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_07_prision_cristal_mpl|📄 sample/eligejuego-code/capitulo_07_prision_cristal.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_22_mpl|📄 sample/eligejuego-code/capitulo_22.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 419: La Prisión de Cristal
+> PÁGINA 419: EL ARCHIVO MNEMÓNICO CENTRAL
 > 
-> Columnas de cristal prismático aprisionan las almas de antiguos héroes que intentaron vencer al nigromante. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Deslizas la tarjeta de acceso por el lector rúnico e ingresas a la vasta estancia del Archivo Mnemónico Central. Cintas de luz holográfica flotan entre atriles de obsidiana, proyectando registros históricos de las primeras fases de la construcción de Aethelgard.
+> 
+> En la consola principal brilla una gema de cristal de lectura y una clave de anulación que permite desactivar las trampas del sector colindante.
+> 
+> Tienes la opción de insertar la gema en tu Brazal para procesar los datos de la clave o explorar los anaqueles laterales en busca de esquemas de armas.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 420)" CON_ACCION TRANSICIONAR_A Pagina_420`
+### `OPCION "Insertar la gema en el Brazal para procesar la clave de anulación" CON_ACCION TRANSICIONAR_A Pagina_425`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_420|📺 Pagina_420]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 421)" CON_ACCION TRANSICIONAR_A Pagina_421`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_425|📺 Pagina_425]]
+### `OPCION "Explorar los anaqueles laterales en busca de esquemas de armas" CON_ACCION TRANSICIONAR_A Pagina_426`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_421|📺 Pagina_421]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_426|📺 Pagina_426]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_419["Pantalla: Pagina_419"]
-    P_Pagina_419 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_420["Pantalla: Pagina_420"]
-    P_Pagina_419 -->|"Avanzar por el túnel de la der..."| P_Pagina_421["Pantalla: Pagina_421"]
+    P_Pagina_419 -->|"Insertar la gema en el Brazal ..."| P_Pagina_425["Pantalla: Pagina_425"]
+    P_Pagina_419 -->|"Explorar los anaqueles lateral..."| P_Pagina_426["Pantalla: Pagina_426"]
 ```

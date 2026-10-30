@@ -1,25 +1,21 @@
 # 📺 Nodo Pantalla: `Pagina_298`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_05_abismo_sombras_mpl|📄 sample/eligejuego-code/capitulo_05_abismo_sombras.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_16_mpl|📄 sample/eligejuego-code/capitulo_16.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 298: El Abismo de las Sombras
+> PÁGINA 298: RUPTURA DE LA CUERDA EN LA CÚPULA
 > 
-> La oscuridad aquí es casi tangible. Tu báculo penas proyecta un tenue halo azulino. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Usas la Cuerda de Titanio para subir a la cúpula, pero el calor de la sobrecarga de plasma funde el anclaje. Te despeñas desde quince metros de altura sobre los restos del trono.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 299)" CON_ACCION TRANSICIONAR_A Pagina_299`
+### `OPCION "Reiniciar la línea temporal (Volver al Inicio)" CON_ACCION TRANSICIONAR_A Pagina_1`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_299|📺 Pagina_299]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 300)" CON_ACCION TRANSICIONAR_A Pagina_300`
-* **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_300|📺 Pagina_300]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_1|📺 Pagina_1]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_298["Pantalla: Pagina_298"]
-    P_Pagina_298 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_299["Pantalla: Pagina_299"]
-    P_Pagina_298 -->|"Avanzar por el túnel de la der..."| P_Pagina_300["Pantalla: Pagina_300"]
+    P_Pagina_298 -->|"Reiniciar la línea temporal (V..."| P_Pagina_1["Pantalla: Pagina_1"]
 ```

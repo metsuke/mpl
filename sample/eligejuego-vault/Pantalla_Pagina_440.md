@@ -1,25 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_440`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_08_galeria_espejos_mpl|📄 sample/eligejuego-code/capitulo_08_galeria_espejos.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_23_mpl|📄 sample/eligejuego-code/capitulo_23.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 440: La Galería de los Espejos
+> PÁGINA 440: REVISIÓN DE CONTENEDORES
 > 
-> Espejos de bordes afilados reflejan formas distorsionadas que no corresponden a tus movimientos. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Examinas los recipientes contiguos al nicho blindado y descubres un cristal de enfoque óptico que adosas al visor de tu casco.
+> 
+> Con la mejora integrada, ingresas con la tarjeta a la Bóveda del Vitalismo.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 441)" CON_ACCION TRANSICIONAR_A Pagina_441`
+### `OPCION "Ingresar con el visor mejorado a la Bóveda del Vitalismo" CON_ACCION TRANSICIONAR_A Pagina_439`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_441|📺 Pagina_441]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 442)" CON_ACCION TRANSICIONAR_A Pagina_442`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_439|📺 Pagina_439]]
+### `OPCION "Retroceder a la escalinata principal" CON_ACCION TRANSICIONAR_A Pagina_432`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_442|📺 Pagina_442]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_432|📺 Pagina_432]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_440["Pantalla: Pagina_440"]
-    P_Pagina_440 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_441["Pantalla: Pagina_441"]
-    P_Pagina_440 -->|"Avanzar por el túnel de la der..."| P_Pagina_442["Pantalla: Pagina_442"]
+    P_Pagina_440 -->|"Ingresar con el visor mejorado..."| P_Pagina_439["Pantalla: Pagina_439"]
+    P_Pagina_440 -->|"Retroceder a la escalinata pri..."| P_Pagina_432["Pantalla: Pagina_432"]
 ```

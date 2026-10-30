@@ -1,25 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_552`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_10_trono_oscarpu_mpl|📄 sample/eligejuego-code/capitulo_10_trono_oscarpu.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_29_mpl|📄 sample/eligejuego-code/capitulo_29.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 552: El Gran Trono de Oscarpu
+> PÁGINA 552: LA PASARELA DE LOS FILTROS
 > 
-> El gran trono de obsidiana del Rey Nigromante Oscarpu domina el salón rodeado por un ejército de espectros. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Avanzas con cautela sobre las losas metálicas mientras el zumbido de los filtros de resonancia hace vibrar tu arnés táctico. La niebla de éter esmeralda reduce la visibilidad, recortando las sombras de las estructuras gigantescas.
+> 
+> A mitad de la travesía, dos Ejecutores de la Purga se interponen en el camino alzando sus guadañas de fase cargadas de energía.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 553)" CON_ACCION TRANSICIONAR_A Pagina_553`
+### `OPCION "Usar el Rifle Cronal para inutilizar los generadores de sus guadañas" CON_ACCION TRANSICIONAR_A Pagina_555`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_553|📺 Pagina_553]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 554)" CON_ACCION TRANSICIONAR_A Pagina_554`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_555|📺 Pagina_555]]
+### `OPCION "Usar el gancho para subir a la viga de soporte superior" CON_ACCION TRANSICIONAR_A Pagina_556`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_554|📺 Pagina_554]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_556|📺 Pagina_556]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_552["Pantalla: Pagina_552"]
-    P_Pagina_552 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_553["Pantalla: Pagina_553"]
-    P_Pagina_552 -->|"Avanzar por el túnel de la der..."| P_Pagina_554["Pantalla: Pagina_554"]
+    P_Pagina_552 -->|"Usar el Rifle Cronal para inut..."| P_Pagina_555["Pantalla: Pagina_555"]
+    P_Pagina_552 -->|"Usar el gancho para subir a la..."| P_Pagina_556["Pantalla: Pagina_556"]
 ```

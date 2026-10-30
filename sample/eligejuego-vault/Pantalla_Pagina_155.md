@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_155`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_03_laberinto_huesos_mpl|📄 sample/eligejuego-code/capitulo_03_laberinto_huesos.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_09_mpl|📄 sample/eligejuego-code/capitulo_09.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 155: El Laberinto de Huesos
+> PÁGINA 155: LOS APOSENTOS DE LOS OFICIALES
 > 
-> Cráneos humanos y de bestias forman las paredes de esta galería. Un murmullo bajo resuena en la oscuridad. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Te descuelgas por la claraboya aterrizando sobre la moqueta de los Aposentos de Oficiales. La estancia está desierta, pero sobre una mesa de caoba descansan planos estratégicos desplegados y varios viales de suero reconstituyente.
+> 
+> En la pared del fondo, un cuadro de gran tamaño que retrata la caída de la ciudadela parece ocultar un mecanismo hidráulico en su marco de oro.
+> 
+> Puedes examinar el marco del cuadro en busca de un pasadizo secreto o saquear las mesas tácticas para recoger el suero reconstituyente.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 156)" CON_ACCION TRANSICIONAR_A Pagina_156`
+### `OPCION "Examinar el marco del cuadro en busca de un pasadizo secreto" CON_ACCION TRANSICIONAR_A Pagina_195`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_156|📺 Pagina_156]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 157)" CON_ACCION TRANSICIONAR_A Pagina_157`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_195|📺 Pagina_195]]
+### `OPCION "Recoger los viales de suero reconstituyente de la mesa" CON_ACCION TRANSICIONAR_A Pagina_196`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_157|📺 Pagina_157]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_196|📺 Pagina_196]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_155["Pantalla: Pagina_155"]
-    P_Pagina_155 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_156["Pantalla: Pagina_156"]
-    P_Pagina_155 -->|"Avanzar por el túnel de la der..."| P_Pagina_157["Pantalla: Pagina_157"]
+    P_Pagina_155 -->|"Examinar el marco del cuadro e..."| P_Pagina_195["Pantalla: Pagina_195"]
+    P_Pagina_155 -->|"Recoger los viales de suero re..."| P_Pagina_196["Pantalla: Pagina_196"]
 ```

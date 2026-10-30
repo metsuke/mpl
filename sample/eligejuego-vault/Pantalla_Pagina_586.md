@@ -1,25 +1,21 @@
 # 📺 Nodo Pantalla: `Pagina_586`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_10_trono_oscarpu_mpl|📄 sample/eligejuego-code/capitulo_10_trono_oscarpu.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_30_mpl|📄 sample/eligejuego-code/capitulo_30.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 586: El Gran Trono de Oscarpu
+> PÁGINA 586: CAÍDA EN LA BALCONADA
 > 
-> El gran trono de obsidiana del Rey Nigromante Oscarpu domina el salón rodeado por un ejército de espectros. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Te apoyas en una balaustrada fracturada por los enfrentamientos previos. La piedra se quiebra y caes al vacío abisal.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 587)" CON_ACCION TRANSICIONAR_A Pagina_587`
+### `OPCION "Reiniciar la línea temporal (Volver al Inicio)" CON_ACCION TRANSICIONAR_A Pagina_1`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_587|📺 Pagina_587]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 588)" CON_ACCION TRANSICIONAR_A Pagina_588`
-* **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_588|📺 Pagina_588]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_1|📺 Pagina_1]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_586["Pantalla: Pagina_586"]
-    P_Pagina_586 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_587["Pantalla: Pagina_587"]
-    P_Pagina_586 -->|"Avanzar por el túnel de la der..."| P_Pagina_588["Pantalla: Pagina_588"]
+    P_Pagina_586 -->|"Reiniciar la línea temporal (V..."| P_Pagina_1["Pantalla: Pagina_1"]
 ```

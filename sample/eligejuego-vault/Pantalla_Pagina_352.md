@@ -1,25 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_352`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_06_santuario_olvidado_mpl|📄 sample/eligejuego-code/capitulo_06_santuario_olvidado.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_19_mpl|📄 sample/eligejuego-code/capitulo_19.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 352: El Santuario Olvidado
+> PÁGINA 352: LA ESCALINATA EXTERIOR DE LA AGUJA
 > 
-> Estatuas de reyes olvidados con los ojos tapados custodian tomos enmohecidos y altares rúnicos. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Asciendes a paso firme por los peldaños de granito pulido mientras el viento del abismo ruge a través de los ventanales sin cristal. A cada metro que ganas de altura, la vista de la ciudadela subterránea sumida en la penumbra se vuelve más impresionante.
+> 
+> A mitad de camino, una brecha temporal proyecta un espectro Guardián del Tiempo que alza su lanza de plasma bloqueando la subiría.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 353)" CON_ACCION TRANSICIONAR_A Pagina_353`
+### `OPCION "Usar el Rifle Cronal para disipar la proyección del espectro" CON_ACCION TRANSICIONAR_A Pagina_355`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_353|📺 Pagina_353]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 354)" CON_ACCION TRANSICIONAR_A Pagina_354`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_355|📺 Pagina_355]]
+### `OPCION "Lanzar una granada de concusión contra la base de la proyección" CON_ACCION TRANSICIONAR_A Pagina_356`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_354|📺 Pagina_354]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_356|📺 Pagina_356]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_352["Pantalla: Pagina_352"]
-    P_Pagina_352 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_353["Pantalla: Pagina_353"]
-    P_Pagina_352 -->|"Avanzar por el túnel de la der..."| P_Pagina_354["Pantalla: Pagina_354"]
+    P_Pagina_352 -->|"Usar el Rifle Cronal para disi..."| P_Pagina_355["Pantalla: Pagina_355"]
+    P_Pagina_352 -->|"Lanzar una granada de concusió..."| P_Pagina_356["Pantalla: Pagina_356"]
 ```

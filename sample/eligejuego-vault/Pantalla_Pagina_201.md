@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_201`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_04_forja_almas_mpl|📄 sample/eligejuego-code/capitulo_04_forja_almas.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_11_mpl|📄 sample/eligejuego-code/capitulo_11.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 201: La Forja de las Almas
+> PÁGINA 201: EL ARCHIVO DE LOS CIENTÍFICOS
 > 
-> El calor es sofocante. Gigantescas ruedas de hierro muelen las almas atrapadas por el poder de Oscarpu. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Te adentras en el laboratorio privado de los antiguos alquimistas de Aethelgard. Estanterías repletas de frascos de cristal, cuadernos de notas en pergamino y maquetas del Núcleo de Éter ocupan la gran sala abovedada.
+> 
+> Entre los documentos descubres la fórmula exacta para sintetizar una carga de pulso electromagnético capaz de anular temporalmente cualquier autómata de combate.
+> 
+> Tienes la oportunidad de preparar la carga electromagnética en la mesa de alquimia o guardar los cuadernos de notas en tu inventario.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 202)" CON_ACCION TRANSICIONAR_A Pagina_202`
+### `OPCION "Sintetizar la carga de pulso electromagnético en la mesa de trabajo" CON_ACCION TRANSICIONAR_A Pagina_217`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_202|📺 Pagina_202]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 203)" CON_ACCION TRANSICIONAR_A Pagina_203`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_217|📺 Pagina_217]]
+### `OPCION "Guardar las notas de alquimia y poner rumbo al Templo" CON_ACCION TRANSICIONAR_A Pagina_86`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_203|📺 Pagina_203]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_86|📺 Pagina_86]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_201["Pantalla: Pagina_201"]
-    P_Pagina_201 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_202["Pantalla: Pagina_202"]
-    P_Pagina_201 -->|"Avanzar por el túnel de la der..."| P_Pagina_203["Pantalla: Pagina_203"]
+    P_Pagina_201 -->|"Sintetizar la carga de pulso e..."| P_Pagina_217["Pantalla: Pagina_217"]
+    P_Pagina_201 -->|"Guardar las notas de alquimia ..."| P_Pagina_86["Pantalla: Pagina_86"]
 ```

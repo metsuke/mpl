@@ -1,25 +1,21 @@
 # 📺 Nodo Pantalla: `Pagina_502`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_09_camara_talisman_mpl|📄 sample/eligejuego-code/capitulo_09_camara_talisman.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_26_mpl|📄 sample/eligejuego-code/capitulo_26.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 502: La Cámara del Talismán
+> PÁGINA 502: CORTES DE ALABARDA ASTRAL
 > 
-> La magia en esta sala es tan densa que cuesta respirar. En el centro brilla la reliquia sagrada. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Enfrentas directamente al autómata de titanio sin usar cobertura. Su alabarda de energía atraviesa tu escudo deflector y te parte en dos.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 503)" CON_ACCION TRANSICIONAR_A Pagina_503`
+### `OPCION "Reiniciar la línea temporal (Volver al Inicio)" CON_ACCION TRANSICIONAR_A Pagina_1`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_503|📺 Pagina_503]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 504)" CON_ACCION TRANSICIONAR_A Pagina_504`
-* **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_504|📺 Pagina_504]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_1|📺 Pagina_1]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_502["Pantalla: Pagina_502"]
-    P_Pagina_502 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_503["Pantalla: Pagina_503"]
-    P_Pagina_502 -->|"Avanzar por el túnel de la der..."| P_Pagina_504["Pantalla: Pagina_504"]
+    P_Pagina_502 -->|"Reiniciar la línea temporal (V..."| P_Pagina_1["Pantalla: Pagina_1"]
 ```

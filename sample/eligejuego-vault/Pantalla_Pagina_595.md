@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_595`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_10_trono_oscarpu_mpl|📄 sample/eligejuego-code/capitulo_10_trono_oscarpu.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_30_mpl|📄 sample/eligejuego-code/capitulo_30.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 595: El Gran Trono de Oscarpu
+> PÁGINA 595: EL RETORNO DEL HÉROE
 > 
-> El gran trono de obsidiana del Rey Nigromante Oscarpu domina el salón rodeado por un ejército de espectros. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Te encaminas a la salida del complejo mientras las compuertas de seguridad se abren a tu paso rindiendo honores.
+> 
+> El Brazal de Convergencia se apaga suavemente, habiendo completado su propósito supremo.
+> 
+> Eres libre de explorar el nuevo mundo restaurado de Aethelgard.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 596)" CON_ACCION TRANSICIONAR_A Pagina_596`
+### `OPCION "Ir a los créditos finales (Página 599)" CON_ACCION TRANSICIONAR_A Pagina_599`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_596|📺 Pagina_596]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 597)" CON_ACCION TRANSICIONAR_A Pagina_597`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_599|📺 Pagina_599]]
+### `OPCION "Reiniciar desde la Página 1" CON_ACCION TRANSICIONAR_A Pagina_1`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_597|📺 Pagina_597]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_1|📺 Pagina_1]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_595["Pantalla: Pagina_595"]
-    P_Pagina_595 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_596["Pantalla: Pagina_596"]
-    P_Pagina_595 -->|"Avanzar por el túnel de la der..."| P_Pagina_597["Pantalla: Pagina_597"]
+    P_Pagina_595 -->|"Ir a los créditos finales (Pág..."| P_Pagina_599["Pantalla: Pagina_599"]
+    P_Pagina_595 -->|"Reiniciar desde la Página 1..."| P_Pagina_1["Pantalla: Pagina_1"]
 ```

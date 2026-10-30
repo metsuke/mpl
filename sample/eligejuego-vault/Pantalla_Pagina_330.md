@@ -1,25 +1,21 @@
 # 📺 Nodo Pantalla: `Pagina_330`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_06_santuario_olvidado_mpl|📄 sample/eligejuego-code/capitulo_06_santuario_olvidado.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_17_mpl|📄 sample/eligejuego-code/capitulo_17.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 330: El Santuario Olvidado
+> PÁGINA 330: TRAMPA DE INDUCCIÓN RÚNICA
 > 
-> Estatuas de reyes olvidados con los ojos tapados custodian tomos enmohecidos y altares rúnicos. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Presionas una runa no verificada en el portal de mármol. El mecanismo activa una descarga de inducción cuántica que disuelve la estructura de tus átomos.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 331)" CON_ACCION TRANSICIONAR_A Pagina_331`
+### `OPCION "Reiniciar la línea temporal (Volver al Inicio)" CON_ACCION TRANSICIONAR_A Pagina_1`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_331|📺 Pagina_331]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 332)" CON_ACCION TRANSICIONAR_A Pagina_332`
-* **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_332|📺 Pagina_332]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_1|📺 Pagina_1]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_330["Pantalla: Pagina_330"]
-    P_Pagina_330 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_331["Pantalla: Pagina_331"]
-    P_Pagina_330 -->|"Avanzar por el túnel de la der..."| P_Pagina_332["Pantalla: Pagina_332"]
+    P_Pagina_330 -->|"Reiniciar la línea temporal (V..."| P_Pagina_1["Pantalla: Pagina_1"]
 ```

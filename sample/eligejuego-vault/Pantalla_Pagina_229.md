@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_229`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_04_forja_almas_mpl|📄 sample/eligejuego-code/capitulo_04_forja_almas.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_12_mpl|📄 sample/eligejuego-code/capitulo_12.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 229: La Forja de las Almas
+> PÁGINA 229: EL PASAJE DE LAS ROSAS DE CRISTAL
 > 
-> El calor es sofocante. Gigantescas ruedas de hierro muelen las almas atrapadas por el poder de Oscarpu. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Avanzas por el pasadizo abovedado que bordea el invernadero, decorado con celosías de hierro y rosales de cristal bioluminiscente. El aire huele a ozono y a perfume dulce de flor arcana.
+> 
+> Al final de la galería encuentras una puerta de bronce con el escudo del Archimago que conduce a la biblioteca privada de Malakor.
+> 
+> Tienes la opción de usar tu interfaz para abrir la puerta de la biblioteca o continuar por el pasillo hacia los balcones exteriores.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 230)" CON_ACCION TRANSICIONAR_A Pagina_230`
+### `OPCION "Abrir la puerta de la biblioteca privada de Malakor" CON_ACCION TRANSICIONAR_A Pagina_139`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_230|📺 Pagina_230]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 231)" CON_ACCION TRANSICIONAR_A Pagina_231`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_139|📺 Pagina_139]]
+### `OPCION "Continuar por el pasillo hacia los balcones exteriores" CON_ACCION TRANSICIONAR_A Pagina_209`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_231|📺 Pagina_231]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_209|📺 Pagina_209]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_229["Pantalla: Pagina_229"]
-    P_Pagina_229 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_230["Pantalla: Pagina_230"]
-    P_Pagina_229 -->|"Avanzar por el túnel de la der..."| P_Pagina_231["Pantalla: Pagina_231"]
+    P_Pagina_229 -->|"Abrir la puerta de la bibliote..."| P_Pagina_139["Pantalla: Pagina_139"]
+    P_Pagina_229 -->|"Continuar por el pasillo hacia..."| P_Pagina_209["Pantalla: Pagina_209"]
 ```

@@ -1,7 +1,21 @@
 // =====================================================================
+// CAPÍTULO 1: EL DESPERTAR EN EL NÚCLEO (PÁGINAS 1 A 10)
+// Fichero: eligejuego-code/capitulo_01.mpl
+// =====================================================================
+// ---------------------------------------------------------------------
+// PÁGINA 1 (3 Párrafos - Pantalla de Inicio)
+// ---------------------------------------------------------------------
+PANTALLA Pagina_1:
+    ENCABEZADO: "PÁGINA 1: EL DESPERTAR EN EL NÚCLEO\n\nAbres los ojos en medio de la penumbra helada del Sector Cero. Un intenso zumbido electromagnético resuena en tus oídos mientras las runas de tu Brazal de Convergencia parpadean en azul cian, restaurando la sincronización de tus constantes vitales. A tu alrededor, los fríos muros de granito de la cámara inicial tiemblan bajo los ecos lejanos del Colapso de Mnemósine.\n\nFrente a ti se yergue el primer terminal de control de Aethelgard. Sus cristales reflectantes muestran que los tres Sellos de Fase se han desprendido y las 600 Cámaras de la ciudadela han entrado en bucle de purga. Si deseas contener la catástrofe y evitar que la realidad se fragmente, debes adentrarte en el complejo y recuperar las reliquias primordiales.\n\nDos accesos se abren ante tu mirada: un angosto conducto de ventilación por el que fluye aire enriquecido con éter y una pesada compuerta de bronce con cierres rúnicos de seguridad."
+    OPCION "Adentrarte por el conducto de ventilación técnica" CON_ACCION TRANSICIONAR_A Pagina_2
+    OPCION "Forzar los cierres rúnicos de la compuerta de bronce" CON_ACCION TRANSICIONAR_A Pagina_3
+
+// =====================================================================
 // CAPÍTULO 1: LAS CÁMARAS DEL BASALTO (PÁGINAS 2 A 10)
 // Fichero: eligejuego-code/capitulo_01.mpl
 // =====================================================================
+
+
 
 // ---------------------------------------------------------------------
 // PÁGINA 2 (3 Párrafos - 50%)

@@ -1,25 +1,21 @@
 # 📺 Nodo Pantalla: `Pagina_390`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_07_prision_cristal_mpl|📄 sample/eligejuego-code/capitulo_07_prision_cristal.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_20_mpl|📄 sample/eligejuego-code/capitulo_20.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 390: La Prisión de Cristal
+> PÁGINA 390: COLAPSO FINAL
 > 
-> Columnas de cristal prismático aprisionan las almas de antiguos héroes que intentaron vencer al nigromante. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Intentas manipular los cristales del Núcleo sin la calibración adecuada. Una explosión de éter destruye la Bóveda del Ápice.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 391)" CON_ACCION TRANSICIONAR_A Pagina_391`
+### `OPCION "Reiniciar la línea temporal (Volver al Inicio)" CON_ACCION TRANSICIONAR_A Pagina_1`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_391|📺 Pagina_391]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 392)" CON_ACCION TRANSICIONAR_A Pagina_392`
-* **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_392|📺 Pagina_392]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_1|📺 Pagina_1]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_390["Pantalla: Pagina_390"]
-    P_Pagina_390 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_391["Pantalla: Pagina_391"]
-    P_Pagina_390 -->|"Avanzar por el túnel de la der..."| P_Pagina_392["Pantalla: Pagina_392"]
+    P_Pagina_390 -->|"Reiniciar la línea temporal (V..."| P_Pagina_1["Pantalla: Pagina_1"]
 ```

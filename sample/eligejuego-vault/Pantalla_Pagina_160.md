@@ -1,25 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_160`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_03_laberinto_huesos_mpl|📄 sample/eligejuego-code/capitulo_03_laberinto_huesos.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_09_mpl|📄 sample/eligejuego-code/capitulo_09.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 160: El Laberinto de Huesos
+> PÁGINA 160: LOS ARCHIVOS DE MANTENIMIENTO
 > 
-> Cráneos humanos y de bestias forman las paredes de esta galería. Un murmullo bajo resuena en la oscuridad. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Revisas los anaqueles metálicos de los archivos de mantenimiento. Encuentras un plano esquemático de los conductos de aire del Nivel Nueve y un dispositivo de pirateo de frecuencias rúnicas.
+> 
+> Con estas herramientas guardadas en tu inventario, te sientes capacitado para anular los cierres de emergencia del sector.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 161)" CON_ACCION TRANSICIONAR_A Pagina_161`
+### `OPCION "Avanzar equipado con el pirateador rúnico al Nivel Nueve" CON_ACCION TRANSICIONAR_A Pagina_71`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_161|📺 Pagina_161]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 162)" CON_ACCION TRANSICIONAR_A Pagina_162`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_71|📺 Pagina_71]]
+### `OPCION "Usar el mapa para tomar un túnel de aire hacia los Jardines" CON_ACCION TRANSICIONAR_A Pagina_47`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_162|📺 Pagina_162]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_47|📺 Pagina_47]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_160["Pantalla: Pagina_160"]
-    P_Pagina_160 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_161["Pantalla: Pagina_161"]
-    P_Pagina_160 -->|"Avanzar por el túnel de la der..."| P_Pagina_162["Pantalla: Pagina_162"]
+    P_Pagina_160 -->|"Avanzar equipado con el pirate..."| P_Pagina_71["Pantalla: Pagina_71"]
+    P_Pagina_160 -->|"Usar el mapa para tomar un tún..."| P_Pagina_47["Pantalla: Pagina_47"]
 ```

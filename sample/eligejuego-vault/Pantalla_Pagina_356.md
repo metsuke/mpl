@@ -1,25 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_356`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_06_santuario_olvidado_mpl|📄 sample/eligejuego-code/capitulo_06_santuario_olvidado.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_19_mpl|📄 sample/eligejuego-code/capitulo_19.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 356: El Santuario Olvidado
+> PÁGINA 356: EXPLOSIÓN EN EL DESCANSILLO
 > 
-> Estatuas de reyes olvidados con los ojos tapados custodian tomos enmohecidos y altares rúnicos. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Lanzas la granada de concusión contra la base de la proyección. La onda expansiva destruye la manifestación de plasma, pero agrieta la mampostería de los peldaños exteriores.
+> 
+> Saltas sobre la sección fracturada justo a tiempo y alcanzas el descansillo superior de la aguja.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 357)" CON_ACCION TRANSICIONAR_A Pagina_357`
+### `OPCION "Poner rumbo al Laboratorio de Crono-Análisis" CON_ACCION TRANSICIONAR_A Pagina_359`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_357|📺 Pagina_357]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 358)" CON_ACCION TRANSICIONAR_A Pagina_358`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_359|📺 Pagina_359]]
+### `OPCION "Inspeccionar las grietas de la piedra en busca de objetos" CON_ACCION TRANSICIONAR_A Pagina_361`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_358|📺 Pagina_358]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_361|📺 Pagina_361]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_356["Pantalla: Pagina_356"]
-    P_Pagina_356 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_357["Pantalla: Pagina_357"]
-    P_Pagina_356 -->|"Avanzar por el túnel de la der..."| P_Pagina_358["Pantalla: Pagina_358"]
+    P_Pagina_356 -->|"Poner rumbo al Laboratorio de ..."| P_Pagina_359["Pantalla: Pagina_359"]
+    P_Pagina_356 -->|"Inspeccionar las grietas de la..."| P_Pagina_361["Pantalla: Pagina_361"]
 ```

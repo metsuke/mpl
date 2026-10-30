@@ -1,22 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_41`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capa3_vistas_3_mpl|📄 sample/eligejuego-code/capa3_vistas_3.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_03_mpl|📄 sample/eligejuego-code/capitulo_03.mpl]]
 
-**Encabezado Visual:** "Página 41: Las Puertas del Abismo"
+**Narrativa y Encabezado:**
+> PÁGINA 41: EL CRUCE DEL PUENTE INVISIBLE
+> 
+> Pones pie con cautela sobre la superficie de cristal transparente. A pesar de mirar directamente al vacío abisal bajo tus botas, la estructura es firme como el acero y no emite el menor crujido.
+> 
+> A mitad de camino, una ráfaga de viento abisal intenta desestabilizarte. Te agachas fijando tu centro de gravedad hasta que la turbulencia cesa, logrando completar la travesía con éxito.
+> 
+> Al llegar al otro extremo pisas el suelo del Sector Cero, donde dos puertas blindadas te aguardan: la Cámara del Núcleo y la Sala de Calderas.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Forzar la cerradura mágica" CON_ACCION TRANSICIONAR_A Pagina_47`
+### `OPCION "Entrar en la Cámara del Núcleo de Éter" CON_ACCION TRANSICIONAR_A Pagina_66`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_47|📺 Pagina_47]] *(Manual: Primitiva de control de flujo UI. Emite un evento asíncrono al Event Loop para cambiar la vista activa a la pantalla de destino.)*
-### `OPCION "Buscar el pasadizo inferior" CON_ACCION TRANSICIONAR_A Pagina_48`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_66|📺 Pagina_66]]
+### `OPCION "Infiltrarte en la Sala de Calderas" CON_ACCION TRANSICIONAR_A Pagina_67`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_48|📺 Pagina_48]] *(Manual: Primitiva de control de flujo UI. Emite un evento asíncrono al Event Loop para cambiar la vista activa a la pantalla de destino.)*
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_67|📺 Pagina_67]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_41["Pantalla: Pagina_41"]
-    P_Pagina_41 -->|"Forzar la cerradura mágica"| P_Pagina_47["Pantalla: Pagina_47"]
-    P_Pagina_41 -->|"Buscar el pasadizo inferior"| P_Pagina_48["Pantalla: Pagina_48"]
+    P_Pagina_41 -->|"Entrar en la Cámara del Núcleo..."| P_Pagina_66["Pantalla: Pagina_66"]
+    P_Pagina_41 -->|"Infiltrarte en la Sala de Cald..."| P_Pagina_67["Pantalla: Pagina_67"]
 ```

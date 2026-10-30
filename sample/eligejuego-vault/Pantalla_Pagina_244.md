@@ -1,25 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_244`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_05_abismo_sombras_mpl|📄 sample/eligejuego-code/capitulo_05_abismo_sombras.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_13_mpl|📄 sample/eligejuego-code/capitulo_13.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 244: El Abismo de las Sombras
+> PÁGINA 244: LA PASARELA DE LOS GENERADORES SECUNDARIOS
 > 
-> La oscuridad aquí es casi tangible. Tu báculo penas proyecta un tenue halo azulino. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Cruzas la estructura metálica sobre el abismo procurando no hacer movimientos bruscos que alteren tu equilibrio bajo las ráfagas del viento abisal.
+> 
+> Alcanzas la sala de los generadores secundarios justo cuando el panel principal emite un pitido de sobrecarga de energía.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 245)" CON_ACCION TRANSICIONAR_A Pagina_245`
+### `OPCION "Sobrecargar los generadores secundarios para desactivar los escudos" CON_ACCION TRANSICIONAR_A Pagina_97`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_245|📺 Pagina_245]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 246)" CON_ACCION TRANSICIONAR_A Pagina_246`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_97|📺 Pagina_97]]
+### `OPCION "Desviar la corriente para alimentar las defensas de tu Brazal" CON_ACCION TRANSICIONAR_A Pagina_192`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_246|📺 Pagina_246]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_192|📺 Pagina_192]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_244["Pantalla: Pagina_244"]
-    P_Pagina_244 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_245["Pantalla: Pagina_245"]
-    P_Pagina_244 -->|"Avanzar por el túnel de la der..."| P_Pagina_246["Pantalla: Pagina_246"]
+    P_Pagina_244 -->|"Sobrecargar los generadores se..."| P_Pagina_97["Pantalla: Pagina_97"]
+    P_Pagina_244 -->|"Desviar la corriente para alim..."| P_Pagina_192["Pantalla: Pagina_192"]
 ```

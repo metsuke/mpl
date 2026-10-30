@@ -1,22 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_21`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capa3_vistas_2_mpl|📄 sample/eligejuego-code/capa3_vistas_2.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_02_mpl|📄 sample/eligejuego-code/capitulo_02.mpl]]
 
-**Encabezado Visual:** "Página 21: Nivel Central de la Mazmorra"
+**Narrativa y Encabezado:**
+> PÁGINA 21: LA TORRE DE TRANSMISIÓN
+> 
+> Con el equipo reforzado cruzaste el puente de interconexión hasta alcanzar la Torre de Transmisión. Desde los ventanales de cristal polarizado se contempla la inmensidad de la Ciudadela Subterránea, sumida en una penumbra violeta bajo el dominio de Malakor.
+> 
+> Las antenas del tejado emiten impulsos de interferencia que bloquean las comunicaciones de los centinelas. Si logras calibrar la frecuencia del transmisor, podrás interceptar las órdenes de la guardia de élite.
+> 
+> Frente a ti hay dos consolas activas: la terminal de frecuencias de radio arcana y el interruptor maestro de los reflectores de la torre.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Bajar al Laberinto del Abismo" CON_ACCION TRANSICIONAR_A Pagina_26`
+### `OPCION "Sintonizar la terminal de radio arcana para interceptar mensajes" CON_ACCION TRANSICIONAR_A Pagina_31`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_26|📺 Pagina_26]] *(Manual: Primitiva de control de flujo UI. Emite un evento asíncrono al Event Loop para cambiar la vista activa a la pantalla de destino.)*
-### `OPCION "Cruzarte con el Mercader de Almas" CON_ACCION TRANSICIONAR_A Pagina_27`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_31|📺 Pagina_31]]
+### `OPCION "Encender los reflectores de la torre para cegar a los guardias del patio" CON_ACCION TRANSICIONAR_A Pagina_32`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_27|📺 Pagina_27]] *(Manual: Primitiva de control de flujo UI. Emite un evento asíncrono al Event Loop para cambiar la vista activa a la pantalla de destino.)*
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_32|📺 Pagina_32]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_21["Pantalla: Pagina_21"]
-    P_Pagina_21 -->|"Bajar al Laberinto del Abismo"| P_Pagina_26["Pantalla: Pagina_26"]
-    P_Pagina_21 -->|"Cruzarte con el Mercader de Almas"| P_Pagina_27["Pantalla: Pagina_27"]
+    P_Pagina_21 -->|"Sintonizar la terminal de radi..."| P_Pagina_31["Pantalla: Pagina_31"]
+    P_Pagina_21 -->|"Encender los reflectores de la..."| P_Pagina_32["Pantalla: Pagina_32"]
 ```

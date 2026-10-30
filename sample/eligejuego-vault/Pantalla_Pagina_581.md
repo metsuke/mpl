@@ -1,21 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_581`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_10_trono_oscarpu_mpl|📄 sample/eligejuego-code/capitulo_10_trono_oscarpu.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_30_mpl|📄 sample/eligejuego-code/capitulo_30.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 581: Trampa Mortal en El Gran Trono de Oscarpu
+> PÁGINA 581: LA ESTABILIZACIÓN SUPERIOR
 > 
-> El gran trono de obsidiana del Rey Nigromante Oscarpu domina el salón rodeado por un ejército de espectros. Das un paso en falso y activas un sello de detonación arcana. Una ráfaga de fuego fatuo consume tu cuerpo en segundos.
+> Operas las válvulas de derivación en las pasarelas superiores, asegurando la presión de los condensadores antes del cierre definitivo.
+> 
+> Desciendes a la plataforma central con la absoluta certeza de que el sistema responderá sin margen de error a la orden de purga.
+> 
+> Insertas la Tarjeta de Nivel Doce e inicias el proceso de Sellado Definitivo.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Has muerto. Tu alma se une al ejército de Oscarpu. (Reiniciar)" CON_ACCION TRANSICIONAR_A InicioJuego`
+### `OPCION "Iniciar el Sellado Definitivo en la consola central" CON_ACCION TRANSICIONAR_A Pagina_577`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_InicioJuego|📺 InicioJuego]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_577|📺 Pagina_577]]
+### `OPCION "Verificar el estado del reactor en el panel secundario" CON_ACCION TRANSICIONAR_A Pagina_579`
+* **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_579|📺 Pagina_579]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_581["Pantalla: Pagina_581"]
-    P_Pagina_581 -->|"Has muerto. Tu alma se une al ..."| P_InicioJuego["Pantalla: InicioJuego"]
+    P_Pagina_581 -->|"Iniciar el Sellado Definitivo ..."| P_Pagina_577["Pantalla: Pagina_577"]
+    P_Pagina_581 -->|"Verificar el estado del reacto..."| P_Pagina_579["Pantalla: Pagina_579"]
 ```

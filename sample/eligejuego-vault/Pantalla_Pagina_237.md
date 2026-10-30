@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_237`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_04_forja_almas_mpl|📄 sample/eligejuego-code/capitulo_04_forja_almas.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_13_mpl|📄 sample/eligejuego-code/capitulo_13.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 237: La Forja de las Almas
+> PÁGINA 237: EL VESTÍBULO DE LAS SOMBRAS
 > 
-> El calor es sofocante. Gigantescas ruedas de hierro muelen las almas atrapadas por el poder de Oscarpu. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Te adentras en el Vestíbulo de las Sombras, una inmensa nave decorada con estandartes negros y columnas de basalto. La radiación del Núcleo de Éter es tan intensa en este sector que la luz parece doblarse alrededor de las estructuras.
+> 
+> Cuatro Ejecutores Umbrales de la guardia personal de Malakor patrullan la nave central portando guadañas de fase que cortan la materia con un chasquido místico.
+> 
+> Tienes la opción de usar el camuflaje térmico para bordear la nave por las galerías superiores o lanzar una granada de concusión contra el grupo para entablar combate directo.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 238)" CON_ACCION TRANSICIONAR_A Pagina_238`
+### `OPCION "Usar el camuflaje térmico para bordear la nave por las galerías" CON_ACCION TRANSICIONAR_A Pagina_257`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_238|📺 Pagina_238]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 239)" CON_ACCION TRANSICIONAR_A Pagina_239`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_257|📺 Pagina_257]]
+### `OPCION "Lanzar una granada de concusión e iniciar el combate directo" CON_ACCION TRANSICIONAR_A Pagina_258`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_239|📺 Pagina_239]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_258|📺 Pagina_258]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_237["Pantalla: Pagina_237"]
-    P_Pagina_237 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_238["Pantalla: Pagina_238"]
-    P_Pagina_237 -->|"Avanzar por el túnel de la der..."| P_Pagina_239["Pantalla: Pagina_239"]
+    P_Pagina_237 -->|"Usar el camuflaje térmico para..."| P_Pagina_257["Pantalla: Pagina_257"]
+    P_Pagina_237 -->|"Lanzar una granada de concusió..."| P_Pagina_258["Pantalla: Pagina_258"]
 ```

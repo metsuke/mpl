@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_577`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_10_trono_oscarpu_mpl|📄 sample/eligejuego-code/capitulo_10_trono_oscarpu.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_30_mpl|📄 sample/eligejuego-code/capitulo_30.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 577: El Gran Trono de Oscarpu
+> PÁGINA 577: EL SELLADO DEFINITIVO DE AETHELGARD
 > 
-> El gran trono de obsidiana del Rey Nigromante Oscarpu domina el salón rodeado por un ejército de espectros. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Accionas el conmutador maestro de la consola del Núcleo. El reactor de plasma estelar emite un último destello de luz esmeralda y dorada que se propaga por las venas de titanio de toda la ciudadela subterránea.
+> 
+> El zumbido atronador del Cronoclave se disipa gradualmente, dando paso a un silencio pacífico y sereno. Las luces de emergencia se apagan y son reemplazadas por lámparas de cristal de luminiscencia continua.
+> 
+> Has triunfado. El Colapso de Mnemósine ha sido revertido, Malakor y las sombras han sido vencidos, y el futuro de las líneas temporales está a salvo para siempre.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 578)" CON_ACCION TRANSICIONAR_A Pagina_578`
+### `OPCION "Contemplar la restauración de Aethelgard desde la plataforma del Núcleo" CON_ACCION TRANSICIONAR_A Pagina_583`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_578|📺 Pagina_578]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 579)" CON_ACCION TRANSICIONAR_A Pagina_579`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_583|📺 Pagina_583]]
+### `OPCION "Revisar los anales históricos finales grabados en tu Brazal" CON_ACCION TRANSICIONAR_A Pagina_584`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_579|📺 Pagina_579]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_584|📺 Pagina_584]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_577["Pantalla: Pagina_577"]
-    P_Pagina_577 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_578["Pantalla: Pagina_578"]
-    P_Pagina_577 -->|"Avanzar por el túnel de la der..."| P_Pagina_579["Pantalla: Pagina_579"]
+    P_Pagina_577 -->|"Contemplar la restauración de ..."| P_Pagina_583["Pantalla: Pagina_583"]
+    P_Pagina_577 -->|"Revisar los anales históricos ..."| P_Pagina_584["Pantalla: Pagina_584"]
 ```

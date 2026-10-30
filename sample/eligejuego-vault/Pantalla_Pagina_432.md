@@ -1,25 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_432`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_08_galeria_espejos_mpl|📄 sample/eligejuego-code/capitulo_08_galeria_espejos.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_23_mpl|📄 sample/eligejuego-code/capitulo_23.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 432: La Galería de los Espejos
+> PÁGINA 432: LA ESCALINATA DE BRONCE
 > 
-> Espejos de bordes afilados reflejan formas distorsionadas que no corresponden a tus movimientos. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Avanzas a paso firme por los peldaños de bronce mientras el calor emana de los recipientes en ebullición. El ambiente está saturado por un dulce aroma a aceites rúnicos y ozono que hace vibrar los sensores de tu visera.
+> 
+> A mitad de la subida, un Guardián Alquímico se interpone en tu camino alza un recipiente de fuego líquido dispuesto a derramarlo sobre la escalera.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 433)" CON_ACCION TRANSICIONAR_A Pagina_433`
+### `OPCION "Usar el Rifle Cronal para destruir el recipiente de fuego líquido" CON_ACCION TRANSICIONAR_A Pagina_435`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_433|📺 Pagina_433]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 434)" CON_ACCION TRANSICIONAR_A Pagina_434`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_435|📺 Pagina_435]]
+### `OPCION "Efectuar una maniobra de esquiva para rodear al guardián" CON_ACCION TRANSICIONAR_A Pagina_436`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_434|📺 Pagina_434]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_436|📺 Pagina_436]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_432["Pantalla: Pagina_432"]
-    P_Pagina_432 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_433["Pantalla: Pagina_433"]
-    P_Pagina_432 -->|"Avanzar por el túnel de la der..."| P_Pagina_434["Pantalla: Pagina_434"]
+    P_Pagina_432 -->|"Usar el Rifle Cronal para dest..."| P_Pagina_435["Pantalla: Pagina_435"]
+    P_Pagina_432 -->|"Efectuar una maniobra de esqui..."| P_Pagina_436["Pantalla: Pagina_436"]
 ```

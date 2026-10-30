@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_157`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_03_laberinto_huesos_mpl|📄 sample/eligejuego-code/capitulo_03_laberinto_huesos.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_09_mpl|📄 sample/eligejuego-code/capitulo_09.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 157: El Laberinto de Huesos
+> PÁGINA 157: LA SALA DE MÁQUINAS PRINCIPALES
 > 
-> Cráneos humanos y de bestias forman las paredes de esta galería. Un murmullo bajo resuena en la oscuridad. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Cruzas el portón e ingresas a la monumental Sala de Máquinas Principales. Inmensos pistones hidráulicos se elevan y caen ritmicamente, generando la vibración sorda que retumba en los cimientos de todo el complejo.
+> 
+> A través de una pasarela suspendida divises la unidad central de bombeo de éter líquido que alimenta los escudos de la Sala del Trono. Un panel de derivación permite alterar la mezcla química de la bomba.
+> 
+> Tienes la oportunidad de contaminar el fluido de éter con reactivo corrosivo o cruzar la pasarela hacia las galerías de los Jardines.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 158)" CON_ACCION TRANSICIONAR_A Pagina_158`
+### `OPCION "Contaminar el fluido de éter con reactivo corrosivo" CON_ACCION TRANSICIONAR_A Pagina_199`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_158|📺 Pagina_158]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 159)" CON_ACCION TRANSICIONAR_A Pagina_159`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_199|📺 Pagina_199]]
+### `OPCION "Cruzar la pasarela de máquinas rumbo a los Jardines Sintéticos" CON_ACCION TRANSICIONAR_A Pagina_47`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_159|📺 Pagina_159]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_47|📺 Pagina_47]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_157["Pantalla: Pagina_157"]
-    P_Pagina_157 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_158["Pantalla: Pagina_158"]
-    P_Pagina_157 -->|"Avanzar por el túnel de la der..."| P_Pagina_159["Pantalla: Pagina_159"]
+    P_Pagina_157 -->|"Contaminar el fluido de éter c..."| P_Pagina_199["Pantalla: Pagina_199"]
+    P_Pagina_157 -->|"Cruzar la pasarela de máquinas..."| P_Pagina_47["Pantalla: Pagina_47"]
 ```

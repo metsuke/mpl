@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_579`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_10_trono_oscarpu_mpl|📄 sample/eligejuego-code/capitulo_10_trono_oscarpu.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_30_mpl|📄 sample/eligejuego-code/capitulo_30.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 579: El Gran Trono de Oscarpu
+> PÁGINA 579: LA RESTAURACIÓN DE LAS 600 CÁMARAS
 > 
-> El gran trono de obsidiana del Rey Nigromante Oscarpu domina el salón rodeado por un ejército de espectros. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> La pantalla holográfica del Núcleo desglosa el informe de estado de la red: desde la Cámara 1 hasta la Cámara 600, las firmas de radiación se encuentran en valores nominales perfectos.
+> 
+> Los autómatas de la guardia entran en modo de conservación pacífica, los canales de refrigeración fluyen limpios y el tiempo recupera su curso lineal en todo el imperio.
+> 
+> Tu memoria óptica guarda el registro completo de tu hazaña como el Gran Arquitecto de la Convergencia.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 580)" CON_ACCION TRANSICIONAR_A Pagina_580`
+### `OPCION "Acceder al monumento conmemorativo de Aethelgard" CON_ACCION TRANSICIONAR_A Pagina_585`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_580|📺 Pagina_580]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 581)" CON_ACCION TRANSICIONAR_A Pagina_581`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_585|📺 Pagina_585]]
+### `OPCION "Consultar los registros finales de la hazaña" CON_ACCION TRANSICIONAR_A Pagina_587`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_581|📺 Pagina_581]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_587|📺 Pagina_587]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_579["Pantalla: Pagina_579"]
-    P_Pagina_579 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_580["Pantalla: Pagina_580"]
-    P_Pagina_579 -->|"Avanzar por el túnel de la der..."| P_Pagina_581["Pantalla: Pagina_581"]
+    P_Pagina_579 -->|"Acceder al monumento conmemora..."| P_Pagina_585["Pantalla: Pagina_585"]
+    P_Pagina_579 -->|"Consultar los registros finale..."| P_Pagina_587["Pantalla: Pagina_587"]
 ```

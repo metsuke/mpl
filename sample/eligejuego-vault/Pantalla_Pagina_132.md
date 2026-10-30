@@ -1,25 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_132`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_03_laberinto_huesos_mpl|📄 sample/eligejuego-code/capitulo_03_laberinto_huesos.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_08_mpl|📄 sample/eligejuego-code/capitulo_08.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 132: El Laberinto de Huesos
+> PÁGINA 132: ATAQUE SORPRESA DESDE EL TECHO
 > 
-> Cráneos humanos y de bestias forman las paredes de esta galería. Un murmullo bajo resuena en la oscuridad. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Abres el enganche de la parrilla de ventilación y caes pesadamente sobre la mesa táctica, desarmando al primer oficial con el impacto de tus botas. El segundo saca apresuradamente su pistola de plasma, pero logras desviarle el brazo a tiempo.
+> 
+> Tras una breve y feroz lucha cuerpo a cuerpo, dejas a ambos comandantes inconscientes y aseguras los documentos clasificados de la mesa.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 133)" CON_ACCION TRANSICIONAR_A Pagina_133`
+### `OPCION "Asegurar los documentos clasificados y huir hacia los Jardines" CON_ACCION TRANSICIONAR_A Pagina_174`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_133|📺 Pagina_133]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 134)" CON_ACCION TRANSICIONAR_A Pagina_134`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_174|📺 Pagina_174]]
+### `OPCION "Infiltrarte con el uniforme de uno de los oficiales" CON_ACCION TRANSICIONAR_A Pagina_175`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_134|📺 Pagina_134]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_175|📺 Pagina_175]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_132["Pantalla: Pagina_132"]
-    P_Pagina_132 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_133["Pantalla: Pagina_133"]
-    P_Pagina_132 -->|"Avanzar por el túnel de la der..."| P_Pagina_134["Pantalla: Pagina_134"]
+    P_Pagina_132 -->|"Asegurar los documentos clasif..."| P_Pagina_174["Pantalla: Pagina_174"]
+    P_Pagina_132 -->|"Infiltrarte con el uniforme de..."| P_Pagina_175["Pantalla: Pagina_175"]
 ```

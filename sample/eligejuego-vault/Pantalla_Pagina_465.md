@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_465`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_08_galeria_espejos_mpl|📄 sample/eligejuego-code/capitulo_08_galeria_espejos.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_24_mpl|📄 sample/eligejuego-code/capitulo_24.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 465: La Galería de los Espejos
+> PÁGINA 465: EL PASO HACIA EL CAPÍTULO 25
 > 
-> Espejos de bordes afilados reflejan formas distorsionadas que no corresponden a tus movimientos. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Con la Tarjeta de Nivel Siete autenticada y los gases de la nave purgados limpia y seguidamente, el gran portón acorazado de titanio del extremo norte se abre en dos mitades.
+> 
+> Ante ti se despliega la calzada iluminada por luz dorada que conduce hacia las Cámaras del Capítulo 25, donde se encuentran los Archivos Centrales de la Dinastía.
+> 
+> Verificas tus armas y tu equipo de protección antes de cruzar el umbral con paso firme.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 466)" CON_ACCION TRANSICIONAR_A Pagina_466`
+### `OPCION "Cruzar el portón de titanio rumbo al Capítulo 25" CON_ACCION TRANSICIONAR_A Pagina_471`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_466|📺 Pagina_466]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 467)" CON_ACCION TRANSICIONAR_A Pagina_467`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_471|📺 Pagina_471]]
+### `OPCION "Revisar los anaqueles del portón en busca de suministros" CON_ACCION TRANSICIONAR_A Pagina_457`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_467|📺 Pagina_467]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_457|📺 Pagina_457]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_465["Pantalla: Pagina_465"]
-    P_Pagina_465 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_466["Pantalla: Pagina_466"]
-    P_Pagina_465 -->|"Avanzar por el túnel de la der..."| P_Pagina_467["Pantalla: Pagina_467"]
+    P_Pagina_465 -->|"Cruzar el portón de titanio ru..."| P_Pagina_471["Pantalla: Pagina_471"]
+    P_Pagina_465 -->|"Revisar los anaqueles del port..."| P_Pagina_457["Pantalla: Pagina_457"]
 ```

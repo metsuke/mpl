@@ -1,25 +1,21 @@
 # 📺 Nodo Pantalla: `Pagina_338`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_06_santuario_olvidado_mpl|📄 sample/eligejuego-code/capitulo_06_santuario_olvidado.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_18_mpl|📄 sample/eligejuego-code/capitulo_18.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 338: El Santuario Olvidado
+> PÁGINA 338: TRAMPA EN LOS CAJONES TÁCTICOS
 > 
-> Estatuas de reyes olvidados con los ojos tapados custodian tomos enmohecidos y altares rúnicos. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Fuerzas el cajón central de la mesa táctica sin utilizar una sonda aisladora. Una aguja envenenada con toxina de quimera brota de la cerradura, perforando tu guantelete y paralizando tu corazón.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 339)" CON_ACCION TRANSICIONAR_A Pagina_339`
+### `OPCION "Reiniciar la línea temporal (Volver al Inicio)" CON_ACCION TRANSICIONAR_A Pagina_1`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_339|📺 Pagina_339]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 340)" CON_ACCION TRANSICIONAR_A Pagina_340`
-* **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_340|📺 Pagina_340]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_1|📺 Pagina_1]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_338["Pantalla: Pagina_338"]
-    P_Pagina_338 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_339["Pantalla: Pagina_339"]
-    P_Pagina_338 -->|"Avanzar por el túnel de la der..."| P_Pagina_340["Pantalla: Pagina_340"]
+    P_Pagina_338 -->|"Reiniciar la línea temporal (V..."| P_Pagina_1["Pantalla: Pagina_1"]
 ```

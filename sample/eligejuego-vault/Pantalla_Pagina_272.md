@@ -1,25 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_272`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_05_abismo_sombras_mpl|📄 sample/eligejuego-code/capitulo_05_abismo_sombras.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_15_mpl|📄 sample/eligejuego-code/capitulo_15.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 272: El Abismo de las Sombras
+> PÁGINA 272: LA RÁFAGA DE CRONAL
 > 
-> La oscuridad aquí es casi tangible. Tu báculo penas proyecta un tenue halo azulino. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Empuñas el Rifle de Pulso Cronal y descargas una ráfaga concentrada contra la coraza de Malakor. Los proyectiles de aceleración temporal atraviesan su escudo de fuerza, resquebrajando la placa pectoral que protege el Tercer Sello de Fase.
+> 
+> El Inquisidor retrocede varios pasos emitiendo un rugido de rabia mientras la energía violeta de su armadura parpadea con violencia.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 273)" CON_ACCION TRANSICIONAR_A Pagina_273`
+### `OPCION "Avanzar para intentar arrancar el Tercer Sello de su pecho" CON_ACCION TRANSICIONAR_A Pagina_293`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_273|📺 Pagina_273]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 274)" CON_ACCION TRANSICIONAR_A Pagina_274`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_293|📺 Pagina_293]]
+### `OPCION "Mantener la distancia y recargar el Rifle Cronal" CON_ACCION TRANSICIONAR_A Pagina_294`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_274|📺 Pagina_274]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_294|📺 Pagina_294]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_272["Pantalla: Pagina_272"]
-    P_Pagina_272 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_273["Pantalla: Pagina_273"]
-    P_Pagina_272 -->|"Avanzar por el túnel de la der..."| P_Pagina_274["Pantalla: Pagina_274"]
+    P_Pagina_272 -->|"Avanzar para intentar arrancar..."| P_Pagina_293["Pantalla: Pagina_293"]
+    P_Pagina_272 -->|"Mantener la distancia y recarg..."| P_Pagina_294["Pantalla: Pagina_294"]
 ```

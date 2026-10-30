@@ -1,25 +1,21 @@
 # 📺 Nodo Pantalla: `Pagina_122`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_03_laberinto_huesos_mpl|📄 sample/eligejuego-code/capitulo_03_laberinto_huesos.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_07_mpl|📄 sample/eligejuego-code/capitulo_07.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 122: El Laberinto de Huesos
+> PÁGINA 122: AMPOLLA VENENOSA
 > 
-> Cráneos humanos y de bestias forman las paredes de esta galería. Un murmullo bajo resuena en la oscuridad. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Abres un anaquel sellado en busca de medicinas sin analizar sus compuestos. Inhalas una nube de esporas tóxicas que petrifican tus pulmones en pocos segundos.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 123)" CON_ACCION TRANSICIONAR_A Pagina_123`
+### `OPCION "Reiniciar la línea temporal (Volver al Inicio)" CON_ACCION TRANSICIONAR_A Pagina_1`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_123|📺 Pagina_123]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 124)" CON_ACCION TRANSICIONAR_A Pagina_124`
-* **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_124|📺 Pagina_124]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_1|📺 Pagina_1]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_122["Pantalla: Pagina_122"]
-    P_Pagina_122 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_123["Pantalla: Pagina_123"]
-    P_Pagina_122 -->|"Avanzar por el túnel de la der..."| P_Pagina_124["Pantalla: Pagina_124"]
+    P_Pagina_122 -->|"Reiniciar la línea temporal (V..."| P_Pagina_1["Pantalla: Pagina_1"]
 ```

@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_239`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_04_forja_almas_mpl|📄 sample/eligejuego-code/capitulo_04_forja_almas.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_13_mpl|📄 sample/eligejuego-code/capitulo_13.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 239: La Forja de las Almas
+> PÁGINA 239: EL ARSENAL PRIVADO DE MALAKOR
 > 
-> El calor es sofocante. Gigantescas ruedas de hierro muelen las almas atrapadas por el poder de Oscarpu. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Entras en el arsenal privado del Inquisidor. A diferencia de las armerías comunes, aquí reposan armas conceptuales de alta tecnología creadas por el propio Malakor para doblegar las líneas temporales.
+> 
+> En una peana electrificada brilla un Rifle de Pulso Cronal y un Escudo Deflector de Inducción. Ambos artefactos están conectados al sistema de energía del palacio.
+> 
+> Decides si usar tu Brazal de Convergencia para desbloquear la seguridad de la peana y reclamar las armas o pasar de largo para evitar llamar la atención del sistema.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 240)" CON_ACCION TRANSICIONAR_A Pagina_240`
+### `OPCION "Desbloquear la peana electrificada para apoderarte del Rifle Cronal" CON_ACCION TRANSICIONAR_A Pagina_259`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_240|📺 Pagina_240]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 241)" CON_ACCION TRANSICIONAR_A Pagina_241`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_259|📺 Pagina_259]]
+### `OPCION "Pasar de largo y continuar hacia el Salón del Consejo" CON_ACCION TRANSICIONAR_A Pagina_260`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_241|📺 Pagina_241]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_260|📺 Pagina_260]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_239["Pantalla: Pagina_239"]
-    P_Pagina_239 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_240["Pantalla: Pagina_240"]
-    P_Pagina_239 -->|"Avanzar por el túnel de la der..."| P_Pagina_241["Pantalla: Pagina_241"]
+    P_Pagina_239 -->|"Desbloquear la peana electrifi..."| P_Pagina_259["Pantalla: Pagina_259"]
+    P_Pagina_239 -->|"Pasar de largo y continuar hac..."| P_Pagina_260["Pantalla: Pagina_260"]
 ```

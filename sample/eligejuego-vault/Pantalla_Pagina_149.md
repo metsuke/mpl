@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_149`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_03_laberinto_huesos_mpl|📄 sample/eligejuego-code/capitulo_03_laberinto_huesos.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_08_mpl|📄 sample/eligejuego-code/capitulo_08.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 149: El Laberinto de Huesos
+> PÁGINA 149: ESCALADA POR LAS VIGAS INFERIORES
 > 
-> Cráneos humanos y de bestias forman las paredes de esta galería. Un murmullo bajo resuena en la oscuridad. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Te descuelgas por el borde del puente y te agarras a las inmensas vigas estructurales de acero que sostienen la calzada. El viento abisal ruge a tus pies mientras te desplazas mano sobre mano entre los remaches metálicos.
+> 
+> A mitad de la travesía, descubres una escotilla de inspección técnica que conduce directamente a las salas de bombas del Bastión Central.
+> 
+> Puedes colarte por la escotilla técnica o continuar escalando por las vigas hasta el otro extremo del puente.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 150)" CON_ACCION TRANSICIONAR_A Pagina_150`
+### `OPCION "Colarte por la escotilla técnica a las salas de bombas" CON_ACCION TRANSICIONAR_A Pagina_191`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_150|📺 Pagina_150]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 151)" CON_ACCION TRANSICIONAR_A Pagina_151`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_191|📺 Pagina_191]]
+### `OPCION "Continuar la escalada por las vigas hasta el final del puente" CON_ACCION TRANSICIONAR_A Pagina_148`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_151|📺 Pagina_151]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_148|📺 Pagina_148]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_149["Pantalla: Pagina_149"]
-    P_Pagina_149 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_150["Pantalla: Pagina_150"]
-    P_Pagina_149 -->|"Avanzar por el túnel de la der..."| P_Pagina_151["Pantalla: Pagina_151"]
+    P_Pagina_149 -->|"Colarte por la escotilla técni..."| P_Pagina_191["Pantalla: Pagina_191"]
+    P_Pagina_149 -->|"Continuar la escalada por las ..."| P_Pagina_148["Pantalla: Pagina_148"]
 ```

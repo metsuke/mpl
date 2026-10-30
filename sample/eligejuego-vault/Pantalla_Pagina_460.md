@@ -1,25 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_460`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_08_galeria_espejos_mpl|📄 sample/eligejuego-code/capitulo_08_galeria_espejos.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_24_mpl|📄 sample/eligejuego-code/capitulo_24.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 460: La Galería de los Espejos
+> PÁGINA 460: REVISIÓN DE CARTUCHOS
 > 
-> Espejos de bordes afilados reflejan formas distorsionadas que no corresponden a tus movimientos. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Examinas los anaqueles del armario y recuperas un cristal de enfoque térmico para adosarlo a tu arma de fase.
+> 
+> Con la mejora lista, te adentras con la tarjeta al Núcleo de Fundición.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 461)" CON_ACCION TRANSICIONAR_A Pagina_461`
+### `OPCION "Ingresar con el visor mejorado al Núcleo de Fundición" CON_ACCION TRANSICIONAR_A Pagina_459`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_461|📺 Pagina_461]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 462)" CON_ACCION TRANSICIONAR_A Pagina_462`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_459|📺 Pagina_459]]
+### `OPCION "Retroceder a la pasarela sobre los crisoles" CON_ACCION TRANSICIONAR_A Pagina_452`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_462|📺 Pagina_462]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_452|📺 Pagina_452]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_460["Pantalla: Pagina_460"]
-    P_Pagina_460 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_461["Pantalla: Pagina_461"]
-    P_Pagina_460 -->|"Avanzar por el túnel de la der..."| P_Pagina_462["Pantalla: Pagina_462"]
+    P_Pagina_460 -->|"Ingresar con el visor mejorado..."| P_Pagina_459["Pantalla: Pagina_459"]
+    P_Pagina_460 -->|"Retroceder a la pasarela sobre..."| P_Pagina_452["Pantalla: Pagina_452"]
 ```

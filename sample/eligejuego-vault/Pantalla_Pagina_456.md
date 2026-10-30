@@ -1,25 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_456`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_08_galeria_espejos_mpl|📄 sample/eligejuego-code/capitulo_08_galeria_espejos.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_24_mpl|📄 sample/eligejuego-code/capitulo_24.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 456: La Galería de los Espejos
+> PÁGINA 456: EVASIÓN POR LAS VIGAS
 > 
-> Espejos de bordes afilados reflejan formas distorsionadas que no corresponden a tus movimientos. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Disparas tu gancho y te elevas hacia las vigas de soporte del techo, esquivando el barrido de la sierra térmica del autómata. Avanzas a paso ligero por la estructura metálica hasta superar la zona de patrulla.
+> 
+> Te descuelgas limpiamente al otro lado de la pasarela frente al portón de la fundición.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 457)" CON_ACCION TRANSICIONAR_A Pagina_457`
+### `OPCION "Descolgarte e ingresar al Núcleo de Fundición" CON_ACCION TRANSICIONAR_A Pagina_459`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_457|📺 Pagina_457]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 458)" CON_ACCION TRANSICIONAR_A Pagina_458`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_459|📺 Pagina_459]]
+### `OPCION "Seguir las vigas hacia el sector de ensamblaje" CON_ACCION TRANSICIONAR_A Pagina_461`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_458|📺 Pagina_458]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_461|📺 Pagina_461]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_456["Pantalla: Pagina_456"]
-    P_Pagina_456 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_457["Pantalla: Pagina_457"]
-    P_Pagina_456 -->|"Avanzar por el túnel de la der..."| P_Pagina_458["Pantalla: Pagina_458"]
+    P_Pagina_456 -->|"Descolgarte e ingresar al Núcl..."| P_Pagina_459["Pantalla: Pagina_459"]
+    P_Pagina_456 -->|"Seguir las vigas hacia el sect..."| P_Pagina_461["Pantalla: Pagina_461"]
 ```

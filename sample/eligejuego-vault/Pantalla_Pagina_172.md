@@ -1,25 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_172`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_03_laberinto_huesos_mpl|📄 sample/eligejuego-code/capitulo_03_laberinto_huesos.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_10_mpl|📄 sample/eligejuego-code/capitulo_10.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 172: El Laberinto de Huesos
+> PÁGINA 172: ATAQUE AL FLANCO ESTE DESABASTECIDO
 > 
-> Cráneos humanos y de bestias forman las paredes de esta galería. Un murmullo bajo resuena en la oscuridad. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Avanzas sigilosamente por los conductos superiores hasta alcanzar el puesto de guardia del flanco este. Confirmando la información interceptada, los soldados de Malakor patrullan con linternas de mano defectuosas y sus escudos de fase permanecen desactivados para ahorrar energía.
+> 
+> Sin encontrar apenas resistencia, neutralizas al centinela de la puerta y te adentras en el recinto sagrado de los Jardines Sintéticos.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 173)" CON_ACCION TRANSICIONAR_A Pagina_173`
+### `OPCION "Adentrarte en el recinto sagrado de los Jardines Sintéticos" CON_ACCION TRANSICIONAR_A Pagina_47`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_173|📺 Pagina_173]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 174)" CON_ACCION TRANSICIONAR_A Pagina_174`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_47|📺 Pagina_47]]
+### `OPCION "Asegurar el puesto de guardia del flanco este antes de continuar" CON_ACCION TRANSICIONAR_A Pagina_153`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_174|📺 Pagina_174]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_153|📺 Pagina_153]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_172["Pantalla: Pagina_172"]
-    P_Pagina_172 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_173["Pantalla: Pagina_173"]
-    P_Pagina_172 -->|"Avanzar por el túnel de la der..."| P_Pagina_174["Pantalla: Pagina_174"]
+    P_Pagina_172 -->|"Adentrarte en el recinto sagra..."| P_Pagina_47["Pantalla: Pagina_47"]
+    P_Pagina_172 -->|"Asegurar el puesto de guardia ..."| P_Pagina_153["Pantalla: Pagina_153"]
 ```

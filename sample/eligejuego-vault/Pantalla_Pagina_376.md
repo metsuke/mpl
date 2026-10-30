@@ -1,25 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_376`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_07_prision_cristal_mpl|📄 sample/eligejuego-code/capitulo_07_prision_cristal.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_20_mpl|📄 sample/eligejuego-code/capitulo_20.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 376: La Prisión de Cristal
+> PÁGINA 376: EL PASAJE SECRETOS DE LOS BLASONES
 > 
-> Columnas de cristal prismático aprisionan las almas de antiguos héroes que intentaron vencer al nigromante. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Presionas el escudo de armas del Rey Fundador y la pared de granito gira sobre un eje central, revelando un túnel privado que bordea los espejos arcanos sin llamar la atención de las defensas mnemónicas.
+> 
+> Al final del pasaje encuentras un cofre blindado con la Segunda Llave de Fase en su interior.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 377)" CON_ACCION TRANSICIONAR_A Pagina_377`
+### `OPCION "Tomar la Segunda Llave de Fase y salir a la Bóveda del Ápice" CON_ACCION TRANSICIONAR_A Pagina_381`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_377|📺 Pagina_377]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 378)" CON_ACCION TRANSICIONAR_A Pagina_378`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_381|📺 Pagina_381]]
+### `OPCION "Explorar las hornacinas inferiores del túnel" CON_ACCION TRANSICIONAR_A Pagina_379`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_378|📺 Pagina_378]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_379|📺 Pagina_379]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_376["Pantalla: Pagina_376"]
-    P_Pagina_376 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_377["Pantalla: Pagina_377"]
-    P_Pagina_376 -->|"Avanzar por el túnel de la der..."| P_Pagina_378["Pantalla: Pagina_378"]
+    P_Pagina_376 -->|"Tomar la Segunda Llave de Fase..."| P_Pagina_381["Pantalla: Pagina_381"]
+    P_Pagina_376 -->|"Explorar las hornacinas inferi..."| P_Pagina_379["Pantalla: Pagina_379"]
 ```

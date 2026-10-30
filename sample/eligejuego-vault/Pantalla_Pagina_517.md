@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_517`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_09_camara_talisman_mpl|📄 sample/eligejuego-code/capitulo_09_camara_talisman.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_27_mpl|📄 sample/eligejuego-code/capitulo_27.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 517: La Cámara del Talismán
+> PÁGINA 517: RECOLECCIÓN DE TÓNICOS DEL ANILLO
 > 
-> La magia en esta sala es tan densa que cuesta respirar. En el centro brilla la reliquia sagrada. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Fuerzas la cerradura de la caja de herramientas con la estaca rúnica de tu Brazal. La tapa se abre revelando dos viales de Suero Reconstituyente y una bomba de pulso electromagnético concentrado.
+> 
+> Consumes uno de los viales, sintiendo cómo una agradable ola de calor curativo reconforta tus tejidos congelados y restaura por completo tu salud máxima.
+> 
+> Sillas el segundo vial en tu cinturón táctico antes de continuar hacia la Cámara de Control del Flujo.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 518)" CON_ACCION TRANSICIONAR_A Pagina_518`
+### `OPCION "Avanzar fuertemente recuperado hacia la Cámara de Control del Flujo" CON_ACCION TRANSICIONAR_A Pagina_523`
+* **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_523|📺 Pagina_523]]
+### `OPCION "Manipular el panel de diagnóstico antes de marcharte" CON_ACCION TRANSICIONAR_A Pagina_518`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
 * **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_518|📺 Pagina_518]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 519)" CON_ACCION TRANSICIONAR_A Pagina_519`
-* **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_519|📺 Pagina_519]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_517["Pantalla: Pagina_517"]
-    P_Pagina_517 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_518["Pantalla: Pagina_518"]
-    P_Pagina_517 -->|"Avanzar por el túnel de la der..."| P_Pagina_519["Pantalla: Pagina_519"]
+    P_Pagina_517 -->|"Avanzar fuertemente recuperado..."| P_Pagina_523["Pantalla: Pagina_523"]
+    P_Pagina_517 -->|"Manipular el panel de diagnóst..."| P_Pagina_518["Pantalla: Pagina_518"]
 ```

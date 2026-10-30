@@ -1,21 +1,21 @@
 # 📺 Nodo Pantalla: `Pagina_600`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_10_trono_oscarpu_mpl|📄 sample/eligejuego-code/capitulo_10_trono_oscarpu.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_30_mpl|📄 sample/eligejuego-code/capitulo_30.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 600: DERROTA Y MENTIRA ETERNA
+> PÁGINA 600: FIN DEL LIBROJUEGO
 > 
-> Sin el Talismán de la Verdad, tus hechizos chocan inútilmente contra la muralla de sombría de Oscarpu. El Rey Nigromante te absorbe el alma.
+> Has alcanzado la última página del Cronoclave de las Sombras. La historia de Aethelgard y el Núcleo ha sido completada con éxito. Fin de la partida.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Reiniciar la aventura" CON_ACCION TRANSICIONAR_A InicioJuego`
+### `OPCION "Reiniciar la línea temporal (Volver al Inicio - Página 1)" CON_ACCION TRANSICIONAR_A Pagina_1`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_InicioJuego|📺 InicioJuego]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_1|📺 Pagina_1]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_600["Pantalla: Pagina_600"]
-    P_Pagina_600 -->|"Reiniciar la aventura..."| P_InicioJuego["Pantalla: InicioJuego"]
+    P_Pagina_600 -->|"Reiniciar la línea temporal (V..."| P_Pagina_1["Pantalla: Pagina_1"]
 ```

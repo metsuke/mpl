@@ -1,21 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_504`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_09_camara_talisman_mpl|📄 sample/eligejuego-code/capitulo_09_camara_talisman.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_26_mpl|📄 sample/eligejuego-code/capitulo_26.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 504: Trampa Mortal en La Cámara del Talismán
+> PÁGINA 504: EL CORREDOR DE LOS ASTRÓNOMOS DEL CONSEJO
 > 
-> La magia en esta sala es tan densa que cuesta respirar. En el centro brilla la reliquia sagrada. Das un paso en falso y activas un sello de detonación arcana. Una ráfaga de fuego fatuo consume tu cuerpo en segundos.
+> Avanzas por el corredor privado de los antiguos astrónomos del consejo. Las paredes están decoradas con mapas estelares y esferas armilares de bronce.
+> 
+> Al final del pasillo hallas una hornacina con un vial de elixir reconstituyente.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Has muerto. Tu alma se une al ejército de Oscarpu. (Reiniciar)" CON_ACCION TRANSICIONAR_A InicioJuego`
+### `OPCION "Tomar el elixir e ingresar al Hemiplano del Consejo" CON_ACCION TRANSICIONAR_A Pagina_499`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_InicioJuego|📺 InicioJuego]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_499|📺 Pagina_499]]
+### `OPCION "Examinar los mapas estelares del muro" CON_ACCION TRANSICIONAR_A Pagina_503`
+* **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_503|📺 Pagina_503]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_504["Pantalla: Pagina_504"]
-    P_Pagina_504 -->|"Has muerto. Tu alma se une al ..."| P_InicioJuego["Pantalla: InicioJuego"]
+    P_Pagina_504 -->|"Tomar el elixir e ingresar al ..."| P_Pagina_499["Pantalla: Pagina_499"]
+    P_Pagina_504 -->|"Examinar los mapas estelares d..."| P_Pagina_503["Pantalla: Pagina_503"]
 ```

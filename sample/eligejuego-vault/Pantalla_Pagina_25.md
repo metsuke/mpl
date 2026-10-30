@@ -1,22 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_25`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capa3_vistas_2_mpl|📄 sample/eligejuego-code/capa3_vistas_2.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_02_mpl|📄 sample/eligejuego-code/capitulo_02.mpl]]
 
-**Encabezado Visual:** "Página 25: La Fragua del Nigromante"
+**Narrativa y Encabezado:**
+> PÁGINA 25: EL FOSO DE RESIDUOS
+> 
+> Te adentras en el foso de drenaje. Las paredes están cubiertas por una capa de moho fosforescente que emite un resplandor esmeralda, suficiente para orientarte en la penumbra. El suelo está resbaladizo por los sedimentos orgánicos procesados por la antigua ciudadela.
+> 
+> A mitad de trayecto, el túnel se abre en una enorme cavidad de filtrado. En el centro de la piscina de decantación flota una plataforma mecánica suspendida por cadenas de hierro que parecen a punto de romperse.
+> 
+> Tienes la opción de saltar hacia la plataforma suspendida para alcanzar la orilla opuesta o rodear el Foso caminando por la estrecha cornisa perimetral.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Sabotear el caldero alquímico" CON_ACCION TRANSICIONAR_A Pagina_34`
+### `OPCION "Saltar con fuerza hacia la plataforma suspendida sobre el foso" CON_ACCION TRANSICIONAR_A Pagina_37`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_34|📺 Pagina_34]] *(Manual: Primitiva de control de flujo UI. Emite un evento asíncrono al Event Loop para cambiar la vista activa a la pantalla de destino.)*
-### `OPCION "Esconderte tras los fuelles" CON_ACCION TRANSICIONAR_A Pagina_35`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_37|📺 Pagina_37]]
+### `OPCION "Rodear el foso caminando con cuidado por la cornisa resbaladiza" CON_ACCION TRANSICIONAR_A Pagina_38`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_35|📺 Pagina_35]] *(Manual: Primitiva de control de flujo UI. Emite un evento asíncrono al Event Loop para cambiar la vista activa a la pantalla de destino.)*
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_38|📺 Pagina_38]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_25["Pantalla: Pagina_25"]
-    P_Pagina_25 -->|"Sabotear el caldero alquímico"| P_Pagina_34["Pantalla: Pagina_34"]
-    P_Pagina_25 -->|"Esconderte tras los fuelles"| P_Pagina_35["Pantalla: Pagina_35"]
+    P_Pagina_25 -->|"Saltar con fuerza hacia la pla..."| P_Pagina_37["Pantalla: Pagina_37"]
+    P_Pagina_25 -->|"Rodear el foso caminando con c..."| P_Pagina_38["Pantalla: Pagina_38"]
 ```

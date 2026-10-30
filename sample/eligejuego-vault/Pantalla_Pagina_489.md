@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_489`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_09_camara_talisman_mpl|📄 sample/eligejuego-code/capitulo_09_camara_talisman.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_25_mpl|📄 sample/eligejuego-code/capitulo_25.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 489: La Cámara del Talismán
+> PÁGINA 489: EL TRIUNFO EN LOS ARCHIVOS CENTRALES
 > 
-> La magia en esta sala es tan densa que cuesta respirar. En el centro brilla la reliquia sagrada. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Atraviesas las naves purificadas de los Archivos Centrales de la Dinastía llevando la Tarjeta de Nivel Ocho y tus reservas curativas reabastecidas. Las luces de los códices brillan con un tono dorado pacífico.
+> 
+> Tu Brazal de Convergencia confirma que las Cámaras 471 a 490 han sido estabilizadas con éxito dentro de la red del complejo.
+> 
+> Te detienes frente al portón del Capítulo 26 con la certeza de aproximarte al desenlace de la epopeya.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 490)" CON_ACCION TRANSICIONAR_A Pagina_490`
-* **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_490|📺 Pagina_490]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 491)" CON_ACCION TRANSICIONAR_A Pagina_491`
+### `OPCION "Cruzar el portón e ingresar al Capítulo 26" CON_ACCION TRANSICIONAR_A Pagina_491`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
 * **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_491|📺 Pagina_491]]
+### `OPCION "Consultar el mapa táctico de tu Brazal" CON_ACCION TRANSICIONAR_A Pagina_485`
+* **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_485|📺 Pagina_485]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_489["Pantalla: Pagina_489"]
-    P_Pagina_489 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_490["Pantalla: Pagina_490"]
-    P_Pagina_489 -->|"Avanzar por el túnel de la der..."| P_Pagina_491["Pantalla: Pagina_491"]
+    P_Pagina_489 -->|"Cruzar el portón e ingresar al..."| P_Pagina_491["Pantalla: Pagina_491"]
+    P_Pagina_489 -->|"Consultar el mapa táctico de t..."| P_Pagina_485["Pantalla: Pagina_485"]
 ```

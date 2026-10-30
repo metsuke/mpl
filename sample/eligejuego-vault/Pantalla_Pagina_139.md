@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_139`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_03_laberinto_huesos_mpl|📄 sample/eligejuego-code/capitulo_03_laberinto_huesos.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_08_mpl|📄 sample/eligejuego-code/capitulo_08.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 139: El Laberinto de Huesos
+> PÁGINA 139: LOS ARCHIVOS PRIVADOS DEL PALACIO
 > 
-> Cráneos humanos y de bestias forman las paredes de esta galería. Un murmullo bajo resuena en la oscuridad. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Atraviesas las dobles puertas de roble y accedes a los Archivos Privados. Decenas de atriles de piedra sostienen tomos de encuadernación de metal que guardan los decretos secretos de la dinastía de Aethelgard.
+> 
+> En la sección central, un atril destacado exhibe el Código de Anulación del Segundo Sello de Fase. Al aproximarte, las defensas automáticas de la sala activan dos guardianes de piedra en las esquinas.
+> 
+> Tienes la opción de arrebatar el documento e iniciar una veloz huida o enfrentar a los dos guardianes de piedra con tu armamento de fase.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 140)" CON_ACCION TRANSICIONAR_A Pagina_140`
+### `OPCION "Arrebatar el Código de Anulación y emprender una veloz huida" CON_ACCION TRANSICIONAR_A Pagina_181`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_140|📺 Pagina_140]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 141)" CON_ACCION TRANSICIONAR_A Pagina_141`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_181|📺 Pagina_181]]
+### `OPCION "Enfrentar a los dos guardianes de piedra de la sala" CON_ACCION TRANSICIONAR_A Pagina_182`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_141|📺 Pagina_141]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_182|📺 Pagina_182]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_139["Pantalla: Pagina_139"]
-    P_Pagina_139 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_140["Pantalla: Pagina_140"]
-    P_Pagina_139 -->|"Avanzar por el túnel de la der..."| P_Pagina_141["Pantalla: Pagina_141"]
+    P_Pagina_139 -->|"Arrebatar el Código de Anulaci..."| P_Pagina_181["Pantalla: Pagina_181"]
+    P_Pagina_139 -->|"Enfrentar a los dos guardianes..."| P_Pagina_182["Pantalla: Pagina_182"]
 ```

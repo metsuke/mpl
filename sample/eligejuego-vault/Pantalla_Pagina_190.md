@@ -1,25 +1,21 @@
 # 📺 Nodo Pantalla: `Pagina_190`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_04_forja_almas_mpl|📄 sample/eligejuego-code/capitulo_04_forja_almas.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_10_mpl|📄 sample/eligejuego-code/capitulo_10.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 190: La Forja de las Almas
+> PÁGINA 190: DISPARO FALLIDO EN LA CORNISA
 > 
-> El calor es sofocante. Gigantescas ruedas de hierro muelen las almas atrapadas por el poder de Oscarpu. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Disparas la ballesta pesada contra el Espectro Temporal desde la cornisa, pero el proyectil rebota en su escudo de luz y es desviado hacia ti, atravesando tu pecho.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 191)" CON_ACCION TRANSICIONAR_A Pagina_191`
+### `OPCION "Reiniciar la línea temporal (Volver al Inicio)" CON_ACCION TRANSICIONAR_A Pagina_1`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_191|📺 Pagina_191]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 192)" CON_ACCION TRANSICIONAR_A Pagina_192`
-* **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_192|📺 Pagina_192]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_1|📺 Pagina_1]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_190["Pantalla: Pagina_190"]
-    P_Pagina_190 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_191["Pantalla: Pagina_191"]
-    P_Pagina_190 -->|"Avanzar por el túnel de la der..."| P_Pagina_192["Pantalla: Pagina_192"]
+    P_Pagina_190 -->|"Reiniciar la línea temporal (V..."| P_Pagina_1["Pantalla: Pagina_1"]
 ```

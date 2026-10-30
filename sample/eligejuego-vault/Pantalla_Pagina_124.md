@@ -1,25 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_124`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_03_laberinto_huesos_mpl|📄 sample/eligejuego-code/capitulo_03_laberinto_huesos.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_07_mpl|📄 sample/eligejuego-code/capitulo_07.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 124: El Laberinto de Huesos
+> PÁGINA 124: LA CRIPTA DE LOS REYES OLVIDADOS
 > 
-> Cráneos humanos y de bestias forman las paredes de esta galería. Un murmullo bajo resuena en la oscuridad. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Desciendes a la penumbra de la cripta subterránea donde yacen los sarcófagos de titanio de los antiguos monarcas. Un silencio sagrado envuelve las naves de piedra negra.
+> 
+> En el centro de la cámara, el sepulcro del Rey Fundador emite una tenue vibración en sintonía con la frecuencia de tu Brazal.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 125)" CON_ACCION TRANSICIONAR_A Pagina_125`
+### `OPCION "Aproximarte al sepulcro del Rey Fundador para examinarlo" CON_ACCION TRANSICIONAR_A Pagina_166`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_125|📺 Pagina_125]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 126)" CON_ACCION TRANSICIONAR_A Pagina_126`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_166|📺 Pagina_166]]
+### `OPCION "Buscar el pasaje de salida que conecta con el Bastión" CON_ACCION TRANSICIONAR_A Pagina_167`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_126|📺 Pagina_126]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_167|📺 Pagina_167]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_124["Pantalla: Pagina_124"]
-    P_Pagina_124 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_125["Pantalla: Pagina_125"]
-    P_Pagina_124 -->|"Avanzar por el túnel de la der..."| P_Pagina_126["Pantalla: Pagina_126"]
+    P_Pagina_124 -->|"Aproximarte al sepulcro del Re..."| P_Pagina_166["Pantalla: Pagina_166"]
+    P_Pagina_124 -->|"Buscar el pasaje de salida que..."| P_Pagina_167["Pantalla: Pagina_167"]
 ```

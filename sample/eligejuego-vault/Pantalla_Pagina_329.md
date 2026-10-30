@@ -1,21 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_329`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_06_santuario_olvidado_mpl|📄 sample/eligejuego-code/capitulo_06_santuario_olvidado.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_17_mpl|📄 sample/eligejuego-code/capitulo_17.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 329: Trampa Mortal en El Santuario Olvidado
+> PÁGINA 329: LA RUTA DE DRENAJE DEL BASTIÓN
 > 
-> Estatuas de reyes olvidados con los ojos tapados custodian tomos enmohecidos y altares rúnicos. Das un paso en falso y activas un sello de detonación arcana. Una ráfaga de fuego fatuo consume tu cuerpo en segundos.
+> Avanzas por el canal de drenaje purificado. La corriente de agua de éter limpio limpia las toxinas de tus botas y devuelve la frescura a tu rostro tras el calor de las forjas.
+> 
+> Al final del canal se erige un portal de mármol negro decorado con la runa del Fénix, que señala el acceso directo a los Aposentos del Gran Comandante en el Bastión Superior.
+> 
+> Verificas la carga de tu armamento antes de cruzar el portal de mármol para encarar las Cámaras del Capítulo 18.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Has muerto. Tu alma se une al ejército de Oscarpu. (Reiniciar)" CON_ACCION TRANSICIONAR_A InicioJuego`
+### `OPCION "Cruzar el portal de mármol negro hacia el Bastión Superior" CON_ACCION TRANSICIONAR_A Pagina_331`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_InicioJuego|📺 InicioJuego]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_331|📺 Pagina_331]]
+### `OPCION "Revisar los anaqueles del portal en busca de suministros" CON_ACCION TRANSICIONAR_A Pagina_320`
+* **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_320|📺 Pagina_320]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_329["Pantalla: Pagina_329"]
-    P_Pagina_329 -->|"Has muerto. Tu alma se une al ..."| P_InicioJuego["Pantalla: InicioJuego"]
+    P_Pagina_329 -->|"Cruzar el portal de mármol neg..."| P_Pagina_331["Pantalla: Pagina_331"]
+    P_Pagina_329 -->|"Revisar los anaqueles del port..."| P_Pagina_320["Pantalla: Pagina_320"]
 ```

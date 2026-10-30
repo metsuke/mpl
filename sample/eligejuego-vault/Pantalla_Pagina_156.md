@@ -1,25 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_156`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_03_laberinto_huesos_mpl|📄 sample/eligejuego-code/capitulo_03_laberinto_huesos.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_09_mpl|📄 sample/eligejuego-code/capitulo_09.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 156: El Laberinto de Huesos
+> PÁGINA 156: EL HANGAR TÁCTICO
 > 
-> Cráneos humanos y de bestias forman las paredes de esta galería. Un murmullo bajo resuena en la oscuridad. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Bordeas la cornisa exterior hasta alcanzar el balcón del Hangar Táctico. En el interior, tres lanzaderas de asalto de alas plegables permanecen aparcadas sobre plataformas de elevación magnética.
+> 
+> Un grupo de mecánicos trabaja en el motor de una de las naves con la rampa de carga abierta.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 157)" CON_ACCION TRANSICIONAR_A Pagina_157`
+### `OPCION "Ocultarte en la rampa de carga de la lanzadera de asalto" CON_ACCION TRANSICIONAR_A Pagina_197`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_157|📺 Pagina_157]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 158)" CON_ACCION TRANSICIONAR_A Pagina_158`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_197|📺 Pagina_197]]
+### `OPCION "Sabotear el tanque de combustible de éter del hangar" CON_ACCION TRANSICIONAR_A Pagina_198`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_158|📺 Pagina_158]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_198|📺 Pagina_198]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_156["Pantalla: Pagina_156"]
-    P_Pagina_156 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_157["Pantalla: Pagina_157"]
-    P_Pagina_156 -->|"Avanzar por el túnel de la der..."| P_Pagina_158["Pantalla: Pagina_158"]
+    P_Pagina_156 -->|"Ocultarte en la rampa de carga..."| P_Pagina_197["Pantalla: Pagina_197"]
+    P_Pagina_156 -->|"Sabotear el tanque de combusti..."| P_Pagina_198["Pantalla: Pagina_198"]
 ```

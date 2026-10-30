@@ -1,18 +1,21 @@
 # 📺 Nodo Pantalla: `Pagina_28`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capa3_vistas_2_mpl|📄 sample/eligejuego-code/capa3_vistas_2.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_02_mpl|📄 sample/eligejuego-code/capitulo_02.mpl]]
 
-**Encabezado Visual:** "Página 28: La Verdad oculta del Rey Oscarpu"
+**Narrativa y Encabezado:**
+> PÁGINA 28: LA TRAMPA DE PERTRECHOS
+> 
+> Al remover la mochila del explorador muerto, activas un detonador de presión oculto bajo los restos. La explosión de fósforo blanco convierte la cámara intermedia en un infierno claustrofóbico.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Memorizar el punto débil del Rey" CON_ACCION TRANSICIONAR_A Pagina_40`
+### `OPCION "Reiniciar la línea temporal (Volver al Inicio)" CON_ACCION TRANSICIONAR_A Pagina_1`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_40|📺 Pagina_40]] *(Manual: Primitiva de control de flujo UI. Emite un evento asíncrono al Event Loop para cambiar la vista activa a la pantalla de destino.)*
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_1|📺 Pagina_1]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_28["Pantalla: Pagina_28"]
-    P_Pagina_28 -->|"Memorizar el punto débil del Rey"| P_Pagina_40["Pantalla: Pagina_40"]
+    P_Pagina_28 -->|"Reiniciar la línea temporal (V..."| P_Pagina_1["Pantalla: Pagina_1"]
 ```

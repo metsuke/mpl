@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_211`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_04_forja_almas_mpl|📄 sample/eligejuego-code/capitulo_04_forja_almas.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_12_mpl|📄 sample/eligejuego-code/capitulo_12.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 211: La Forja de las Almas
+> PÁGINA 211: CONGELACIÓN DE LAS COMPUERTAS
 > 
-> El calor es sofocante. Gigantescas ruedas de hierro muelen las almas atrapadas por el poder de Oscarpu. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Giras la llave de derivación de la Sala de Bombas e inviertes el ciclo térmico del refrigerante de éter. Un vaho helado cubre instantáneamente los tubos metálicos mientras el fluido a temperaturas bajo cero inunda los pistones de las compuertas de seguridad.
+> 
+> Escuchas el crujido del metal al congelarse: los cierres hidráulicos del sector quedan bloqueados por una gruesa capa de hielo escarchado, impidiendo que los refuerzos de la guardia enemiga puedan acceder al pasillo central.
+> 
+> Con la vía posterior totalmente sellada, debes decidir si subir hacia el Invernadero Central o explorar el canal de purga inferior.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 212)" CON_ACCION TRANSICIONAR_A Pagina_212`
+### `OPCION "Ascender por la rampa helada hacia el Invernadero Central" CON_ACCION TRANSICIONAR_A Pagina_193`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_212|📺 Pagina_212]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 213)" CON_ACCION TRANSICIONAR_A Pagina_213`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_193|📺 Pagina_193]]
+### `OPCION "Explorar el canal de purga inferior de la Sala de Bombas" CON_ACCION TRANSICIONAR_A Pagina_222`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_213|📺 Pagina_213]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_222|📺 Pagina_222]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_211["Pantalla: Pagina_211"]
-    P_Pagina_211 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_212["Pantalla: Pagina_212"]
-    P_Pagina_211 -->|"Avanzar por el túnel de la der..."| P_Pagina_213["Pantalla: Pagina_213"]
+    P_Pagina_211 -->|"Ascender por la rampa helada h..."| P_Pagina_193["Pantalla: Pagina_193"]
+    P_Pagina_211 -->|"Explorar el canal de purga inf..."| P_Pagina_222["Pantalla: Pagina_222"]
 ```

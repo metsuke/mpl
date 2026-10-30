@@ -1,18 +1,21 @@
 # 📺 Nodo Pantalla: `Pagina_60`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capa3_vistas_3_mpl|📄 sample/eligejuego-code/capa3_vistas_3.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_04_mpl|📄 sample/eligejuego-code/capitulo_04.mpl]]
 
-**Encabezado Visual:** "Página 60: DERROTA... La Oscuridad de Oscarpu Te Absorbe"
+**Narrativa y Encabezado:**
+> PÁGINA 60: POTENCIACIÓN GENÉTICA FALLIDA
+> 
+> Intentas forzar la descarga de secuencias genéticas directamente a tu organismo sin calibración previa. Tu ADN sufre un colapso mutagénico destructivo que fragmenta tus células.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Sin la luz del Talismán de la Verdad, caes vencido. (Fin)" CON_ACCION TRANSICIONAR_A InicioJuego`
+### `OPCION "Reiniciar la línea temporal (Volver al Inicio)" CON_ACCION TRANSICIONAR_A Pagina_1`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_InicioJuego|📺 InicioJuego]] *(Manual: Primitiva de control de flujo UI. Emite un evento asíncrono al Event Loop para cambiar la vista activa a la pantalla de destino.)*
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_1|📺 Pagina_1]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_60["Pantalla: Pagina_60"]
-    P_Pagina_60 -->|"Sin la luz del Talismán de la Verdad, caes vencido. (Fin)"| P_InicioJuego["Pantalla: InicioJuego"]
+    P_Pagina_60 -->|"Reiniciar la línea temporal (V..."| P_Pagina_1["Pantalla: Pagina_1"]
 ```

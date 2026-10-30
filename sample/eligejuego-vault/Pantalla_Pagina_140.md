@@ -1,21 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_140`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_03_laberinto_huesos_mpl|📄 sample/eligejuego-code/capitulo_03_laberinto_huesos.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_08_mpl|📄 sample/eligejuego-code/capitulo_08.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 140: Trampa Mortal en El Laberinto de Huesos
+> PÁGINA 140: MARCHANDO CON LA GUARDIA
 > 
-> Cráneos humanos y de bestias forman las paredes de esta galería. Un murmullo bajo resuena en la oscuridad. Das un paso en falso y activas un sello de detonación arcana. Una ráfaga de fuego fatuo consume tu cuerpo en segundos.
+> Vestido con el jubón militar y manteniendo la cabeza gacha, te incorporas a una columna de guardias que marcha hacia el patio del Bastión Central. Nadie cuestiona tu presencia entre el tumulto.
+> 
+> Llegas a la puerta de la sala de armas secundaria antes de que la patrulla haga un alto para la revisión de credenciales.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Has muerto. Tu alma se une al ejército de Oscarpu. (Reiniciar)" CON_ACCION TRANSICIONAR_A InicioJuego`
+### `OPCION "Desviarte disimuladamente hacia la sala de armas secundaria" CON_ACCION TRANSICIONAR_A Pagina_183`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_InicioJuego|📺 InicioJuego]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_183|📺 Pagina_183]]
+### `OPCION "Permanecer en la columna hasta alcanzar la muralla este" CON_ACCION TRANSICIONAR_A Pagina_184`
+* **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_184|📺 Pagina_184]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_140["Pantalla: Pagina_140"]
-    P_Pagina_140 -->|"Has muerto. Tu alma se une al ..."| P_InicioJuego["Pantalla: InicioJuego"]
+    P_Pagina_140 -->|"Desviarte disimuladamente haci..."| P_Pagina_183["Pantalla: Pagina_183"]
+    P_Pagina_140 -->|"Permanecer en la columna hasta..."| P_Pagina_184["Pantalla: Pagina_184"]
 ```

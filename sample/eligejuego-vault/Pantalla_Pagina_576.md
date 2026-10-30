@@ -1,25 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_576`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_10_trono_oscarpu_mpl|📄 sample/eligejuego-code/capitulo_10_trono_oscarpu.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_30_mpl|📄 sample/eligejuego-code/capitulo_30.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 576: El Gran Trono de Oscarpu
+> PÁGINA 576: EL ATAQUE DESDE LAS PASARELAS
 > 
-> El gran trono de obsidiana del Rey Nigromante Oscarpu domina el salón rodeado por un ejército de espectros. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Ganando altura con el gancho de agarre, te encaramas a las pasarelas superiores sobre el reactor. Desde esta posición privilegiada descargas una bomba de pulso electromagnético directamente a la base de la Sombra.
+> 
+> La onda expansiva disipa los restos de la entidad y despeja la consola del Núcleo.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 577)" CON_ACCION TRANSICIONAR_A Pagina_577`
+### `OPCION "Descolgarte a la plataforma central para accionar la consola" CON_ACCION TRANSICIONAR_A Pagina_577`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
 * **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_577|📺 Pagina_577]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 578)" CON_ACCION TRANSICIONAR_A Pagina_578`
+### `OPCION "Revisar los conmutadores superiores antes del descenso" CON_ACCION TRANSICIONAR_A Pagina_581`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_578|📺 Pagina_578]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_581|📺 Pagina_581]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_576["Pantalla: Pagina_576"]
-    P_Pagina_576 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_577["Pantalla: Pagina_577"]
-    P_Pagina_576 -->|"Avanzar por el túnel de la der..."| P_Pagina_578["Pantalla: Pagina_578"]
+    P_Pagina_576 -->|"Descolgarte a la plataforma ce..."| P_Pagina_577["Pantalla: Pagina_577"]
+    P_Pagina_576 -->|"Revisar los conmutadores super..."| P_Pagina_581["Pantalla: Pagina_581"]
 ```

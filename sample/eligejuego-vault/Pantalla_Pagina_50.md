@@ -1,18 +1,21 @@
 # 📺 Nodo Pantalla: `Pagina_50`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capa3_vistas_3_mpl|📄 sample/eligejuego-code/capa3_vistas_3.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_03_mpl|📄 sample/eligejuego-code/capitulo_03.mpl]]
 
-**Encabezado Visual:** "Página 50: Emboscada Nigromántica"
+**Narrativa y Encabezado:**
+> PÁGINA 50: DENEGACIÓN DE ACCESO
+> 
+> Fuerzas la entrada principal sin la firma rúnica adecuada. El sistema de defensa del bastión activa un cañón de inducción cuántica que vaporiza tus átomos en un microsegundo.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Lanzar tu último hechizo" CON_ACCION TRANSICIONAR_A Pagina_54`
+### `OPCION "Reiniciar la línea temporal (Volver al Inicio)" CON_ACCION TRANSICIONAR_A Pagina_1`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_54|📺 Pagina_54]] *(Manual: Primitiva de control de flujo UI. Emite un evento asíncrono al Event Loop para cambiar la vista activa a la pantalla de destino.)*
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_1|📺 Pagina_1]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_50["Pantalla: Pagina_50"]
-    P_Pagina_50 -->|"Lanzar tu último hechizo"| P_Pagina_54["Pantalla: Pagina_54"]
+    P_Pagina_50 -->|"Reiniciar la línea temporal (V..."| P_Pagina_1["Pantalla: Pagina_1"]
 ```

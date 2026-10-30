@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_381`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_07_prision_cristal_mpl|📄 sample/eligejuego-code/capitulo_07_prision_cristal.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_20_mpl|📄 sample/eligejuego-code/capitulo_20.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 381: La Prisión de Cristal
+> PÁGINA 381: LA BÓVEDA DE LOS ANTIGUOS CUSTODIOS
 > 
-> Columnas de cristal prismático aprisionan las almas de antiguos héroes que intentaron vencer al nigromante. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Llegas al imponente pórtico de la Bóveda de los Antiguos Custodios. Sincronizas las tres Llaves de Fase en los zócalos del portal de mármol negro; los cerrojos de titanio se retraen con un sonido atronador y las dobles hojas blindadas se abren de par en par.
+> 
+> En el centro de la bóveda flota el Gran Núcleo de la Convergencia Final, el nodo maestro que enlaza la totalidad de las 600 Cámaras del proyecto.
+> 
+> Un panel de administración ancestral te permite ejecutar el Sellado Definitivo de Aethelgard o registrar los anales completos de la expedición.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 382)" CON_ACCION TRANSICIONAR_A Pagina_382`
+### `OPCION "Ejecutar el Sellado Definitivo de Aethelgard en el panel maestro" CON_ACCION TRANSICIONAR_A Pagina_385`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_382|📺 Pagina_382]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 383)" CON_ACCION TRANSICIONAR_A Pagina_383`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_385|📺 Pagina_385]]
+### `OPCION "Registrar los anales de la expedición en la memoria de tu Brazal" CON_ACCION TRANSICIONAR_A Pagina_384`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_383|📺 Pagina_383]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_384|📺 Pagina_384]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_381["Pantalla: Pagina_381"]
-    P_Pagina_381 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_382["Pantalla: Pagina_382"]
-    P_Pagina_381 -->|"Avanzar por el túnel de la der..."| P_Pagina_383["Pantalla: Pagina_383"]
+    P_Pagina_381 -->|"Ejecutar el Sellado Definitivo..."| P_Pagina_385["Pantalla: Pagina_385"]
+    P_Pagina_381 -->|"Registrar los anales de la exp..."| P_Pagina_384["Pantalla: Pagina_384"]
 ```

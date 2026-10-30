@@ -1,25 +1,27 @@
 # 📺 Nodo Pantalla: `Pagina_212`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_04_forja_almas_mpl|📄 sample/eligejuego-code/capitulo_04_forja_almas.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_12_mpl|📄 sample/eligejuego-code/capitulo_12.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 212: La Forja de las Almas
+> PÁGINA 212: DESBORDAMIENTO EN LOS BARRACONES
 > 
-> El calor es sofocante. Gigantescas ruedas de hierro muelen las almas atrapadas por el poder de Oscarpu. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Aumentas la presión de las bombas hasta forzar la ruptura de las válvulas secundarias. Una riada de refrigerante corrosivo se vierte por los conductos de ventilación directamente sobre los barracones de la guarnición enemiga.
+> 
+> Los gritos de alboroto y las sirenas de evacuación resuenan en la distancia mientras el contingente de la guardia se ve obligado a abandonar el sector presurosamente.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 213)" CON_ACCION TRANSICIONAR_A Pagina_213`
+### `OPCION "Avanzar por el pasillo despejado hacia los Archivos Privados" CON_ACCION TRANSICIONAR_A Pagina_139`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_213|📺 Pagina_213]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 214)" CON_ACCION TRANSICIONAR_A Pagina_214`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_139|📺 Pagina_139]]
+### `OPCION "Registrar el taller de la Sala de Bombas en busca de herramientas" CON_ACCION TRANSICIONAR_A Pagina_160`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_214|📺 Pagina_214]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_160|📺 Pagina_160]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_212["Pantalla: Pagina_212"]
-    P_Pagina_212 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_213["Pantalla: Pagina_213"]
-    P_Pagina_212 -->|"Avanzar por el túnel de la der..."| P_Pagina_214["Pantalla: Pagina_214"]
+    P_Pagina_212 -->|"Avanzar por el pasillo despeja..."| P_Pagina_139["Pantalla: Pagina_139"]
+    P_Pagina_212 -->|"Registrar el taller de la Sala..."| P_Pagina_160["Pantalla: Pagina_160"]
 ```

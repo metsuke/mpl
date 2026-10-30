@@ -1,25 +1,21 @@
 # 📺 Nodo Pantalla: `Pagina_414`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_07_prision_cristal_mpl|📄 sample/eligejuego-code/capitulo_07_prision_cristal.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_22_mpl|📄 sample/eligejuego-code/capitulo_22.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 414: La Prisión de Cristal
+> PÁGINA 414: DESCARGA EN LA BARRERA DE ENERGÍA
 > 
-> Columnas de cristal prismático aprisionan las almas de antiguos héroes que intentaron vencer al nigromante. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Intentas cruzar la barrera del elevador de servicio sin desactivar el inductor de fase. Una ráfaga de radiación mnemónica desintegra tus recuerdos y tu forma física al instante.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 415)" CON_ACCION TRANSICIONAR_A Pagina_415`
+### `OPCION "Reiniciar la línea temporal (Volver al Inicio)" CON_ACCION TRANSICIONAR_A Pagina_1`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_415|📺 Pagina_415]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 416)" CON_ACCION TRANSICIONAR_A Pagina_416`
-* **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_416|📺 Pagina_416]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_1|📺 Pagina_1]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_414["Pantalla: Pagina_414"]
-    P_Pagina_414 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_415["Pantalla: Pagina_415"]
-    P_Pagina_414 -->|"Avanzar por el túnel de la der..."| P_Pagina_416["Pantalla: Pagina_416"]
+    P_Pagina_414 -->|"Reiniciar la línea temporal (V..."| P_Pagina_1["Pantalla: Pagina_1"]
 ```

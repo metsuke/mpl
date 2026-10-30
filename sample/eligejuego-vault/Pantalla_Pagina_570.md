@@ -1,25 +1,21 @@
 # 📺 Nodo Pantalla: `Pagina_570`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_10_trono_oscarpu_mpl|📄 sample/eligejuego-code/capitulo_10_trono_oscarpu.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_29_mpl|📄 sample/eligejuego-code/capitulo_29.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 570: El Gran Trono de Oscarpu
+> PÁGINA 570: TRAMPA DE PLASMA EN EL PORTÓN DE PURGA
 > 
-> El gran trono de obsidiana del Rey Nigromante Oscarpu domina el salón rodeado por un ejército de espectros. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Intentas cruzar el portón de obsidiana sin autenticar la Tarjeta de Nivel Doce. Una descarga de plasma esmeralda brota del arco, disolviendo tu cuerpo.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 571)" CON_ACCION TRANSICIONAR_A Pagina_571`
+### `OPCION "Reiniciar la línea temporal (Volver al Inicio)" CON_ACCION TRANSICIONAR_A Pagina_1`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_571|📺 Pagina_571]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 572)" CON_ACCION TRANSICIONAR_A Pagina_572`
-* **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_572|📺 Pagina_572]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_1|📺 Pagina_1]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_570["Pantalla: Pagina_570"]
-    P_Pagina_570 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_571["Pantalla: Pagina_571"]
-    P_Pagina_570 -->|"Avanzar por el túnel de la der..."| P_Pagina_572["Pantalla: Pagina_572"]
+    P_Pagina_570 -->|"Reiniciar la línea temporal (V..."| P_Pagina_1["Pantalla: Pagina_1"]
 ```

@@ -1,22 +1,25 @@
 # 📺 Nodo Pantalla: `Pagina_23`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capa3_vistas_2_mpl|📄 sample/eligejuego-code/capa3_vistas_2.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_02_mpl|📄 sample/eligejuego-code/capitulo_02.mpl]]
 
-**Encabezado Visual:** "Página 23: La Escalera Caracol"
+**Narrativa y Encabezado:**
+> PÁGINA 23: LOS LABORATORIOS DE CONVERGENCIA
+> 
+> Siguiendo las indicaciones del mapa grabado en la tubería, alcanzas la puerta sellada de los laboratorios. Tras validar tu firma rúnica con el Brazal, las hojas acorazadas se deslizan suavemente.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Descender rápidamente" CON_ACCION TRANSICIONAR_A Pagina_30`
+### `OPCION "Acceder a las cubas de cultivo sintético" CON_ACCION TRANSICIONAR_A Pagina_35`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_30|📺 Pagina_30]] *(Manual: Primitiva de control de flujo UI. Emite un evento asíncrono al Event Loop para cambiar la vista activa a la pantalla de destino.)*
-### `OPCION "Examinar las runas del muro" CON_ACCION TRANSICIONAR_A Pagina_31`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_35|📺 Pagina_35]]
+### `OPCION "Investigar la terminal de análisis genético" CON_ACCION TRANSICIONAR_A Pagina_36`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_31|📺 Pagina_31]] *(Manual: Primitiva de control de flujo UI. Emite un evento asíncrono al Event Loop para cambiar la vista activa a la pantalla de destino.)*
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_36|📺 Pagina_36]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_23["Pantalla: Pagina_23"]
-    P_Pagina_23 -->|"Descender rápidamente"| P_Pagina_30["Pantalla: Pagina_30"]
-    P_Pagina_23 -->|"Examinar las runas del muro"| P_Pagina_31["Pantalla: Pagina_31"]
+    P_Pagina_23 -->|"Acceder a las cubas de cultivo..."| P_Pagina_35["Pantalla: Pagina_35"]
+    P_Pagina_23 -->|"Investigar la terminal de anál..."| P_Pagina_36["Pantalla: Pagina_36"]
 ```

@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_309`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_06_santuario_olvidado_mpl|📄 sample/eligejuego-code/capitulo_06_santuario_olvidado.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_16_mpl|📄 sample/eligejuego-code/capitulo_16.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 309: El Santuario Olvidado
+> PÁGINA 309: EL RENACER DE AETHELGARD
 > 
-> Estatuas de reyes olvidados con los ojos tapados custodian tomos enmohecidos y altares rúnicos. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Accionas el mando maestro de la consola del Núcleo. La descarga de energía dorada de los tres sellos penetra en la columna de plasma, sellando para siempre las fisuras del espacio-tiempo en las 600 Cámaras.
+> 
+> El zumbido del Cronoclave se transforma en una sinfonía de luz pacífica. Las ruinas de la ciudadela subterránea comienzan a iluminarse con el resplandor de la restauración temporal.
+> 
+> Has triunfado sobre Malakor y el engaño de Vaelia, asegurando la existencia de todas las líneas temporales. Tu leyenda vivirá para siempre en Aethelgard.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 310)" CON_ACCION TRANSICIONAR_A Pagina_310`
+### `OPCION "Reiniciar la historia desde la Página 1" CON_ACCION TRANSICIONAR_A Pagina_1`
+* **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_1|📺 Pagina_1]]
+### `OPCION "Consultar los registros históricos finales de las 600 Cámaras" CON_ACCION TRANSICIONAR_A Pagina_310`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
 * **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_310|📺 Pagina_310]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 311)" CON_ACCION TRANSICIONAR_A Pagina_311`
-* **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_311|📺 Pagina_311]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_309["Pantalla: Pagina_309"]
-    P_Pagina_309 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_310["Pantalla: Pagina_310"]
-    P_Pagina_309 -->|"Avanzar por el túnel de la der..."| P_Pagina_311["Pantalla: Pagina_311"]
+    P_Pagina_309 -->|"Reiniciar la historia desde la..."| P_Pagina_1["Pantalla: Pagina_1"]
+    P_Pagina_309 -->|"Consultar los registros histór..."| P_Pagina_310["Pantalla: Pagina_310"]
 ```

@@ -1,22 +1,21 @@
 # 📺 Nodo Pantalla: `Pagina_57`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capa3_vistas_3_mpl|📄 sample/eligejuego-code/capa3_vistas_3.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_04_mpl|📄 sample/eligejuego-code/capitulo_04.mpl]]
 
-**Encabezado Visual:** "Página 57: El Duelo Arcano contra Oscarpu"
+**Narrativa y Encabezado:**
+> PÁGINA 57: LA REACCIÓN EN CADENA
+> 
+> Golpeas el cristal agrietado de la cuba de cultivo. La explosión de fluido viscoso y biomasa inestable inunda la sala en segundos, disolviendo todo a su paso antes de que puedas alcanzar la salida.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Levantar el Talismán de la Verdad ante Oscarpu" CON_ACCION TRANSICIONAR_A Pagina_59`
+### `OPCION "Reiniciar la línea temporal (Volver al Inicio)" CON_ACCION TRANSICIONAR_A Pagina_1`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_59|📺 Pagina_59]] *(Manual: Primitiva de control de flujo UI. Emite un evento asíncrono al Event Loop para cambiar la vista activa a la pantalla de destino.)*
-### `OPCION "Atacar con magia pura sin el Talismán" CON_ACCION TRANSICIONAR_A Pagina_60`
-* **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_60|📺 Pagina_60]] *(Manual: Primitiva de control de flujo UI. Emite un evento asíncrono al Event Loop para cambiar la vista activa a la pantalla de destino.)*
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_1|📺 Pagina_1]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_57["Pantalla: Pagina_57"]
-    P_Pagina_57 -->|"Levantar el Talismán de la Verdad ante Oscarpu"| P_Pagina_59["Pantalla: Pagina_59"]
-    P_Pagina_57 -->|"Atacar con magia pura sin el Talismán"| P_Pagina_60["Pantalla: Pagina_60"]
+    P_Pagina_57 -->|"Reiniciar la línea temporal (V..."| P_Pagina_1["Pantalla: Pagina_1"]
 ```

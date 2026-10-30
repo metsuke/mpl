@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_199`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_04_forja_almas_mpl|📄 sample/eligejuego-code/capitulo_04_forja_almas.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_11_mpl|📄 sample/eligejuego-code/capitulo_11.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 199: La Forja de las Almas
+> PÁGINA 199: CONTAMINACIÓN DEL REFRIGERANTE
 > 
-> El calor es sofocante. Gigantescas ruedas de hierro muelen las almas atrapadas por el poder de Oscarpu. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Abres la escotilla de mezcla de la bomba de éter y viertes un vial de reactivo corrosivo en el caudal principal. El fluido transparente adquiere de inmediato un tono violeta turbio mientras se distribuye por las tuberías de refrigeración.
+> 
+> En pocos minutos, la mezcla corrosiva comenzará a deteriorar los escudos de fase y las defensas térmicas de la Sala del Trono, debilitando la armadura de Malakor.
+> 
+> Con la tarea cumplida, abandonas la Sala de Máquinas por el pasadizo superior que conduce a las estancias del palacio.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 200)" CON_ACCION TRANSICIONAR_A Pagina_200`
+### `OPCION "Poner rumbo a los Aposentos Reales del Palacio" CON_ACCION TRANSICIONAR_A Pagina_138`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_200|📺 Pagina_200]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 201)" CON_ACCION TRANSICIONAR_A Pagina_201`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_138|📺 Pagina_138]]
+### `OPCION "Ir directamente a la Sala del Trono a combatir a Malakor debilitado" CON_ACCION TRANSICIONAR_A Pagina_177`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_201|📺 Pagina_201]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_177|📺 Pagina_177]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_199["Pantalla: Pagina_199"]
-    P_Pagina_199 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_200["Pantalla: Pagina_200"]
-    P_Pagina_199 -->|"Avanzar por el túnel de la der..."| P_Pagina_201["Pantalla: Pagina_201"]
+    P_Pagina_199 -->|"Poner rumbo a los Aposentos Re..."| P_Pagina_138["Pantalla: Pagina_138"]
+    P_Pagina_199 -->|"Ir directamente a la Sala del ..."| P_Pagina_177["Pantalla: Pagina_177"]
 ```

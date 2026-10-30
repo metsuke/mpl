@@ -1,25 +1,29 @@
 # 📺 Nodo Pantalla: `Pagina_303`
 
-[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_06_santuario_olvidado_mpl|📄 sample/eligejuego-code/capitulo_06_santuario_olvidado.mpl]]
+[[Index|⬅️ Índice]] | Fichero Origen: [[sample_eligejuego-code_capitulo_16_mpl|📄 sample/eligejuego-code/capitulo_16.mpl]]
 
 **Narrativa y Encabezado:**
-> Página 303: El Santuario Olvidado
+> PÁGINA 303: EL ALTAR DEL NÚCLEO DE ÉTER
 > 
-> Estatuas de reyes olvidados con los ojos tapados custodian tomos enmohecidos y altares rúnicos. Te encuentras ante una encrucijada en la penumbra de la mazmorra. Debes tomar una decisión.
+> Te aproximas a la columna de plasma del Núcleo de Éter en el centro de la nave. El campo de fuerza vibra con una intensidad cegadora que hace flotar los fragmentos de piedra a tu alrededor.
+> 
+> Sujetas tu Brazal de Convergencia frente al conector principal. La interfaz te solicita confirmar el inicio de la secuencia de Purga Cronal para estabilizar las 600 Cámaras de Aethelgard.
+> 
+> Puedes iniciar la Purga directamente o analizar la firma de datos del conector con la información del disco de Malakor.
 
 ## 📋 Desglose de Instrucciones de Opciones
-### `OPCION "Tomar el pasaje de la izquierda (Página 304)" CON_ACCION TRANSICIONAR_A Pagina_304`
+### `OPCION "Iniciar la Purga Cronal directamente en el conector del Núcleo" CON_ACCION TRANSICIONAR_A Pagina_289`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_304|📺 Pagina_304]]
-### `OPCION "Avanzar por el túnel de la derecha (Página 305)" CON_ACCION TRANSICIONAR_A Pagina_305`
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_289|📺 Pagina_289]]
+### `OPCION "Analizar la firma del conector con los datos del disco de Malakor" CON_ACCION TRANSICIONAR_A Pagina_283`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_305|📺 Pagina_305]]
+* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_Pagina_283|📺 Pagina_283]]
 
 ## 📊 Diagrama de Flujo e Interacción (Mermaid)
 
 ```mermaid
 graph LR
     P_Pagina_303["Pantalla: Pagina_303"]
-    P_Pagina_303 -->|"Tomar el pasaje de la izquierd..."| P_Pagina_304["Pantalla: Pagina_304"]
-    P_Pagina_303 -->|"Avanzar por el túnel de la der..."| P_Pagina_305["Pantalla: Pagina_305"]
+    P_Pagina_303 -->|"Iniciar la Purga Cronal direct..."| P_Pagina_289["Pantalla: Pagina_289"]
+    P_Pagina_303 -->|"Analizar la firma del conector..."| P_Pagina_283["Pantalla: Pagina_283"]
 ```
