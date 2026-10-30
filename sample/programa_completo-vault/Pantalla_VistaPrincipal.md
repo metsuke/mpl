@@ -7,7 +7,7 @@
 ## 📋 Desglose de Instrucciones de Opciones
 ### `OPCION "Procesar Pruebas Capa 1 (Imperativo)" CON_ACCION EjecutarPruebaC1`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
-* **Efecto de Control:** Invocación imperativa a [[Funcion_EjecutarPruebaC1|🛠️ EjecutarPruebaC1]]
+* **Efecto de Control:** Invoca [[Funcion_EjecutarPruebaC1|🛠️ EjecutarPruebaC1]]
 ### `OPCION "Cambiar Estado Capa 2 (Objetos/Eventos)" CON_ACCION ModificarEstadoRecurso`
 * **Instrucción:** `OPCION` *(Manual: Mapea una entrada o botón interactivo de usuario. Vincular una acción como la invocación de una función C1, un método C2 o una transición C3.)*
 * **Efecto de Control:** Ejecuta el método/acción `ModificarEstadoRecurso`

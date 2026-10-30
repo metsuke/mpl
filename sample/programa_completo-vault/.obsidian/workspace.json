@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pantalla_VistaPrincipal.md",
+                "file": "Index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Pantalla_VistaPrincipal"
+              "title": "Index"
             }
           }
         ]
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Pantalla_VistaPrincipal.md",
+                "file": "Index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Pantalla_VistaPrincipal.md",
+                "file": "Index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pantalla_VistaPrincipal.md",
+                "file": "Index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -190,13 +190,13 @@
   },
   "active": "0b3fa8d5a90fb642",
   "lastOpenFiles": [
+    "Pantalla_VistaPrincipal.md",
     "Index.md",
     "sample_programa_completo-code_c3_pantallas_mpl.md",
     "Pantalla_VistaSecundaria.md",
     "sample_programa_completo-code_c2_objetos_mpl.md",
     "Objeto_GestorRecursos.md",
     "sample_programa_completo_mpl.md",
-    "Funcion_EjecutarPruebaC1.md",
-    "Pantalla_VistaPrincipal.md"
+    "Funcion_EjecutarPruebaC1.md"
   ]
 }

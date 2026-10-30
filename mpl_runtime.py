@@ -5,8 +5,10 @@ Autor: Metsuke / MetsuOS Project
 Descripción: Runtime asíncrono basado en cola FIFO y parser AST para ejecutar MPL (.mpl).
 Sustenta Modo Oscuro WCAG AAA nativo en Tkinter con diálogos modales centrados.
 Soporta importación modular en racimo restringida a la subcarpeta <facade>-code,
-emisión de grafo JSON completo para IA y generación automática de Bóveda Obsidian
-en <facade>-vault/ con grafos Mermaid interactivos y documentación ATÓMICA línea a línea con 'man'.
+emisión de grafo JSON completo para IA y generación dinámica de:
+  - Bóveda del Proyecto (<facade>-vault/)
+  - Bóveda de Especificación del Lenguaje en la raíz (mpl-spec-vault/)
+  - Archivo de Skill / System Prompt para IA en la raíz (mpl_spec_skill.md)
 """
 
 import sys
@@ -117,7 +119,147 @@ MAN_PAGES = {
 
 
 # =====================================================================
-# 1. ESTRUCTURAS DE DATOS NATIVAS Y AST
+# 1. GENERADORES DINÁMICOS DE ESPECIFICACIÓN (VAULT & IA SKILL)
+# =====================================================================
+
+class MPLSpecDocGenerator:
+    """Genera dinámicamente la Bóveda de la Especificación MPL y la Skill de IA en la raíz."""
+
+    @staticmethod
+    def generar_especificaciones_raiz(root_dir):
+        os.makedirs(root_dir, exist_ok=True)
+        
+        # 1. Generación de la Bóveda de Obsidian para la Especificación (mpl-spec-vault/)
+        vault_spec_dir = os.path.join(root_dir, "mpl-spec-vault")
+        os.makedirs(vault_spec_dir, exist_ok=True)
+
+        # Index.md del Vault de la Spec
+        with open(os.path.join(vault_spec_dir, "Index.md"), "w", encoding="utf-8") as f:
+            f.write("# 📐 Bóveda de Especificación Oficial de MPL (v0.1.0-alpha)\n\n")
+            f.write("Documentación de referencia del lenguaje para desarrolladores y mantenimiento del kernel.\n\n")
+            f.write("## 📚 Secciones de la Especificación\n")
+            f.write("* [[01_Arquitectura_Capas|🏛️ 01. Arquitectura en 3 Capas (C1, C2, C3)]]\n")
+            f.write("* [[02_Gramatica_EBNF|🔤 02. Gramática EBNF y Sintaxis]]\n")
+            f.write("* [[03_Estructuras_Datos|🥞 03. Estructuras de Datos Nativas (PILA)]]\n")
+            f.write("* [[04_Manual_Instrucciones|📖 04. Manual Completo de Instrucciones ('man')]]\n")
+            f.write("* [[05_Modelo_Fachada|🏰 05. Modelo de Importación Fachada e Importación en Racimo]]\n")
+
+        # 01_Arquitectura_Capas.md
+        with open(os.path.join(vault_spec_dir, "01_Arquitectura_Capas.md"), "w", encoding="utf-8") as f:
+            f.write("# 🏛️ Arquitectura de MPL en 3 Capas\n\n")
+            f.write("[[Index|⬅️ Volver al Índice]]\n\n")
+            f.write("MPL organiza el software desacoplando la interfaz, el estado y el algoritmo imperativo:\n\n")
+            f.write("* **Capa 3 (Interfaz & Vistas - `PANTALLA`):** Define el árbol de navegación visual y mapea opciones con acciones.\n")
+            f.write("* **Capa 2 (Dominio & Estado - `OBJETO_CONCEPTUAL`):** Modela la lógica del problema, propiedades mutables (`ESTADO.*`) y métodos.\n")
+            f.write("* **Capa 1 (Imperativa Estricta - `FUNCION`):** Funciones puras de bajo nivel para procesamiento y transformaciones sintácticas.\n")
+
+        # 02_Gramatica_EBNF.md
+        with open(os.path.join(vault_spec_dir, "02_Gramatica_EBNF.md"), "w", encoding="utf-8") as f:
+            f.write("# 🔤 Gramática Formal EBNF de MPL\n\n")
+            f.write("[[Index|⬅️ Volver al Índice]]\n\n")
+            f.write("```ebnf\n")
+            f.write("Programa        ::= ( Importacion | Pantalla | ObjetoConcept | Funcion )*\n")
+            f.write('Importacion     ::= "IMPORTAR" "\"" RutaRelativa "\""\n')
+            f.write('Pantalla        ::= "PANTALLA" Cadena ":" Encabezado Opcion*\n')
+            f.write('Encabezado      ::= "ENCABEZADO:" "\"" Texto "\""\n')
+            f.write('Opcion          ::= "OPCION" "\"" Texto "\"" "CON_ACCION" Accion\n')
+            f.write('Accion          ::= "TRANSICIONAR_A" Identificador | Identificador\n')
+            f.write('ObjetoConcept   ::= "OBJETO_CONCEPTUAL" Identificador ":" Propiedades Interacciones\n')
+            f.write('Propiedades     ::= "PROPIEDADES:" ( Identificador ":" ( ValorPrimitivo | "PILA" ) )*\n')
+            f.write('Interacciones   ::= "INTERACCIONES:" Metodo*\n')
+            f.write('Metodo          ::= "METODO" Identificador "():" Sentencia*\n')
+            f.write('Funcion         ::= "FUNCION" Identificador "(" Parametros "):" Sentencia* "FIN_FUNCION"\n')
+            f.write("```\n")
+
+        # 03_Estructuras_Datos.md
+        with open(os.path.join(vault_spec_dir, "03_Estructuras_Datos.md"), "w", encoding="utf-8") as f:
+            f.write("# 🥞 Estructuras de Datos Nativas\n\n")
+            f.write("[[Index|⬅️ Volver al Índice]]\n\n")
+            f.write("## La Estructura PILA (LIFO)\n")
+            f.write("MPL incluye una implementación nativa de PILA integrada en la Capa 2:\n")
+            f.write("* **Declaración:** `<propiedad>: PILA` dentro de `PROPIEDADES:`\n")
+            f.write("* **Apilar / Push:** `ESTADO.<pila>.APILAR(<valor>)` o `ESTADO.<pila>.PUSH(<valor>)`\n")
+
+        # 04_Manual_Instrucciones.md
+        with open(os.path.join(vault_spec_dir, "04_Manual_Instrucciones.md"), "w", encoding="utf-8") as f:
+            f.write("# 📖 Manual Completo de Instrucciones ('man')\n\n")
+            f.write("[[Index|⬅️ Volver al Índice]]\n\n")
+            f.write("| Instrucción / Palabra Clave | Capa | Sintaxis | Descripción |\n")
+            f.write("| :--- | :--- | :--- | :--- |\n")
+            for kw, info in MAN_PAGES.items():
+                f.write(f"| `{kw}` | {info['capa']} | `{info['sintaxis']}` | {info['descripcion']} |\n")
+
+        # 05_Modelo_Fachada.md
+        with open(os.path.join(vault_spec_dir, "05_Modelo_Fachada.md"), "w", encoding="utf-8") as f:
+            f.write("# 🏰 Modelo Fachada e Importación en Racimo\n\n")
+            f.write("[[Index|⬅️ Volver al Índice]]\n\n")
+            f.write("Para evitar caos en proyectos grandes, MPL obliga al siguiente patrón de archivos:\n\n")
+            f.write("```\n")
+            f.write("mi_proyecto/\n")
+            f.write("├── mi_programa.mpl              # Archivo Fachada Principal\n")
+            f.write("├── mi_programa-code/            # ÚNICO directorio autorizado para sub-ficheros\n")
+            f.write("│   ├── capa3_vistas.mpl\n")
+            f.write("│   ├── capa2_estado.mpl\n")
+            f.write("│   └── sub_modulos/\n")
+            f.write("│       └── capa1_helpers.mpl\n")
+            f.write("├── mi_programa-vault/           # Bóveda de Obsidian autogenerada del Proyecto\n")
+            f.write("└── mi_programa.graph.json       # Grafo JSON de dependencias para IA\n")
+            f.write("```\n")
+
+        print(f"[Spec Generator] Bóveda de la Especificación MPL actualizada en: {vault_spec_dir}")
+
+        # 2. Generación del Archivo de Skill / System Prompt para IA (mpl_spec_skill.md)
+        skill_file = os.path.join(root_dir, "mpl_spec_skill.md")
+        with open(skill_file, "w", encoding="utf-8") as f:
+            f.write("# 🤖 AI Agent Skill & Spec Context: Metsu Programming Language (MPL)\n\n")
+            f.write("> **ROL Y RESTRICCIÓN PARA LA IA:**\n")
+            f.write("> Eres un programador experto en Metsu Programming Language (MPL). Tu ÚNICO objetivo es generar código MPL sintácticamente correcto. ")
+            f.write("Tienes **ESTRICTAMENTE PROHIBIDO** usar palabras clave, comandos o estructuras sintácticas ajenas a las definidas en este documento.\n\n")
+            f.write("## 1. REGLAS DE ORO DE SINTAXIS\n")
+            f.write("1. **Capa 3 (Pantallas):** Toda pantalla inicia con `PANTALLA <Nombre>:`, seguida de `ENCABEZADO: \"...\"` y opciones `OPCION \"<Texto>\" CON_ACCION <Accion>`.\n")
+            f.write("2. **Transiciones:** Para cambiar de pantalla se usa ÚNICAMENTE `TRANSICIONAR_A <PantallaDestino>`.\n")
+            f.write("3. **Capa 2 (Objetos Conceptuales):** Inicia con `OBJETO_CONCEPTUAL <Nombre>:`, sección `PROPIEDADES:` e `INTERACCIONES:`.\n")
+            f.write("4. **Mutación de Estado:** Para modificar una variable de un objeto dentro de sus métodos se usa OBLIGATORIAMENTE `ESTADO.<propiedad> = <valor>`.\n")
+            f.write("5. **Estructura PILA:** Se declara `<nombre>: PILA` y se manipula con `ESTADO.<pila>.APILAR(<valor>)`.\n")
+            f.write("6. **Capa 1 (Funciones):** Se declara `FUNCION <nombre>(<params>):`, las líneas de salida usan `Imprimir(\"...\")` o `MOSTRAR \"...\"` y termina obligatoriamente en `FIN_FUNCION`.\n")
+            f.write("7. **Importaciones:** Solo se usa `IMPORTAR \"<fichero_relativo>.mpl\"`. Las rutas deben apuntar a ficheros dentro de `<facade>-code/`.\n\n")
+
+            f.write("## 2. DICCIONARIO DE PALABRAS CLAVE AUTORIZADAS (MANUAL KERNEL)\n\n")
+            f.write("```json\n")
+            f.write(json.dumps(MAN_PAGES, indent=2, ensure_ascii=False))
+            f.write("\n```\n\n")
+
+            f.write("## 3. EJEMPLO CANÓNICO COMPLETO DE CÓDIGO MPL\n\n```mpl\n")
+            f.write("// Capa 3: Pantallas\n")
+            f.write('PANTALLA Inicio:\n')
+            f.write('    ENCABEZADO: "Sistema MetsoOS MPL"\n')
+            f.write('    OPCION "Procesar Datos" CON_ACCION EjecutarCalculo\n')
+            f.write('    OPCION "Ir a Ajustes" CON_ACCION TRANSICIONAR_A Ajustes\n\n')
+            f.write('PANTALLA Ajustes:\n')
+            f.write('    ENCABEZADO: "Configuración"\n')
+            f.write('    OPCION "Volver al Inicio" CON_ACCION TRANSICIONAR_A Inicio\n\n')
+            f.write("// Capa 2: Objetos Conceptuales\n")
+            f.write('OBJETO_CONCEPTUAL GestorProceso:\n')
+            f.write('    PROPIEDADES:\n')
+            f.write('        contador: 0\n')
+            f.write('        historial: PILA\n')
+            f.write('    INTERACCIONES:\n')
+            f.write('        METODO EjecutarCalculo():\n')
+            f.write('            ESTADO.contador = 1\n')
+            f.write('            ESTADO.historial.APILAR("Calculo_1")\n')
+            f.write('            MOSTRAR "Cálculo ejecutado exitosamente"\n\n')
+            f.write("// Capa 1: Funciones Imperativas\n")
+            f.write('FUNCION AuxiliarCalculo(val):\n')
+            f.write('    Imprimir("Procesando auxiliar")\n')
+            f.write('    RETORNAR Verdadero\n')
+            f.write('FIN_FUNCION\n')
+            f.write("```\n")
+
+        print(f"[Spec Generator] Archivo de Skill para IA actualizado en: {skill_file}")
+
+
+# =====================================================================
+# 2. ESTRUCTURAS DE DATOS NATIVAS Y AST
 # =====================================================================
 
 class MPLStack:
@@ -178,7 +320,7 @@ class FuncionNode(ASTNode):
 
 
 # =====================================================================
-# 2. PARSER Y GENERADOR DE VAULT OBSIDIAN (DESGLOSE ATÓMICO)
+# 3. PARSER Y GENERADOR DE VAULTRY & SKILL
 # =====================================================================
 
 class MPLParser:
@@ -493,7 +635,7 @@ class MPLParser:
                     return kw, info
             return None, None
 
-        # 1. Index.md - Mapa General y Manual de Referencia
+        # 1. Index.md - Mapa General de Navegación de la Bóveda del Proyecto
         index_path = os.path.join(ruta_vault, "Index.md")
         with open(index_path, "w", encoding="utf-8") as f:
             f.write(f"# 🗺️ Arquitectura e Índice de Bóveda Atómica: `{nombre_base}`\n\n")
@@ -550,7 +692,6 @@ class MPLParser:
                     kw, info = buscar_man_page(l_str)
                     man_col = f"**{kw}**: {info['descripcion']}" if info else "Instrucción de asignación / Comentario"
                     
-                    # Escape para tabla de Markdown
                     code_escaped = l_str.replace("|", "\\|")
                     f.write(f"| `{num_linea}` | `{code_escaped}` | Invocación imperativa o declaración de DSL | {man_col} |\n")
                     num_linea += 1
@@ -575,7 +716,7 @@ class MPLParser:
                         dest = op_accion.split()[1]
                         f.write(f"* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_{dest}|📺 {dest}]] *(Manual: {MAN_PAGES['TRANSICIONAR_A']['descripcion']})*\n")
                     elif op_accion in self.program.funciones:
-                        f.write(f"* **Efecto de Control:** Invocación imperativa a [[Funcion_{op_accion}|🛠️ {op_accion}]]\n")
+                        f.write(f"* **Efecto de Control:** Invoca [[Funcion_{op_accion}|🛠️ {op_accion}]]\n")
                     else:
                         f.write(f"* **Efecto de Control:** Ejecuta el método/acción `{op_accion}`\n")
 
@@ -638,7 +779,7 @@ class MPLParser:
 
 
 # =====================================================================
-# 3. MOTOR DE EVENTOS ASÍNCRONO (EVENT LOOP FIFO) Y RUNTIME
+# 4. MOTOR DE EVENTOS ASÍNCRONO (EVENT LOOP FIFO) Y RUNTIME
 # =====================================================================
 
 class MPLRuntime:
@@ -720,7 +861,6 @@ class MPLRuntime:
                 print("\n[MPL Runtime] Ejecución finalizada correctamente.")
 
     def ejecutar_accion(self, accion):
-        # Interpretación y resolución de transiciones de pantalla en Capa 3
         if accion.startswith("TRANSICIONAR_A "):
             destino = accion.split()[1]
             if destino in self.ast.pantallas:
@@ -807,7 +947,7 @@ class MPLRuntime:
 
 
 # =====================================================================
-# 4. DRIVERS DE INTERFAZ DE USUARIO (CAPA 3) - DARK MODE WCAG AAA
+# 5. DRIVERS DE INTERFAZ DE USUARIO (CAPA 3) - DARK MODE WCAG AAA
 # =====================================================================
 
 class CLIDriver:
@@ -1036,7 +1176,7 @@ class GUIDriver:
 
 
 # =====================================================================
-# 5. PUNTO DE ENTRADA CON PASO DE PARÁMETROS POR LÍNEA DE COMANDOS
+# 6. PUNTO DE ENTRADA CON PASO DE PARÁMETROS POR LÍNEA DE COMANDOS
 # =====================================================================
 
 def resolver_ruta_fichero():
@@ -1062,6 +1202,10 @@ if __name__ == "__main__":
     ruta_fichero = resolver_ruta_fichero()
     print(f"[Cargador MPL] Carga iniciada desde: {os.path.basename(ruta_fichero)}")
     
+    # 0. Generar Especificaciones Oficiales de MPL en la Raíz del Proyecto
+    raiz_proyecto = os.path.dirname(os.path.abspath(__file__))
+    MPLSpecDocGenerator.generar_especificaciones_raiz(raiz_proyecto)
+
     parser = MPLParser()
     ast_programa = parser.parse_fichero_facade(ruta_fichero)
 
@@ -1073,7 +1217,7 @@ if __name__ == "__main__":
     ruta_grafo = ruta_fichero.replace(".mpl", ".graph.json")
     parser.exportar_grafo_disco(ruta_grafo)
 
-    # 2. Generar Bóveda de Obsidian en <facade>-vault/ desglosada INSTRUCCIÓN POR INSTRUCCIÓN
+    # 2. Generar Bóveda del Proyecto en <facade>-vault/ desglosada INSTRUCCIÓN POR INSTRUCCIÓN
     parser.generar_vault_obsidian(ruta_fichero)
 
     print("\nSeleccione el modo de renderizado UI:")
