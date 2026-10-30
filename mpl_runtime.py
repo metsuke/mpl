@@ -9,6 +9,7 @@ emisión de grafo JSON completo para IA y generación dinámica de:
   - Bóveda del Proyecto (<facade>-vault/)
   - Bóveda de Especificación del Lenguaje en la raíz (mpl-spec-vault/)
   - Archivo de Skill / System Prompt para IA en la raíz (mpl_spec_skill.md)
+Incluye renderizado adaptativo multilínea y scroll vertical dinámico en GUI y CLI.
 """
 
 import sys
@@ -16,6 +17,8 @@ import os
 import re
 import time
 import json
+import shutil
+import textwrap
 from collections import deque
 import tkinter as tk
 from tkinter import scrolledtext
@@ -129,11 +132,9 @@ class MPLSpecDocGenerator:
     def generar_especificaciones_raiz(root_dir):
         os.makedirs(root_dir, exist_ok=True)
         
-        # 1. Generación de la Bóveda de Obsidian para la Especificación (mpl-spec-vault/)
         vault_spec_dir = os.path.join(root_dir, "mpl-spec-vault")
         os.makedirs(vault_spec_dir, exist_ok=True)
 
-        # Index.md del Vault de la Spec
         with open(os.path.join(vault_spec_dir, "Index.md"), "w", encoding="utf-8") as f:
             f.write("# 📐 Bóveda de Especificación Oficial de MPL (v0.1.0-alpha)\n\n")
             f.write("Documentación de referencia del lenguaje para desarrolladores y mantenimiento del kernel.\n\n")
@@ -144,7 +145,6 @@ class MPLSpecDocGenerator:
             f.write("* [[04_Manual_Instrucciones|📖 04. Manual Completo de Instrucciones ('man')]]\n")
             f.write("* [[05_Modelo_Fachada|🏰 05. Modelo de Importación Fachada e Importación en Racimo]]\n")
 
-        # 01_Arquitectura_Capas.md
         with open(os.path.join(vault_spec_dir, "01_Arquitectura_Capas.md"), "w", encoding="utf-8") as f:
             f.write("# 🏛️ Arquitectura de MPL en 3 Capas\n\n")
             f.write("[[Index|⬅️ Volver al Índice]]\n\n")
@@ -153,7 +153,6 @@ class MPLSpecDocGenerator:
             f.write("* **Capa 2 (Dominio & Estado - `OBJETO_CONCEPTUAL`):** Modela la lógica del problema, propiedades mutables (`ESTADO.*`) y métodos.\n")
             f.write("* **Capa 1 (Imperativa Estricta - `FUNCION`):** Funciones puras de bajo nivel para procesamiento y transformaciones sintácticas.\n")
 
-        # 02_Gramatica_EBNF.md
         with open(os.path.join(vault_spec_dir, "02_Gramatica_EBNF.md"), "w", encoding="utf-8") as f:
             f.write("# 🔤 Gramática Formal EBNF de MPL\n\n")
             f.write("[[Index|⬅️ Volver al Índice]]\n\n")
@@ -171,7 +170,6 @@ class MPLSpecDocGenerator:
             f.write('Funcion         ::= "FUNCION" Identificador "(" Parametros "):" Sentencia* "FIN_FUNCION"\n')
             f.write("```\n")
 
-        # 03_Estructuras_Datos.md
         with open(os.path.join(vault_spec_dir, "03_Estructuras_Datos.md"), "w", encoding="utf-8") as f:
             f.write("# 🥞 Estructuras de Datos Nativas\n\n")
             f.write("[[Index|⬅️ Volver al Índice]]\n\n")
@@ -180,7 +178,6 @@ class MPLSpecDocGenerator:
             f.write("* **Declaración:** `<propiedad>: PILA` dentro de `PROPIEDADES:`\n")
             f.write("* **Apilar / Push:** `ESTADO.<pila>.APILAR(<valor>)` o `ESTADO.<pila>.PUSH(<valor>)`\n")
 
-        # 04_Manual_Instrucciones.md
         with open(os.path.join(vault_spec_dir, "04_Manual_Instrucciones.md"), "w", encoding="utf-8") as f:
             f.write("# 📖 Manual Completo de Instrucciones ('man')\n\n")
             f.write("[[Index|⬅️ Volver al Índice]]\n\n")
@@ -189,7 +186,6 @@ class MPLSpecDocGenerator:
             for kw, info in MAN_PAGES.items():
                 f.write(f"| `{kw}` | {info['capa']} | `{info['sintaxis']}` | {info['descripcion']} |\n")
 
-        # 05_Modelo_Fachada.md
         with open(os.path.join(vault_spec_dir, "05_Modelo_Fachada.md"), "w", encoding="utf-8") as f:
             f.write("# 🏰 Modelo Fachada e Importación en Racimo\n\n")
             f.write("[[Index|⬅️ Volver al Índice]]\n\n")
@@ -208,7 +204,6 @@ class MPLSpecDocGenerator:
 
         print(f"[Spec Generator] Bóveda de la Especificación MPL actualizada en: {vault_spec_dir}")
 
-        # 2. Generación del Archivo de Skill / System Prompt para IA (mpl_spec_skill.md)
         skill_file = os.path.join(root_dir, "mpl_spec_skill.md")
         with open(skill_file, "w", encoding="utf-8") as f:
             f.write("# 🤖 AI Agent Skill & Spec Context: Metsu Programming Language (MPL)\n\n")
@@ -320,7 +315,7 @@ class FuncionNode(ASTNode):
 
 
 # =====================================================================
-# 3. PARSER Y GENERADOR DE VAULTRY & SKILL
+# 3. PARSER Y GENERADOR DE VAULT OBSIDIAN
 # =====================================================================
 
 class MPLParser:
@@ -478,22 +473,37 @@ class MPLParser:
         node = PantallaNode(nombre)
         cursor += 1
 
+        encabezado_acumulado = []
+        en_encabezado = False
+
         while cursor < len(lines):
             line = lines[cursor]
             if line.startswith("PANTALLA ") or line.startswith("OBJETO_CONCEPTUAL ") or line.startswith("FUNCION ") or line.startswith("IMPORTAR "):
                 break
             
             if line.startswith("ENCABEZADO:"):
-                node.encabezado = line.split(":", 1)[1].strip().strip('"')
+                en_encabezado = True
+                resto = line.split(":", 1)[1].strip()
+                if resto.startswith('"'): resto = resto[1:]
+                if resto.endswith('"'): resto = resto[:-1]
+                encabezado_acumulado.append(resto)
+            elif en_encabezado and not line.startswith("OPCION ") and not line.startswith("CUANDO "):
+                limpia = line.strip()
+                if limpia.endswith('"'): limpia = limpia[:-1]
+                encabezado_acumulado.append(limpia)
             elif line.startswith("OPCION "):
+                en_encabezado = False
                 match = re.match(r'OPCION\s+"([^"]+)"\s+CON_ACCION\s+(.+)', line)
                 if match:
                     node.opciones.append((match.group(1).strip(), match.group(2).strip()))
             elif line.startswith("CUANDO "):
+                en_encabezado = False
                 match = re.match(r'CUANDO\s+(\w+)\(([^)]+)\):\s*(.*)', line)
                 if match:
                     node.eventos[f"{match.group(1)}:{match.group(2)}"] = match.group(3).strip()
             cursor += 1
+
+        node.encabezado = "\n".join(encabezado_acumulado).replace("\\n", "\n").strip()
         return cursor, node
 
     def _parse_objeto(self):
@@ -635,7 +645,7 @@ class MPLParser:
                     return kw, info
             return None, None
 
-        # 1. Index.md - Mapa General de Navegación de la Bóveda del Proyecto
+        # 1. Index.md
         index_path = os.path.join(ruta_vault, "Index.md")
         with open(index_path, "w", encoding="utf-8") as f:
             f.write(f"# 🗺️ Arquitectura e Índice de Bóveda Atómica: `{nombre_base}`\n\n")
@@ -669,7 +679,7 @@ class MPLParser:
                     f.write(f"    {node_id} -->|IMPORTAR| {imp_id}\n")
             f.write("```\n")
 
-        # 2. Documento por Fichero con Análisis LÍNEA POR LÍNEA e Instrucción por Instrucción
+        # 2. Documento por Fichero
         for rel_path, data in self.program.mapa_grafo.items():
             doc_name = sanitizar_nombre(rel_path) + ".md"
             doc_path = os.path.join(ruta_vault, doc_name)
@@ -700,13 +710,15 @@ class MPLParser:
                 f.write(data["codigo_completo"])
                 f.write("\n```\n")
 
-        # 3. Documento Nodo Nodal para cada PANTALLA (C3)
+        # 3. Documento Nodo para cada PANTALLA
         for p_nombre, (p_node, orig) in self.program.pantallas.items():
             doc_path = os.path.join(ruta_vault, f"Pantalla_{p_nombre}.md")
             with open(doc_path, "w", encoding="utf-8") as f:
                 f.write(f"# 📺 Nodo Pantalla: `{p_nombre}`\n\n")
                 f.write(f"[[Index|⬅️ Índice]] | Fichero Origen: [[{sanitizar_nombre(orig)}|📄 {orig}]]\n\n")
-                f.write(f"**Encabezado Visual:** \"{p_node.encabezado}\"\n\n")
+                
+                enc_escaped = p_node.encabezado.replace("\n", "\n> ")
+                f.write(f"**Narrativa y Encabezado:**\n> {enc_escaped}\n\n")
                 
                 f.write("## 📋 Desglose de Instrucciones de Opciones\n")
                 for op_texto, op_accion in p_node.opciones:
@@ -714,7 +726,7 @@ class MPLParser:
                     f.write(f"* **Instrucción:** `OPCION` *(Manual: {MAN_PAGES['OPCION']['descripcion']})*\n")
                     if op_accion.startswith("TRANSICIONAR_A "):
                         dest = op_accion.split()[1]
-                        f.write(f"* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_{dest}|📺 {dest}]] *(Manual: {MAN_PAGES['TRANSICIONAR_A']['descripcion']})*\n")
+                        f.write(f"* **Efecto de Control:** Dispara `TRANSICIONAR_A` hacia [[Pantalla_{dest}|📺 {dest}]]\n")
                     elif op_accion in self.program.funciones:
                         f.write(f"* **Efecto de Control:** Invoca [[Funcion_{op_accion}|🛠️ {op_accion}]]\n")
                     else:
@@ -725,12 +737,12 @@ class MPLParser:
                 for op_texto, op_accion in p_node.opciones:
                     if op_accion.startswith("TRANSICIONAR_A "):
                         dest = op_accion.split()[1]
-                        f.write(f"    P_{p_nombre} -->|\"{op_texto}\"| P_{dest}[\"Pantalla: {dest}\"]\n")
+                        f.write(f"    P_{p_nombre} -->|\"{op_texto[:30]}...\"| P_{dest}[\"Pantalla: {dest}\"]\n")
                     else:
-                        f.write(f"    P_{p_nombre} -->|\"{op_texto}\"| A_{op_accion}[\"{op_accion}\"]\n")
+                        f.write(f"    P_{p_nombre} -->|\"{op_texto[:30]}...\"| A_{op_accion}[\"{op_accion}\"]\n")
                 f.write("```\n")
 
-        # 4. Documento Nodo Nodal para cada OBJETO CONCEPTUAL (C2)
+        # 4. Documento Nodo para OBJETO
         for o_nombre, (o_node, orig) in self.program.objetos.items():
             doc_path = os.path.join(ruta_vault, f"Objeto_{o_nombre}.md")
             with open(doc_path, "w", encoding="utf-8") as f:
@@ -759,7 +771,7 @@ class MPLParser:
                     f.write(f"    O_{o_nombre} --> M_{m_nombre}[\"Método: {m_nombre}()\"]\n")
                 f.write("```\n")
 
-        # 5. Documento Nodo Nodal para cada FUNCIÓN IMPERATIVA (C1)
+        # 5. Documento Nodo para FUNCIÓN
         for f_nombre, (f_node, orig) in self.program.funciones.items():
             doc_path = os.path.join(ruta_vault, f"Funcion_{f_nombre}.md")
             with open(doc_path, "w", encoding="utf-8") as f:
@@ -947,14 +959,15 @@ class MPLRuntime:
 
 
 # =====================================================================
-# 5. DRIVERS DE INTERFAZ DE USUARIO (CAPA 3) - DARK MODE WCAG AAA
+# 5. DRIVERS DE INTERFAZ DE USUARIO (CAPA 3) - CLI Y GUI SCROLLABLE DYN
 # =====================================================================
 
 class CLIDriver:
-    """Driver para renderizar pantallas MPL en Terminal con contraste ANSI AAA."""
+    """Driver para renderizar pantallas MPL en Terminal con crecimiento vertical dinámico."""
     CYAN_BOLD = "\033[1;36m"
     YELLOW_BOLD = "\033[1;33m"
     GREEN_BOLD = "\033[1;32m"
+    WHITE_BOLD = "\033[1;37m"
     RESET = "\033[0m"
 
     def __init__(self, runtime):
@@ -964,7 +977,7 @@ class CLIDriver:
         print(mensaje)
 
     def notificar_fin_accion(self, resumen_mensaje):
-        print("\n" + "-" * 60)
+        print("\n" + "-" * 70)
         input(f"{self.YELLOW_BOLD}Presione ENTER para continuar...{self.RESET}")
         if self.runtime.pantalla_actual and self.runtime.pantalla_actual in self.runtime.ast.pantallas:
             item = self.runtime.ast.pantallas[self.runtime.pantalla_actual]
@@ -972,14 +985,32 @@ class CLIDriver:
             self.renderizar_pantalla(pantalla_node)
 
     def renderizar_pantalla(self, nodo_pantalla):
-        print("\n" + "=" * 60)
-        print(f"   {self.CYAN_BOLD}{nodo_pantalla.encabezado or nodo_pantalla.nombre}{self.RESET}")
-        print("=" * 60)
+        ancho_terminal = min(shutil.get_terminal_size((80, 24)).columns - 2, 100)
+        
+        print("\n" + "=" * ancho_terminal)
+        
+        texto_encabezado = nodo_pantalla.encabezado or nodo_pantalla.nombre
+        parrafos = texto_encabezado.split("\n")
+        
+        for p in parrafos:
+            p_clean = p.strip()
+            if not p_clean:
+                print()
+                continue
+            lineas_envueltas = textwrap.wrap(p_clean, width=ancho_terminal)
+            for line in lineas_envueltas:
+                print(f" {self.WHITE_BOLD}{line}{self.RESET}")
+                
+        print("=" * ancho_terminal)
         
         for idx, (opcion_texto, _) in enumerate(nodo_pantalla.opciones, 1):
-            print(f" [{self.GREEN_BOLD}{idx}{self.RESET}] {opcion_texto}")
-        print(" [0] Salir de la aplicación")
-        print("-" * 60)
+            opcion_fmt = f" [{idx}] {opcion_texto}"
+            lineas_opcion = textwrap.wrap(opcion_fmt, width=ancho_terminal, subsequent_indent="     ")
+            for l_op in lineas_opcion:
+                print(f"{self.GREEN_BOLD}{l_op}{self.RESET}")
+                
+        print(f" [{self.YELLOW_BOLD}0{self.RESET}] Salir de la aplicación")
+        print("-" * ancho_terminal)
         
         try:
             opcion = input("Seleccione una opción: ").strip()
@@ -998,18 +1029,17 @@ class CLIDriver:
 class GUIDriver:
     """
     Driver Tkinter en Modo Oscuro Estricto (WCAG AAA Compliant):
-    - Soluciona la posición del MessageBox (centrado dinámico sobre la ventana activa).
-    - Paleta Dark Mode: Fondo #121212, Contenedores #1E1E1E, Texto #FFFFFF.
-    - Botones en Azul Cobalto (#0D47A1) y Salida en Rojo (#B71C1C).
+    - Soporta contenedores con scrollbar dinámico para textos narrativos extensos.
+    - Evita que los encabezados o botones con explicaciones largas se corten.
     """
     DARK_BG = "#121212"            # Fondo principal oscuro
     PANEL_BG = "#1E1E1E"           # Fondo de paneles
-    TEXT_MAIN = "#FFFFFF"          # Texto principal blanco puro (Contraste 21:1)
-    ACCENT_CYAN = "#00E5FF"        # Borde y resaltado cian
+    TEXT_MAIN = "#FFFFFF"          # Texto principal blanco puro
+    ACCENT_CYAN = "#00E5FF"        # Resaltado cian
     
-    BTN_BG = "#0D47A1"             # Azul cobalto botones
-    BTN_HOVER = "#1565C0"          # Hover botones
-    BTN_EXIT = "#B71C1C"           # Rojo oscuro salir
+    BTN_BG = "#0D47A1"             # Azul cobalto
+    BTN_HOVER = "#1565C0"          # Hover azul
+    BTN_EXIT = "#B71C1C"           # Rojo salir
     BTN_EXIT_HOVER = "#D32F2F"     # Hover salir
 
     CONSOLE_BG = "#000000"        # Fondo consola
@@ -1019,10 +1049,10 @@ class GUIDriver:
         self.runtime = runtime
         self.root = tk.Tk()
         self.root.title("MetsuOS - MPL Runtime (Dark Mode WCAG AAA)")
-        self.root.geometry("720x640")
+        self.root.geometry("860x760")
         self.root.configure(bg=self.DARK_BG)
         
-        # Frame Superior: Navegación de Vistas (Capa 3)
+        # Frame Superior: Navegación de Vistas y Narrativa (Capa 3)
         self.frame_views = tk.LabelFrame(
             self.root, 
             text=" Interfaz / Pantalla Activa (Capa 3) ", 
@@ -1034,9 +1064,27 @@ class GUIDriver:
             bd=2,
             relief=tk.GROOVE
         )
-        self.frame_views.pack(fill=tk.BOTH, expand=False, padx=12, pady=8)
+        self.frame_views.pack(fill=tk.BOTH, expand=True, padx=12, pady=8)
 
-        # Frame Inferior: Consola / Terminal de Trazas
+        # Contenedor escroleable para la narrativa larga
+        self.canvas = tk.Canvas(self.frame_views, bg=self.PANEL_BG, highlightthickness=0)
+        self.scrollbar = tk.Scrollbar(self.frame_views, orient="vertical", command=self.canvas.yview)
+        self.scrollable_content = tk.Frame(self.canvas, bg=self.PANEL_BG)
+
+        self.scrollable_content.bind(
+            "<Configure>",
+            lambda e: self.canvas.configure(scrollregion=self.canvas.bbox("all"))
+        )
+
+        self.canvas_frame = self.canvas.create_window((0, 0), window=self.scrollable_content, anchor="nw")
+        self.canvas.configure(yscrollcommand=self.scrollbar.set)
+
+        self.canvas.pack(side="left", fill="both", expand=True)
+        self.scrollbar.pack(side="right", fill="y")
+
+        self.root.bind("<Configure>", self._on_window_resize)
+
+        # Frame Inferior: Consola de Trazas (altura definida directamente en el widget)
         self.frame_console = tk.LabelFrame(
             self.root, 
             text=" Terminal & Event Loop (MetsuOS Runtime Log) ", 
@@ -1046,20 +1094,27 @@ class GUIDriver:
             padx=10, 
             pady=10,
             bd=2,
-            relief=tk.GROOVE
+            relief=tk.GROOVE,
+            height=180
         )
-        self.frame_console.pack(fill=tk.BOTH, expand=True, padx=12, pady=8)
+        self.frame_console.pack(fill=tk.BOTH, expand=False, padx=12, pady=8)
 
         self.console_text = scrolledtext.ScrolledText(
             self.frame_console, 
             bg=self.CONSOLE_BG, 
             fg=self.CONSOLE_FG, 
             insertbackground="#FFFFFF",
-            font=("Consolas", 11, "bold")
+            font=("Consolas", 10, "bold"),
+            height=6
         )
         self.console_text.pack(fill=tk.BOTH, expand=True)
 
-        self.log("[Runtime Dark Mode] Interfaz de alta accesibilidad inicializada.\n")
+        self.log("[Runtime Dark Mode] Interfaz adaptativa de alta accesibilidad inicializada.\n")
+
+    def _on_window_resize(self, event):
+        canvas_width = self.canvas.winfo_width()
+        if canvas_width > 10:
+            self.canvas.itemconfig(self.canvas_frame, width=canvas_width - 10)
 
     def log(self, mensaje):
         """Imprime trazas directamente en la terminal integrada en pantalla."""
@@ -1072,8 +1127,8 @@ class GUIDriver:
         dialog = tk.Toplevel(self.root)
         dialog.title("Resultado - MPL")
         dialog.configure(bg=self.PANEL_BG)
-        dialog.transient(self.root)  # Dependiente de la ventana principal
-        dialog.grab_set()           # Modal: bloquea interacción con el fondo
+        dialog.transient(self.root)
+        dialog.grab_set()
 
         lbl_msg = tk.Label(
             dialog, 
@@ -1096,24 +1151,19 @@ class GUIDriver:
         )
         btn_ok.pack(pady=10, padx=40, fill=tk.X)
 
-        # Cierre por teclado (Enter o Escape)
         dialog.bind("<Return>", lambda e: dialog.destroy())
         dialog.bind("<Escape>", lambda e: dialog.destroy())
 
-        # Forzar cálculo de dimensiones de la ventana flotante
         dialog.update_idletasks()
         
-        # Geometría de la ventana principal
         root_x = self.root.winfo_x()
         root_y = self.root.winfo_y()
         root_w = self.root.winfo_width()
         root_h = self.root.winfo_height()
 
-        # Geometría del diálogo
         dialog_w = dialog.winfo_width()
         dialog_h = dialog.winfo_height()
 
-        # Cálculo de posición centrada sobre la ventana padre
         pos_x = root_x + (root_w // 2) - (dialog_w // 2)
         pos_y = root_y + (root_h // 2) - (dialog_h // 2)
 
@@ -1121,18 +1171,20 @@ class GUIDriver:
         self.root.wait_window(dialog)
 
     def _crear_boton_custom(self, parent, text, command, bg_color, hover_color):
-        """Crea un botón mediante Label para garantizar renderizado de color en macOS."""
+        """Crea un botón mediante Label para garantizar renderizado y salto de línea."""
         lbl = tk.Label(
             parent,
             text=text,
             font=("Helvetica", 11, "bold"),
             bg=bg_color,
             fg="#FFFFFF",
-            pady=8,
-            padx=10,
+            pady=10,
+            padx=12,
             cursor="hand2",
             bd=1,
-            relief=tk.RAISED
+            relief=tk.RAISED,
+            wraplength=720,
+            justify=tk.LEFT
         )
         lbl.bind("<Button-1>", lambda e: command())
         lbl.bind("<Enter>", lambda e: lbl.configure(bg=hover_color))
@@ -1140,39 +1192,43 @@ class GUIDriver:
         return lbl
 
     def renderizar_pantalla(self, nodo_pantalla):
-        for widget in self.frame_views.winfo_children():
+        for widget in self.scrollable_content.winfo_children():
             widget.destroy()
 
-        lbl_title = tk.Label(
-            self.frame_views, 
+        # Texto narrativo completo con Message multilínea
+        lbl_title = tk.Message(
+            self.scrollable_content, 
             text=nodo_pantalla.encabezado or nodo_pantalla.nombre,
-            font=("Helvetica", 13, "bold"), 
+            font=("Helvetica", 12), 
             bg=self.PANEL_BG, 
             fg=self.TEXT_MAIN, 
-            pady=8
+            width=760,
+            justify=tk.LEFT
         )
-        lbl_title.pack()
+        lbl_title.pack(fill=tk.X, pady=10, padx=5)
 
-        # Botones de Opciones
+        # Botones de Opciones con wraplength
         for opcion_texto, accion in nodo_pantalla.opciones:
             btn = self._crear_boton_custom(
-                self.frame_views,
+                self.scrollable_content,
                 text=opcion_texto,
                 command=lambda a=accion: self.runtime.encolar_evento("ACCION_OPCION", a),
                 bg_color=self.BTN_BG,
                 hover_color=self.BTN_HOVER
             )
-            btn.pack(fill=tk.X, pady=4, padx=20)
+            btn.pack(fill=tk.X, pady=6, padx=5)
 
         # Botón Salir
         btn_salir = self._crear_boton_custom(
-            self.frame_views,
+            self.scrollable_content,
             text="Salir de la Aplicación",
             command=lambda: self.runtime.encolar_evento("SALIR"),
             bg_color=self.BTN_EXIT,
             hover_color=self.BTN_EXIT_HOVER
         )
-        btn_salir.pack(fill=tk.X, pady=8, padx=20)
+        btn_salir.pack(fill=tk.X, pady=10, padx=5)
+
+        self.canvas.yview_moveto(0)
 
 
 # =====================================================================
