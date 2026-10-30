@@ -1,5 +1,17 @@
 {
     "sample/programa_completo.mpl": {
+        "ruta": "sample/programa_completo.mpl",
+        "es_facade": true,
+        "codigo_completo": "// =====================================================================\n// FACHADA PRINCIPAL (Punto de entrada único)\n// =====================================================================\n\nIMPORTAR \"c3_pantallas.mpl\"\nIMPORTAR \"c2_objetos.mpl\"\nIMPORTAR \"c1_funciones.mpl\"",
+        "lineas_desglosadas": [
+            "// =====================================================================",
+            "// FACHADA PRINCIPAL (Punto de entrada único)",
+            "// =====================================================================",
+            "",
+            "IMPORTAR \"c3_pantallas.mpl\"",
+            "IMPORTAR \"c2_objetos.mpl\"",
+            "IMPORTAR \"c1_funciones.mpl\""
+        ],
         "pantallas": [],
         "objetos": [],
         "funciones": [],
@@ -10,21 +22,53 @@
         ]
     },
     "sample/programa_completo-code/c3_pantallas.mpl": {
+        "ruta": "sample/programa_completo-code/c3_pantallas.mpl",
+        "es_facade": false,
+        "codigo_completo": "// =====================================================================\n// CAPA 3: INTERFAZ Y NAVEGACIÓN\n// =====================================================================\n\nPANTALLA VistaPrincipal:\n    ENCABEZADO: \"MetsuOS Terminal v1.0 - Menu Principal\"\n    COMPONENTE MenuOpciones:\n        OPCION \"Procesar Pruebas Capa 1 (Imperativo)\" CON_ACCION EjecutarPruebaC1\n        OPCION \"Cambiar Estado Capa 2 (Objetos/Eventos)\" CON_ACCION ModificarEstadoRecurso\n        OPCION \"Navegar a Vista Secundaria\" CON_ACCION TRANSICIONAR_A VistaSecundaria\n\nPANTALLA VistaSecundaria:\n    ENCABEZADO: \"Panel Secundario de Control\"\n    COMPONENTE MenuSecundario:\n        OPCION \"Volver al Menú Principal\" CON_ACCION TRANSICIONAR_A VistaPrincipal",
+        "lineas_desglosadas": [
+            "// =====================================================================",
+            "// CAPA 3: INTERFAZ Y NAVEGACIÓN",
+            "// =====================================================================",
+            "",
+            "PANTALLA VistaPrincipal:",
+            "    ENCABEZADO: \"MetsuOS Terminal v1.0 - Menu Principal\"",
+            "    COMPONENTE MenuOpciones:",
+            "        OPCION \"Procesar Pruebas Capa 1 (Imperativo)\" CON_ACCION EjecutarPruebaC1",
+            "        OPCION \"Cambiar Estado Capa 2 (Objetos/Eventos)\" CON_ACCION ModificarEstadoRecurso",
+            "        OPCION \"Navegar a Vista Secundaria\" CON_ACCION TRANSICIONAR_A VistaSecundaria",
+            "",
+            "PANTALLA VistaSecundaria:",
+            "    ENCABEZADO: \"Panel Secundario de Control\"",
+            "    COMPONENTE MenuSecundario:",
+            "        OPCION \"Volver al Menú Principal\" CON_ACCION TRANSICIONAR_A VistaPrincipal"
+        ],
         "pantallas": [
             {
                 "nombre": "VistaPrincipal",
                 "encabezado": "MetsuOS Terminal v1.0 - Menu Principal",
                 "opciones": [
-                    "Procesar Pruebas Capa 1 (Imperativo)",
-                    "Cambiar Estado Capa 2 (Objetos/Eventos)",
-                    "Navegar a Vista Secundaria"
+                    {
+                        "texto": "Procesar Pruebas Capa 1 (Imperativo)",
+                        "accion": "EjecutarPruebaC1"
+                    },
+                    {
+                        "texto": "Cambiar Estado Capa 2 (Objetos/Eventos)",
+                        "accion": "ModificarEstadoRecurso"
+                    },
+                    {
+                        "texto": "Navegar a Vista Secundaria",
+                        "accion": "TRANSICIONAR_A VistaSecundaria"
+                    }
                 ]
             },
             {
                 "nombre": "VistaSecundaria",
                 "encabezado": "Panel Secundario de Control",
                 "opciones": [
-                    "Volver al Menú Principal"
+                    {
+                        "texto": "Volver al Menú Principal",
+                        "accion": "TRANSICIONAR_A VistaPrincipal"
+                    }
                 ]
             }
         ],
@@ -33,6 +77,25 @@
         "importaciones": []
     },
     "sample/programa_completo-code/c2_objetos.mpl": {
+        "ruta": "sample/programa_completo-code/c2_objetos.mpl",
+        "es_facade": false,
+        "codigo_completo": "// =====================================================================\n// CAPA 2: OBJETOS CONCEPTUALES Y ESTADO\n// =====================================================================\n\nOBJETO_CONCEPTUAL GestorRecursos:\n    PROPIEDADES:\n        activo: Falso\n        contador: 0\n    INTERACCIONES:\n        METODO ModificarEstadoRecurso():\n            ESTADO.activo = Verdadero\n            ESTADO.contador = 100\n            MOSTRAR \"Estado de GestorRecursos actualizado correctamente.\"\n            DISPARAR EventoRecursoModificado",
+        "lineas_desglosadas": [
+            "// =====================================================================",
+            "// CAPA 2: OBJETOS CONCEPTUALES Y ESTADO",
+            "// =====================================================================",
+            "",
+            "OBJETO_CONCEPTUAL GestorRecursos:",
+            "    PROPIEDADES:",
+            "        activo: Falso",
+            "        contador: 0",
+            "    INTERACCIONES:",
+            "        METODO ModificarEstadoRecurso():",
+            "            ESTADO.activo = Verdadero",
+            "            ESTADO.contador = 100",
+            "            MOSTRAR \"Estado de GestorRecursos actualizado correctamente.\"",
+            "            DISPARAR EventoRecursoModificado"
+        ],
         "pantallas": [],
         "objetos": [
             {
@@ -41,21 +104,38 @@
                     "activo",
                     "contador"
                 ],
-                "metodos": [
-                    "ModificarEstadoRecurso"
-                ]
+                "metodos": {
+                    "ModificarEstadoRecurso": []
+                }
             }
         ],
         "funciones": [],
         "importaciones": []
     },
     "sample/programa_completo-code/c1_funciones.mpl": {
+        "ruta": "sample/programa_completo-code/c1_funciones.mpl",
+        "es_facade": false,
+        "codigo_completo": "// =====================================================================\n// CAPA 1: RUTINAS IMPERATIVAS\n// =====================================================================\n\nFUNCION EjecutarPruebaC1():\n    Imprimir(\"Ejecutando algoritmo de prueba imperativo en Capa 1...\")\n    RETORNAR Verdadero\nFIN_FUNCION",
+        "lineas_desglosadas": [
+            "// =====================================================================",
+            "// CAPA 1: RUTINAS IMPERATIVAS",
+            "// =====================================================================",
+            "",
+            "FUNCION EjecutarPruebaC1():",
+            "    Imprimir(\"Ejecutando algoritmo de prueba imperativo en Capa 1...\")",
+            "    RETORNAR Verdadero",
+            "FIN_FUNCION"
+        ],
         "pantallas": [],
         "objetos": [],
         "funciones": [
             {
                 "nombre": "EjecutarPruebaC1",
-                "parametros": []
+                "parametros": [],
+                "cuerpo": [
+                    "Imprimir(\"Ejecutando algoritmo de prueba imperativo en Capa 1...\")",
+                    "RETORNAR Verdadero"
+                ]
             }
         ],
         "importaciones": []
