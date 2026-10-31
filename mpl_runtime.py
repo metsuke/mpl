@@ -5,11 +5,10 @@ Autor: Metsuke / MetsuOS Project
 Descripción: Runtime asíncrono basado en cola FIFO y parser AST para ejecutar MPL (.mpl).
 Sustenta Modo Oscuro WCAG AAA nativo en Tkinter con diálogos modales centrados.
 Soporta importación modular en racimo restringida a la subcarpeta <facade>-code,
-emisión de grafo JSON completo para IA y generación dinámica de:
-  - Bóveda del Proyecto (<facade>-vault/)
-  - Bóveda de Especificación del Lenguaje en la raíz (mpl-spec-vault/)
-  - Archivo de Skill / System Prompt para IA en la raíz (mpl_spec_skill.md)
-Incluye renderizado adaptativo multilínea y scroll vertical dinámico en GUI y CLI.
+emisión de grafo JSON completo para IA, generación de Bóveda del Proyecto (<facade>-vault/),
+especificación del lenguaje y resolución automática/dinámica de assets gráficos
+e ilustraciones ASCII/PNG en los drivers GUI (con layout en 2 columnas dinámico según
+densidad de texto y zona inferior de botones) y CLI desde <facade>-assets/scenes/.
 """
 
 import sys
@@ -22,6 +21,12 @@ import textwrap
 from collections import deque
 import tkinter as tk
 from tkinter import scrolledtext
+
+try:
+    from PIL import Image, ImageTk
+    HAS_PIL = True
+except ImportError:
+    HAS_PIL = False
 
 # =====================================================================
 # 0. DICCIONARIO 'MAN' (FICHAS TÉCNICAS DE INSTRUCCIONES DE KERNEL MPL)
@@ -194,10 +199,7 @@ class MPLSpecDocGenerator:
             f.write("mi_proyecto/\n")
             f.write("├── mi_programa.mpl              # Archivo Fachada Principal\n")
             f.write("├── mi_programa-code/            # ÚNICO directorio autorizado para sub-ficheros\n")
-            f.write("│   ├── capa3_vistas.mpl\n")
-            f.write("│   ├── capa2_estado.mpl\n")
-            f.write("│   └── sub_modulos/\n")
-            f.write("│       └── capa1_helpers.mpl\n")
+            f.write("├── mi_programa-assets/          # Recursos e ilustraciones (scenes/)\n")
             f.write("├── mi_programa-vault/           # Bóveda de Obsidian autogenerada del Proyecto\n")
             f.write("└── mi_programa.graph.json       # Grafo JSON de dependencias para IA\n")
             f.write("```\n")
@@ -680,7 +682,7 @@ class MPLParser:
             f.write("```\n")
 
         # 2. Documento por Fichero
-        for rel_path, data in self.program.mapa_grafo.items():
+        for rel_path, data in sorted(self.program.mapa_grafo.items()):
             doc_name = sanitizar_nombre(rel_path) + ".md"
             doc_path = os.path.join(ruta_vault, doc_name)
             
@@ -791,12 +793,64 @@ class MPLParser:
 
 
 # =====================================================================
+# GESTOR DEDICADO DE ASSETS E ILUSTRACIONES PARA PANTALLAS
+# =====================================================================
+
+class AssetManager:
+    """Resuelve la ruta de imágenes asociadas dinámicamente a cualquier PANTALLA."""
+    def __init__(self, facade_path: str):
+        base_dir = os.path.dirname(os.path.abspath(facade_path)) or "."
+        facade_name = os.path.splitext(os.path.basename(facade_path))[0]
+        self.scenes_dir = os.path.join(base_dir, f"{facade_name}-assets", "scenes")
+
+    def get_image_path_for_screen(self, screen_id: str) -> str | None:
+        """Busca una imagen asociada al ID de la pantalla en orden de prioridad."""
+        if not os.path.exists(self.scenes_dir):
+            return None
+
+        clean_id = re.sub(r'[^a-zA-Z0-9_]', '', screen_id)
+
+        candidates = [
+            f"{screen_id}_scaled.png",   # 1. Escalada HD por Pillow
+            f"{screen_id}_colibri.png",  # 2. Generada en local por Colibri
+            f"{screen_id}.png",          # 3. Final / Gemini / Manual
+            f"{clean_id}_scaled.png",
+            f"{clean_id}.png"
+        ]
+
+        for filename in candidates:
+            full_path = os.path.join(self.scenes_dir, filename)
+            if os.path.exists(full_path):
+                return full_path
+
+        return None
+
+    def get_ascii_path_for_screen(self, screen_id: str, width: int = 80) -> str | None:
+        """Busca la representación ASCII en texto plano para el modo CLI Terminal."""
+        if not os.path.exists(self.scenes_dir):
+            return None
+            
+        suffix = "160x80" if width > 100 else "80x40"
+        candidate = os.path.join(self.scenes_dir, f"{screen_id}_{suffix}.txt")
+        if os.path.exists(candidate):
+            return candidate
+            
+        candidate_fallback = os.path.join(self.scenes_dir, f"{screen_id}_80x40.txt")
+        if os.path.exists(candidate_fallback):
+            return candidate_fallback
+            
+        return None
+
+
+# =====================================================================
 # 4. MOTOR DE EVENTOS ASÍNCRONO (EVENT LOOP FIFO) Y RUNTIME
 # =====================================================================
 
 class MPLRuntime:
-    def __init__(self, ast_program, ui_driver_type="CLI"):
+    def __init__(self, ast_program, ui_driver_type="CLI", facade_path="eligejuego.mpl"):
         self.ast = ast_program
+        self.facade_path = facade_path
+        self.asset_manager = AssetManager(facade_path)
         self.event_queue = deque()
         self.running = False
         self.estado_objetos = {}
@@ -988,6 +1042,13 @@ class CLIDriver:
         ancho_terminal = min(shutil.get_terminal_size((80, 24)).columns - 2, 100)
         
         print("\n" + "=" * ancho_terminal)
+
+        # --- DIBUJAR ARTE ASCII SI EXISTE PARA LA PANTALLA EN MODO CLI ---
+        ascii_path = self.runtime.asset_manager.get_ascii_path_for_screen(nodo_pantalla.nombre, ancho_terminal)
+        if ascii_path and os.path.exists(ascii_path):
+            with open(ascii_path, "r", encoding="utf-8") as f:
+                print(f"{self.CYAN_BOLD}{f.read()}{self.RESET}")
+            print("-" * ancho_terminal)
         
         texto_encabezado = nodo_pantalla.encabezado or nodo_pantalla.nombre
         parrafos = texto_encabezado.split("\n")
@@ -1029,8 +1090,12 @@ class CLIDriver:
 class GUIDriver:
     """
     Driver Tkinter en Modo Oscuro Estricto (WCAG AAA Compliant):
-    - Soporta contenedores con scrollbar dinámico para textos narrativos extensos.
-    - Evita que los encabezados o botones con explicaciones largas se corten.
+    - Ventana ampliada un 50% más ancha (1350x850).
+    - Layout de 2 columnas proporcional calculado dinámicamente según densidad de texto:
+      * Columna Izquierda: Imagen.
+      * Columna Derecha: Texto narrativo.
+      * Zona Inferior: Botones de opción a ancho completo debajo de ambas columnas.
+    - Soporte completo de scroll por rueda del ratón.
     """
     DARK_BG = "#121212"            # Fondo principal oscuro
     PANEL_BG = "#1E1E1E"           # Fondo de paneles
@@ -1049,8 +1114,9 @@ class GUIDriver:
         self.runtime = runtime
         self.root = tk.Tk()
         self.root.title("MetsuOS - MPL Runtime (Dark Mode WCAG AAA)")
-        self.root.geometry("860x760")
+        self.root.geometry("1350x850")
         self.root.configure(bg=self.DARK_BG)
+        self.active_photo = None
         
         # Frame Superior: Navegación de Vistas y Narrativa (Capa 3)
         self.frame_views = tk.LabelFrame(
@@ -1066,7 +1132,7 @@ class GUIDriver:
         )
         self.frame_views.pack(fill=tk.BOTH, expand=True, padx=12, pady=8)
 
-        # Contenedor escroleable para la narrativa larga
+        # Contenedor escroleable principal
         self.canvas = tk.Canvas(self.frame_views, bg=self.PANEL_BG, highlightthickness=0)
         self.scrollbar = tk.Scrollbar(self.frame_views, orient="vertical", command=self.canvas.yview)
         self.scrollable_content = tk.Frame(self.canvas, bg=self.PANEL_BG)
@@ -1082,9 +1148,14 @@ class GUIDriver:
         self.canvas.pack(side="left", fill="both", expand=True)
         self.scrollbar.pack(side="right", fill="y")
 
+        # Vincular eventos de rueda de ratón
+        self.root.bind_all("<MouseWheel>", self._on_mousewheel)
+        self.root.bind_all("<Button-4>", self._on_mousewheel)
+        self.root.bind_all("<Button-5>", self._on_mousewheel)
+
         self.root.bind("<Configure>", self._on_window_resize)
 
-        # Frame Inferior: Consola de Trazas (altura definida directamente en el widget)
+        # Frame Inferior: Consola de Trazas
         self.frame_console = tk.LabelFrame(
             self.root, 
             text=" Terminal & Event Loop (MetsuOS Runtime Log) ", 
@@ -1095,7 +1166,7 @@ class GUIDriver:
             pady=10,
             bd=2,
             relief=tk.GROOVE,
-            height=180
+            height=160
         )
         self.frame_console.pack(fill=tk.BOTH, expand=False, padx=12, pady=8)
 
@@ -1105,11 +1176,20 @@ class GUIDriver:
             fg=self.CONSOLE_FG, 
             insertbackground="#FFFFFF",
             font=("Consolas", 10, "bold"),
-            height=6
+            height=5
         )
         self.console_text.pack(fill=tk.BOTH, expand=True)
 
-        self.log("[Runtime Dark Mode] Interfaz adaptativa de alta accesibilidad inicializada.\n")
+        self.log("[Runtime Dark Mode] Interfaz adaptativa 2 columnas dinámicas según densidad de texto cargada.\n")
+
+    def _on_mousewheel(self, event):
+        """Maneja el desplazamiento con la rueda del ratón."""
+        if event.num == 4:
+            self.canvas.yview_scroll(-1, "units")
+        elif event.num == 5:
+            self.canvas.yview_scroll(1, "units")
+        elif event.delta:
+            self.canvas.yview_scroll(int(-1 * (event.delta / 120)), "units")
 
     def _on_window_resize(self, event):
         canvas_width = self.canvas.winfo_width()
@@ -1117,13 +1197,13 @@ class GUIDriver:
             self.canvas.itemconfig(self.canvas_frame, width=canvas_width - 10)
 
     def log(self, mensaje):
-        """Imprime trazas directamente en la terminal integrada en pantalla."""
+        """Imprime trazas en la terminal de GUI."""
         print(mensaje)
         self.console_text.insert(tk.END, mensaje + "\n")
         self.console_text.see(tk.END)
 
     def notificar_fin_accion(self, resumen_mensaje):
-        """Muestra un diálogo modal centrado exactamente en la ventana principal activa."""
+        """Muestra un diálogo modal centrado."""
         dialog = tk.Toplevel(self.root)
         dialog.title("Resultado - MPL")
         dialog.configure(bg=self.PANEL_BG)
@@ -1170,8 +1250,8 @@ class GUIDriver:
         dialog.geometry(f"+{pos_x}+{pos_y}")
         self.root.wait_window(dialog)
 
-    def _crear_boton_custom(self, parent, text, command, bg_color, hover_color):
-        """Crea un botón mediante Label para garantizar renderizado y salto de línea."""
+    def _crear_boton_custom(self, parent, text, command, bg_color, hover_color, wraplength=1200):
+        """Crea un botón estilizado con soporte multilínea."""
         lbl = tk.Label(
             parent,
             text=text,
@@ -1183,7 +1263,7 @@ class GUIDriver:
             cursor="hand2",
             bd=1,
             relief=tk.RAISED,
-            wraplength=720,
+            wraplength=wraplength,
             justify=tk.LEFT
         )
         lbl.bind("<Button-1>", lambda e: command())
@@ -1195,36 +1275,100 @@ class GUIDriver:
         for widget in self.scrollable_content.winfo_children():
             widget.destroy()
 
-        # Texto narrativo completo con Message multilínea
-        lbl_title = tk.Message(
-            self.scrollable_content, 
-            text=nodo_pantalla.encabezado or nodo_pantalla.nombre,
-            font=("Helvetica", 12), 
-            bg=self.PANEL_BG, 
-            fg=self.TEXT_MAIN, 
-            width=760,
-            justify=tk.LEFT
-        )
-        lbl_title.pack(fill=tk.X, pady=10, padx=5)
+        image_path = self.runtime.asset_manager.get_image_path_for_screen(nodo_pantalla.nombre)
+        img_pil = None
 
-        # Botones de Opciones con wraplength
+        if image_path and HAS_PIL:
+            try:
+                img_pil = Image.open(image_path)
+            except Exception as e:
+                self.log(f"[Asset Warning] Error al abrir la imagen {image_path}: {e}")
+
+        total_avail_w = max(self.canvas.winfo_width() - 30, 1260)
+        texto_encabezado = nodo_pantalla.encabezado or nodo_pantalla.nombre
+
+        # LAYOUT EN 2 COLUMNAS (SI EXISTE ILUSTRACIÓN)
+        if img_pil:
+            w, h = img_pil.size
+            is_vertical = (h > w)
+
+            # --- CÁLCULO ADAPTATIVO SEGÚN DENSIDAD DEL TEXTO ---
+            num_caracteres = len(texto_encabezado)
+            num_parrafos = len([p for p in texto_encabezado.split('\n') if p.strip()])
+
+            if num_caracteres > 800 or num_parrafos >= 6:
+                pct_img = 0.25 if is_vertical else 0.35
+            else:
+                pct_img = 0.30 if is_vertical else 0.50
+
+            col_img_w = int(total_avail_w * pct_img)
+            col_text_w = int(total_avail_w * (1.0 - pct_img)) - 25
+
+            frame_top_split = tk.Frame(self.scrollable_content, bg=self.PANEL_BG)
+            frame_top_split.pack(fill=tk.X, expand=True, pady=(0, 15))
+
+            col_left = tk.Frame(frame_top_split, bg=self.PANEL_BG, width=col_img_w)
+            col_left.pack(side="left", fill="both", expand=False, padx=(0, 15))
+
+            col_right = tk.Frame(frame_top_split, bg=self.PANEL_BG)
+            col_right.pack(side="right", fill="both", expand=True)
+
+            # Renderizar Imagen en Columna Izquierda
+            target_h = int(h * (col_img_w / w))
+            img_resized = img_pil.resize((col_img_w, target_h), Image.Resampling.LANCZOS)
+            
+            self.active_photo = ImageTk.PhotoImage(img_resized)
+            lbl_img = tk.Label(col_left, image=self.active_photo, bg=self.PANEL_BG)
+            lbl_img.pack(fill=tk.BOTH, anchor="nw")
+
+            # Renderizar Encabezado/Narrativa en Columna Derecha
+            lbl_title = tk.Message(
+                col_right, 
+                text=texto_encabezado,
+                font=("Helvetica", 12), 
+                bg=self.PANEL_BG, 
+                fg=self.TEXT_MAIN, 
+                width=col_text_w,
+                justify=tk.LEFT
+            )
+            lbl_title.pack(fill=tk.X, anchor="nw")
+
+        # LAYOUT DE 1 COLUMNA (SIN ILUSTRACIÓN)
+        else:
+            lbl_title = tk.Message(
+                self.scrollable_content, 
+                text=texto_encabezado,
+                font=("Helvetica", 12), 
+                bg=self.PANEL_BG, 
+                fg=self.TEXT_MAIN, 
+                width=total_avail_w,
+                justify=tk.LEFT
+            )
+            lbl_title.pack(fill=tk.X, pady=10, padx=5)
+
+        # ZONA INFERIOR DE BOTONES (A ancho completo debajo de ambas columnas)
+        frame_buttons = tk.Frame(self.scrollable_content, bg=self.PANEL_BG)
+        frame_buttons.pack(fill=tk.X, expand=True, pady=10)
+
         for opcion_texto, accion in nodo_pantalla.opciones:
             btn = self._crear_boton_custom(
-                self.scrollable_content,
+                frame_buttons,
                 text=opcion_texto,
                 command=lambda a=accion: self.runtime.encolar_evento("ACCION_OPCION", a),
                 bg_color=self.BTN_BG,
-                hover_color=self.BTN_HOVER
+                hover_color=self.BTN_HOVER,
+                wraplength=total_avail_w - 40
             )
             btn.pack(fill=tk.X, pady=6, padx=5)
 
         # Botón Salir
         btn_salir = self._crear_boton_custom(
-            self.scrollable_content,
+            frame_buttons,
             text="Salir de la Aplicación",
             command=lambda: self.runtime.encolar_evento("SALIR"),
             bg_color=self.BTN_EXIT,
-            hover_color=self.BTN_EXIT_HOVER
+            hover_color=self.BTN_EXIT_HOVER,
+            wraplength=total_avail_w - 40
         )
         btn_salir.pack(fill=tk.X, pady=10, padx=5)
 
@@ -1286,7 +1430,7 @@ if __name__ == "__main__":
     pantalla_inicio = list(ast_programa.pantallas.keys())[0]
 
     print(f"[Runtime] Inicializando Event Loop FIFO (Driver: {ui_type})...\n")
-    runtime = MPLRuntime(ast_programa, ui_driver_type=ui_type)
+    runtime = MPLRuntime(ast_programa, ui_driver_type=ui_type, facade_path=ruta_fichero)
     
     if ui_type == "GUI":
         runtime.pantalla_actual = pantalla_inicio
