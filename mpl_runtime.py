@@ -28,6 +28,12 @@ try:
 except ImportError:
     HAS_PIL = False
 
+try:
+    import climage
+    HAS_CLIMAGE = True
+except ImportError:
+    HAS_CLIMAGE = False
+
 # =====================================================================
 # 0. DICCIONARIO 'MAN' (FICHAS TÉCNICAS DE INSTRUCCIONES DE KERNEL MPL)
 # =====================================================================
@@ -825,6 +831,15 @@ class AssetManager:
 
         return None
 
+    def get_colibri_image_path_for_screen(self, screen_id: str) -> str | None:
+        """Busca específicamente la versión de imagen colibri si existe."""
+        if not os.path.exists(self.scenes_dir):
+            return None
+        candidate = os.path.join(self.scenes_dir, f"{screen_id}_colibri.png")
+        if os.path.exists(candidate):
+            return candidate
+        return None
+
     def get_ascii_path_for_screen(self, screen_id: str, width: int = 80) -> str | None:
         """Busca la representación ASCII en texto plano para el modo CLI Terminal."""
         if not os.path.exists(self.scenes_dir):
@@ -1038,17 +1053,60 @@ class CLIDriver:
             pantalla_node = item[0] if isinstance(item, tuple) else item
             self.renderizar_pantalla(pantalla_node)
 
+    def _renderizar_imagen_terminal_cascada(self, nombre_pantalla, ancho_max):
+        """
+        Regla estricta de renderizado en terminal:
+        1. Intento 1: Imagen Principal en Alta Definición TrueColor vía climage.
+        2. Intento 2: Imagen de versión '_colibri.png' en Alta Definición TrueColor vía climage.
+        3. Fallback: Si climage no está instalado o ninguna de las dos funciona, NO muestra nada.
+        """
+        if not HAS_CLIMAGE:
+            return False
+
+        # INTENTO 1: Imagen principal resolviendo prioridades estándar
+        img_main = self.runtime.asset_manager.get_image_path_for_screen(nombre_pantalla)
+        if img_main:
+            try:
+                output = climage.convert(
+                    img_main,
+                    width=min(ancho_max, 80),
+                    is_truecolor=True,
+                    is_256=False
+                )
+                if output and output.strip():
+                    print(output)
+                    print("-" * ancho_max)
+                    return True
+            except Exception:
+                pass
+
+        # INTENTO 2: Probar específicamente versión _colibri.png
+        img_colibri = self.runtime.asset_manager.get_colibri_image_path_for_screen(nombre_pantalla)
+        if img_colibri:
+            try:
+                output = climage.convert(
+                    img_colibri,
+                    width=min(ancho_max, 80),
+                    is_truecolor=True,
+                    is_256=False
+                )
+                if output and output.strip():
+                    print(output)
+                    print("-" * ancho_max)
+                    return True
+            except Exception:
+                pass
+
+        # FALLBACK: No se muestra imagen si falla la alta definición
+        return False
+
     def renderizar_pantalla(self, nodo_pantalla):
         ancho_terminal = min(shutil.get_terminal_size((80, 24)).columns - 2, 100)
         
         print("\n" + "=" * ancho_terminal)
 
-        # --- DIBUJAR ARTE ASCII SI EXISTE PARA LA PANTALLA EN MODO CLI ---
-        ascii_path = self.runtime.asset_manager.get_ascii_path_for_screen(nodo_pantalla.nombre, ancho_terminal)
-        if ascii_path and os.path.exists(ascii_path):
-            with open(ascii_path, "r", encoding="utf-8") as f:
-                print(f"{self.CYAN_BOLD}{f.read()}{self.RESET}")
-            print("-" * ancho_terminal)
+        # Renderizar ilustración solo si se puede en alta definición
+        self._renderizar_imagen_terminal_cascada(nodo_pantalla.nombre, ancho_terminal)
         
         texto_encabezado = nodo_pantalla.encabezado or nodo_pantalla.nombre
         parrafos = texto_encabezado.split("\n")
@@ -1122,7 +1180,7 @@ class GUIDriver:
         self.frame_views = tk.LabelFrame(
             self.root, 
             text=" Interfaz / Pantalla Activa (Capa 3) ", 
-            font=("Helvetica", 11, "bold"),
+            font=("Helvetica", 18, "bold"),
             bg=self.PANEL_BG, 
             fg=self.ACCENT_CYAN, 
             padx=15, 
@@ -1159,7 +1217,7 @@ class GUIDriver:
         self.frame_console = tk.LabelFrame(
             self.root, 
             text=" Terminal & Event Loop (MetsuOS Runtime Log) ", 
-            font=("Helvetica", 11, "bold"),
+            font=("Helvetica", 18, "bold"),
             bg=self.PANEL_BG, 
             fg=self.ACCENT_CYAN, 
             padx=10, 
@@ -1175,7 +1233,7 @@ class GUIDriver:
             bg=self.CONSOLE_BG, 
             fg=self.CONSOLE_FG, 
             insertbackground="#FFFFFF",
-            font=("Consolas", 10, "bold"),
+            font=("Consolas", 16, "bold"),
             height=5
         )
         self.console_text.pack(fill=tk.BOTH, expand=True)
@@ -1213,7 +1271,7 @@ class GUIDriver:
         lbl_msg = tk.Label(
             dialog, 
             text=resumen_mensaje, 
-            font=("Helvetica", 11, "bold"), 
+            font=("Helvetica", 18, "bold"), 
             bg=self.PANEL_BG, 
             fg=self.TEXT_MAIN, 
             padx=20, 
@@ -1255,7 +1313,7 @@ class GUIDriver:
         lbl = tk.Label(
             parent,
             text=text,
-            font=("Helvetica", 11, "bold"),
+            font=("Helvetica", 18, "bold"),
             bg=bg_color,
             fg="#FFFFFF",
             pady=10,
@@ -1325,7 +1383,7 @@ class GUIDriver:
             lbl_title = tk.Message(
                 col_right, 
                 text=texto_encabezado,
-                font=("Helvetica", 12), 
+                font=("Helvetica", 20), 
                 bg=self.PANEL_BG, 
                 fg=self.TEXT_MAIN, 
                 width=col_text_w,
@@ -1338,7 +1396,7 @@ class GUIDriver:
             lbl_title = tk.Message(
                 self.scrollable_content, 
                 text=texto_encabezado,
-                font=("Helvetica", 12), 
+                font=("Helvetica", 20), 
                 bg=self.PANEL_BG, 
                 fg=self.TEXT_MAIN, 
                 width=total_avail_w,
