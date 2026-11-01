@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pantalla_Pagina_126.md",
+                "file": "sample_eligejuego_mpl.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Pantalla_Pagina_126"
+              "title": "sample_eligejuego_mpl"
             }
           }
         ]
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Pantalla_Pagina_126.md",
+                "file": "sample_eligejuego_mpl.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Pantalla_Pagina_126.md",
+                "file": "sample_eligejuego_mpl.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pantalla_Pagina_126.md",
+                "file": "sample_eligejuego_mpl.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -190,11 +190,13 @@
   },
   "active": "1202544c2dee6052",
   "lastOpenFiles": [
+    "Pantalla_Pagina_1.md",
+    "Index.md",
+    "Pantalla_Pagina_126.md",
     "Pantalla_Pagina_88.md",
     "Pantalla_Pagina_169.md",
     "Pantalla_Pagina_125.md",
     "Pantalla_Pagina_001.md",
-    "Pantalla_Pagina_144.md",
-    "Index.md"
+    "Pantalla_Pagina_144.md"
   ]
 }
