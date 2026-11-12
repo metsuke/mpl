@@ -7,7 +7,9 @@ Para evitar caos en proyectos grandes, MPL obliga al siguiente patrón de archiv
 ```
 mi_proyecto/
 ├── mi_programa.mpl              # Archivo Fachada Principal
-├── mi_programa-code/            # ÚNICO directorio autorizado para sub-ficheros
+├── fuente/                      # Código fuente autorizados
+├── ejemplos/                    # Programas y demos autorizados
+├── mi_programa-code/            # Sub-ficheros del racimo de la fachada
 ├── mi_programa-assets/          # Recursos e ilustraciones (scenes/)
 ├── mi_programa-vault/           # Bóveda de Obsidian autogenerada del Proyecto
 └── mi_programa.graph.json       # Grafo JSON de dependencias para IA

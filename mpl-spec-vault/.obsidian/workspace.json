@@ -20,8 +20,21 @@
               "icon": "lucide-file",
               "title": "Index"
             }
+          },
+          {
+            "id": "336171dd424fc8f0",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.15.0"
+              },
+              "icon": "lucide-book-up",
+              "title": "Registro de cambios 1.15.0"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -188,7 +201,7 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "2d324d47ea3997fa",
+  "active": "336171dd424fc8f0",
   "lastOpenFiles": [
     "05_Modelo_Fachada.md",
     "04_Manual_Instrucciones.md",

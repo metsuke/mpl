@@ -10,7 +10,7 @@
 4. **Mutación de Estado:** Para modificar una variable de un objeto dentro de sus métodos se usa OBLIGATORIAMENTE `ESTADO.<propiedad> = <valor>`.
 5. **Estructura PILA:** Se declara `<nombre>: PILA` y se manipula con `ESTADO.<pila>.APILAR(<valor>)`.
 6. **Capa 1 (Funciones):** Se declara `FUNCION <nombre>(<params>):`, las líneas de salida usan `Imprimir("...")` o `MOSTRAR "..."` y termina obligatoriamente en `FIN_FUNCION`.
-7. **Importaciones:** Solo se usa `IMPORTAR "<fichero_relativo>.mpl"`. Las rutas deben apuntar a ficheros dentro de `<facade>-code/`.
+7. **Importaciones:** Solo se usa `IMPORTAR "<fichero_relativo>.mpl"`. Las rutas deben apuntar a ficheros dentro de `<facade>-code/`, `./fuente/` o `./ejemplos/`.
 
 ## 2. DICCIONARIO DE PALABRAS CLAVE AUTORIZADAS (MANUAL KERNEL)
 
@@ -19,7 +19,7 @@
   "IMPORTAR": {
     "sintaxis": "IMPORTAR \"ruta/fichero.mpl\"",
     "capa": "Sistema / Cargador AST",
-    "descripcion": "Carga dinámicamente un módulo MPL. Exige que el fichero resida en la subcarpeta acotada <facade>-code/ y resuelve sus dependencias de forma recursiva."
+    "descripcion": "Carga dinámicamente un módulo MPL. Exige que el fichero resida en la subcarpeta acotada <facade>-code/, ./fuente/ o ./ejemplos/ y resuelve sus dependencias de forma recursiva."
   },
   "PANTALLA": {
     "sintaxis": "PANTALLA <Nombre>:",
@@ -105,6 +105,46 @@
     "sintaxis": "ESTADO.<pila>.APILAR(<elemento>)",
     "capa": "Operación de Estructura de Datos",
     "descripcion": "Inserta un elemento en la cima de una estructura de tipo PILA."
+  },
+  "DESAPILAR": {
+    "sintaxis": "ESTADO.<pila>.DESAPILAR()",
+    "capa": "Operación de Estructura de Datos",
+    "descripcion": "Extrae y retorna el elemento en la cima de la estructura PILA."
+  },
+  "LEER_ARCHIVO": {
+    "sintaxis": "LEER_ARCHIVO(\"ruta/fichero.mpl\", var_destino)",
+    "capa": "Kernel / E/S Sistema (Self-Hosting)",
+    "descripcion": "Lee el contenido íntegro de un archivo dentro de las zonas enjauladas del espacio de trabajo y lo almacena en la propiedad de destino."
+  },
+  "ESCRIBIR_ARCHIVO": {
+    "sintaxis": "ESCRIBIR_ARCHIVO(\"ruta/fichero.txt\", contenido)",
+    "capa": "Kernel / E/S Sistema (Self-Hosting)",
+    "descripcion": "Escribe o sobrescribe una cadena de texto en un archivo enjaulado en el espacio de trabajo del proyecto."
+  },
+  "DIVIDIR_CADENA": {
+    "sintaxis": "DIVIDIR_CADENA(texto, delimitador, pila_destino)",
+    "capa": "Kernel / Parsing & Cadenas",
+    "descripcion": "Trocea una cadena de texto según el delimitador indicado y apila de manera secuencial cada token resultante en una PILA."
+  },
+  "CONTIENE_CADENA": {
+    "sintaxis": "CONTIENE_CADENA(texto, subcadena, var_booleana)",
+    "capa": "Kernel / Parsing & Cadenas",
+    "descripcion": "Evalúa si una subcadena existe dentro de un texto dado y asigna el resultado booleano (Verdadero/Falso) a la variable de destino."
+  },
+  "REEMPLAZAR_TEXTO": {
+    "sintaxis": "REEMPLAZAR_TEXTO(texto, viejo, nuevo, var_destino)",
+    "capa": "Kernel / Parsing & Cadenas",
+    "descripcion": "Sustituye todas las apariciones de una subcadena por una nueva en el texto especificado y asigna el resultado a var_destino."
+  },
+  "EJECUTAR_PROGRAMA": {
+    "sintaxis": "EJECUTAR_PROGRAMA(ruta_fichero_mpl)",
+    "capa": "Kernel / Bootstrapping & Self-Hosting",
+    "descripcion": "Parsea el fichero fachada .mpl indicado, genera su grafo y bóveda Obsidian, y transfiere el control activo del Event Loop al nuevo programa."
+  },
+  "MIENTRAS": {
+    "sintaxis": "MIENTRAS <condicion> HASTA\n    <sentencias>\nFIN_MIENTRAS",
+    "capa": "Capa 1 / Control Iterativo Kernel",
+    "descripcion": "Bucle condicional iterativo de bajo nivel para procesamiento de archivos, listas y parsing atómico de estructuras AST."
   }
 }
 ```
